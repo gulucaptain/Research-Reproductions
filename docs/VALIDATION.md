@@ -7,3 +7,7 @@
 - The publication concept’s Rendering filter returned two studies, and All studies restored the collection. The archive concept’s mobile index opened and navigated to the KoalaGS dossier, opening the selected record.
 - No browser console errors were observed during the tested interactions. This is draft-level visual and functional QA, not exhaustive production testing.
 - The collection checks do not rerun upstream experiments or prove scientific correctness. The production homepage is pending direction selection.
+
+## Selected production page
+
+Direction B was selected by the user. The production page is generated from the shared reviewed registry. Static asset and anchor checks passed; the browser verified Rendering filtering (two studies), combined Bezier search (one study), a no-result query, resetting filters by selecting a paper from the index, the image dialog, and the 390px mobile layout with no document overflow. No console errors were observed in those local checks. Publication source and README generation are checked in CI; deployment status and public access are verified separately.

@@ -1,6 +1,6 @@
-# Website concepts — awaiting selection
+# Website concepts — direction B selected
 
-Three responsive HTML drafts explore the same reviewed collection. These are visual directions, not a finished deployed website.
+Three responsive HTML drafts explore the same reviewed collection. The user selected B on 2026-11-16. These files preserve the original visual exploration; production source is in `site/` and `scripts/build_site.py`.
 
 - [A · White research gallery](a-gallery.html): curated image sheet and editorial project index.
 - [B · Research publication](b-publication.html): scientific reading, browsing and experiment context.
@@ -12,4 +12,4 @@ Three responsive HTML drafts explore the same reviewed collection. These are vis
 
 To view locally, run `python3 -m http.server 8000` from the repository root, then open `http://localhost:8000/design-demos/a-gallery.html` (or B/C). All result images come from `assets/previews`, with provenance in `data/preview-sources.json`.
 
-The final website will be built after a direction is selected. It will use the shared project registry so future papers can be added without hand-copying facts into every page.
+The production website uses the shared project registry, so future papers can be added without hand-copying facts into each page.

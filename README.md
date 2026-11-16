@@ -14,7 +14,7 @@
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="Code license: MIT"></a>
 </p>
 
-<p><a href="#paper-index">📚 Paper index</a> · <a href="#result-previews">🖼️ Result previews</a> · <a href="#progress">🔎 Progress policy</a> · <a href="docs/ADDING_PROJECT.md">➕ Add a project</a></p>
+<p><a href="https://research-reproductions.gulucaptain666.chatgpt.site">🌐 Project page</a> · <a href="#paper-index">📚 Paper index</a> · <a href="#result-previews">🖼️ Result previews</a> · <a href="#progress">🔎 Progress policy</a> · <a href="docs/ADDING_PROJECT.md">➕ Add a project</a></p>
 
 </div>
 
@@ -159,7 +159,7 @@ Experiment counts use different definitions across papers and are not added into
 
 ## 🖥️ Project page
 
-Three responsive visual concepts are available in [design-demos](design-demos/README.md). They use the same reviewed project records and real result images. The production homepage and public website deployment await visual direction selection; this repository is already the public collection index.
+**[Visit the public project page](https://research-reproductions.gulucaptain666.chatgpt.site)** — the selected research publication layout, with area filters, keyword search, enlarged result figures and pinned evidence. The website and this README are generated from the same reviewed project registry. [Design history](design-demos/README.md).
 
 ## 🔁 Maintain the collection
 
@@ -168,9 +168,10 @@ The reviewed registry is [data/projects.json](data/projects.json). Add a record,
 ```sh
 python3 scripts/build_readme.py
 python3 scripts/build_readme.py --check
+python3 scripts/build_site.py
 ```
 
-No third-party Python packages or API keys are required. This operation rebuilds the index; it does not rerun experiments or automatically assert that upstream results are current. See [adding a project](docs/ADDING_PROJECT.md) and [evidence policy](docs/EVIDENCE_POLICY.md).
+No third-party Python packages or API keys are required. These commands rebuild the index and static website; it does not rerun experiments or automatically assert that upstream results are current. See [adding a project](docs/ADDING_PROJECT.md) and [evidence policy](docs/EVIDENCE_POLICY.md).
 
 ## 📚 Citation and license
 
