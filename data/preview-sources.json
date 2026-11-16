@@ -59,10 +59,10 @@
   {
     "project": "rigel3d",
     "asset": "assets/previews/rigel3d.png",
-    "source_path": "rigel3d/results/round1/comparison.png (unpublished local implementation)",
-    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/a3e5435e99cb0992f0c46c07ac93c8c4b60c4ef8/assets/previews/rigel3d.png",
-    "sha256": "e660c84feb85b0f6f3e385a886e4324c9783e0ef5a6cc663b59dfe671e5fdb92",
-    "caption": "Original Anymate subset reconstruction proxies: 96 train/16 validation/32 test; three seeds per condition, 2000 steps, width64/layers2. GT rig geometry is supplied; rig-context features also use GT skinning. Dots: seeds; error bars: sample SD. Not image-conditioned generation or paper-table reproduction.",
-    "source_scope": "Reviewed unchanged aggregate plot from real-subset decoder experiments; no raw dataset asset or image published."
+    "source_path": "rigel3d/results/round2/comparison.png (unpublished local implementation)",
+    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/de70042b69a9a6b537583e4bc9510e33d2db4bd8/assets/previews/rigel3d.png",
+    "sha256": "ace876f467f8bae5778b46d4222492fc5817165c49aa5c3229403b727ba5c9fe",
+    "caption": "Fixed aligned Anymate cohort25 train/6 validation/10 test; three seeds. Geometry/DINO/VAE decoder comparisons use GT rig context and GT bones for skin accuracy. Bottom right separates GT-latent mesh reconstruction from strict single-image generation at CFG5; empty fields receive the declared unit-box-diameter penalty. Dots: seeds; error bars: sample SD. No raw asset image or paper-table match.",
+    "source_scope": "Reviewed unchanged aggregate scalar plot; private original-asset images and pointwise data are not published."
   }
 ]

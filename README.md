@@ -37,7 +37,7 @@ A growing collection of independent research-method implementations with traceab
 | **MatrixSplat: Matrix-Parallel and Feature-Scalable 3D Gaussian Splatting Rendering on GPUs** | Rendering<br>CPU + Apple Silicon | **Partial reproduction**<br>Components + local experiments | [Paper](https://arxiv.org/abs/2611.15153) · [GitHub](https://github.com/gulucaptain/MatrixSplat-Reproduction) · [Results](https://github.com/gulucaptain/MatrixSplat-Reproduction/blob/main/results/round05/REPORT.md) |
 | **SimuScene: Simulation-Ready Compositional 3D Scene Reconstruction from a Single Image** | Physics<br>CPU | **Partial reproduction**<br>Components + local experiments | [Paper](https://arxiv.org/abs/2606.03994) · [GitHub](https://github.com/gulucaptain/SimuScene-Reproduction) · [Results](https://github.com/gulucaptain/SimuScene-Reproduction/blob/main/results/round05/REPORT.md) |
 | **Articulation in Prime: Primitive-Based Articulated Object Understanding from a Single Casual Video** | 3D Vision<br>CPU + Apple Silicon | **Partial implementation**<br>Core audit + one original Arti4D cue; code not published | [Paper](https://arxiv.org/abs/2605.18645) · Implementation not published · [Results](https://github.com/gulucaptain/Research-Reproductions/blob/826c7f1d68b9f49e85734a6b4df4889e39f1f182/docs/reports/articulation-in-prime.md) |
-| **Rigel3D: Rig-aware Latents for Animation-Ready 3D Asset Generation** | 3D Vision<br>CPU + Apple Silicon | **Partial reproduction**<br>Original subset decoder training + generation-data preflight; code not published | [Paper](https://arxiv.org/abs/2605.13129) · Implementation not published · [Results](https://github.com/gulucaptain/Research-Reproductions/blob/a3e5435e99cb0992f0c46c07ac93c8c4b60c4ef8/docs/reports/rigel3d.md) |
+| **Rigel3D: Rig-aware Latents for Animation-Ready 3D Asset Generation** | 3D Vision<br>CPU + Apple Silicon | **Partial reproduction**<br>Real DINO + sparse VAE + strict image-only pilot; poor geometry and failures retained | [Paper](https://arxiv.org/abs/2605.13129) · Implementation not published · [Results](https://github.com/gulucaptain/Research-Reproductions/blob/de70042b69a9a6b537583e4bc9510e33d2db4bd8/docs/reports/rigel3d.md) |
 
 <a id="result-previews"></a>
 ## 🖼️ Result previews
@@ -165,20 +165,20 @@ Previews come from the documented local experiments, with scope and limitations;
 
 ### 08 · Rigel3D: Rig-aware Latents for Animation-Ready 3D Asset Generation [Reproduction]
 
-[![Rigel3D experiment preview](assets/previews/rigel3d.png)](https://github.com/gulucaptain/Research-Reproductions/blob/a3e5435e99cb0992f0c46c07ac93c8c4b60c4ef8/docs/reports/rigel3d.md)
+[![Rigel3D experiment preview](assets/previews/rigel3d.png)](https://github.com/gulucaptain/Research-Reproductions/blob/de70042b69a9a6b537583e4bc9510e33d2db4bd8/docs/reports/rigel3d.md)
 
-*Original Anymate subset reconstruction proxies: 96 train/16 validation/32 test; three seeds per condition, 2000 steps, width64/layers2. GT rig geometry is supplied; rig-context features also use GT skinning. Dots: seeds; error bars: sample SD. Not image-conditioned generation or paper-table reproduction.*
+*Fixed aligned Anymate cohort25 train/6 validation/10 test; three seeds. Geometry/DINO/VAE decoder comparisons use GT rig context and GT bones for skin accuracy. Bottom right separates GT-latent mesh reconstruction from strict single-image generation at CFG5; empty fields receive the declared unit-box-diameter penalty. Dots: seeds; error bars: sample SD. No raw asset image or paper-table match.*
 
 | | Local evidence |
 |:--|:--|
-| 🧩 **Implemented** | AR skeleton decoder with BOS/EOS, parent constraints, positional encodings and masks; trained skinning; bounded original-data adapter; one real mesh/frozen-DINO multiview preflight. |
-| 🧪 **Validation** | 16 tests · original 96/16/32 asset split · nine MPS training runs · all nine checkpoints replayed on CPU · no source-family overlap. |
-| 📊 **Finding** | Skin element L1×100: 3.484±0.084 vs geometry-rig 3.490±0.070 and distance control 3.501. Balanced EOS reduces cap hits from 96/96 to 2/96, but J2J×100 worsens from 13.341 to 15.015; train-rig retrieval is better (10.015). |
-| 🔎 **Remaining gaps** | Small GT-rig-conditioned reconstruction proxies; no full Sparse VAE, FlexiCubes, trained image generators or original paper table matched. Unweighted EOS fails; geometry remains inaccurate. Raw data and implementation remain local. |
+| 🧩 **Implemented** | Actual frozen DINO features, coordinate-aware surface/rig sparse VAEs, AR/skin decoders, fixed upstream FlexiCubes, and reduced four-flow single-image generation. |
+| 🧪 **Validation** | 21 tests;25/6/10 aligned assets;9 formal CPU decoder runs,6 final MPS VAEs and3 MPS flow/field models;15 CPU checkpoint replays;90 generation sensitivity cases. |
+| 📊 **Finding** | GT-context J2J×100: geometry13.722±1.315, DINO14.651±1.042, VAE14.223±1.444: no stable gain. Strict CFG5 generation:13/30 nonempty meshes,17 empty; GT-latent reconstruction29/30. CFG1/3 give16/30 and15/30, without resolving joint error. |
+| 🔎 **Remaining gaps** | Small randomly initialized models; no TRELLIS pretraining, occupancy VAEs, original flow transformers/rendering losses or joint AE training. Severe geometry/EOS failures; labels/textures absent. All paper tables unmatched; raw data/code local. |
 
-[📄 Paper](https://arxiv.org/abs/2605.13129) · **Implementation not published** · [📊 Report](https://github.com/gulucaptain/Research-Reproductions/blob/a3e5435e99cb0992f0c46c07ac93c8c4b60c4ef8/docs/reports/rigel3d.md) · [📌 Reviewed evidence](https://github.com/gulucaptain/Research-Reproductions/tree/a3e5435e99cb0992f0c46c07ac93c8c4b60c4ef8)
+[📄 Paper](https://arxiv.org/abs/2605.13129) · **Implementation not published** · [📊 Report](https://github.com/gulucaptain/Research-Reproductions/blob/de70042b69a9a6b537583e4bc9510e33d2db4bd8/docs/reports/rigel3d.md) · [📌 Reviewed evidence](https://github.com/gulucaptain/Research-Reproductions/tree/de70042b69a9a6b537583e4bc9510e33d2db4bd8)
 
-**Pinned evidence:** [data/evidence/rigel3d-round1.json](https://github.com/gulucaptain/Research-Reproductions/blob/a3e5435e99cb0992f0c46c07ac93c8c4b60c4ef8/data/evidence/rigel3d-round1.json) · [docs/reports/rigel3d.md](https://github.com/gulucaptain/Research-Reproductions/blob/a3e5435e99cb0992f0c46c07ac93c8c4b60c4ef8/docs/reports/rigel3d.md)
+**Pinned evidence:** [data/evidence/rigel3d-round2.json](https://github.com/gulucaptain/Research-Reproductions/blob/de70042b69a9a6b537583e4bc9510e33d2db4bd8/data/evidence/rigel3d-round2.json) · [docs/reports/rigel3d.md](https://github.com/gulucaptain/Research-Reproductions/blob/de70042b69a9a6b537583e4bc9510e33d2db4bd8/docs/reports/rigel3d.md)
 
 <a id="progress"></a>
 ## 🔎 How progress is reported

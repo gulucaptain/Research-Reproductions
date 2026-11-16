@@ -247,28 +247,28 @@
       "color": "#7c3aed",
       "platform": "CPU + Apple Silicon",
       "status": "Partial reproduction",
-      "progress": "Original subset decoder training + generation-data preflight; code not published",
-      "implemented": "AR skeleton decoder with BOS/EOS, parent constraints, positional encodings and masks; trained skinning; bounded original-data adapter; one real mesh/frozen-DINO multiview preflight.",
-      "validation": "16 tests · original 96/16/32 asset split · nine MPS training runs · all nine checkpoints replayed on CPU · no source-family overlap.",
-      "result": "Skin element L1×100: 3.484±0.084 vs geometry-rig 3.490±0.070 and distance control 3.501. Balanced EOS reduces cap hits from 96/96 to 2/96, but J2J×100 worsens from 13.341 to 15.015; train-rig retrieval is better (10.015).",
-      "limitations": "Small GT-rig-conditioned reconstruction proxies; no full Sparse VAE, FlexiCubes, trained image generators or original paper table matched. Unweighted EOS fails; geometry remains inaccurate. Raw data and implementation remain local.",
+      "progress": "Real DINO + sparse VAE + strict image-only pilot; poor geometry and failures retained",
+      "implemented": "Actual frozen DINO features, coordinate-aware surface/rig sparse VAEs, AR/skin decoders, fixed upstream FlexiCubes, and reduced four-flow single-image generation.",
+      "validation": "21 tests;25/6/10 aligned assets;9 formal CPU decoder runs,6 final MPS VAEs and3 MPS flow/field models;15 CPU checkpoint replays;90 generation sensitivity cases.",
+      "result": "GT-context J2J×100: geometry13.722±1.315, DINO14.651±1.042, VAE14.223±1.444: no stable gain. Strict CFG5 generation:13/30 nonempty meshes,17 empty; GT-latent reconstruction29/30. CFG1/3 give16/30 and15/30, without resolving joint error.",
+      "limitations": "Small randomly initialized models; no TRELLIS pretraining, occupancy VAEs, original flow transformers/rendering losses or joint AE training. Severe geometry/EOS failures; labels/textures absent. All paper tables unmatched; raw data/code local.",
       "image": "assets/previews/rigel3d.png",
-      "image_caption": "Original Anymate subset reconstruction proxies: 96 train/16 validation/32 test; three seeds per condition, 2000 steps, width64/layers2. GT rig geometry is supplied; rig-context features also use GT skinning. Dots: seeds; error bars: sample SD. Not image-conditioned generation or paper-table reproduction.",
-      "report": "https://github.com/gulucaptain/Research-Reproductions/blob/a3e5435e99cb0992f0c46c07ac93c8c4b60c4ef8/docs/reports/rigel3d.md",
+      "image_caption": "Fixed aligned Anymate cohort25 train/6 validation/10 test; three seeds. Geometry/DINO/VAE decoder comparisons use GT rig context and GT bones for skin accuracy. Bottom right separates GT-latent mesh reconstruction from strict single-image generation at CFG5; empty fields receive the declared unit-box-diameter penalty. Dots: seeds; error bars: sample SD. No raw asset image or paper-table match.",
+      "report": "https://github.com/gulucaptain/Research-Reproductions/blob/de70042b69a9a6b537583e4bc9510e33d2db4bd8/docs/reports/rigel3d.md",
       "commit": null,
       "evidence_repo": "https://github.com/gulucaptain/Research-Reproductions",
-      "evidence_commit": "a3e5435e99cb0992f0c46c07ac93c8c4b60c4ef8",
+      "evidence_commit": "de70042b69a9a6b537583e4bc9510e33d2db4bd8",
       "updated": "2026-11-17",
       "evidence": [
         {
-          "path": "data/evidence/rigel3d-round1.json",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/a3e5435e99cb0992f0c46c07ac93c8c4b60c4ef8/data/evidence/rigel3d-round1.json",
-          "sha256": "9d83ad3e4e6baee63f43657dc3441dd4c07ea2c16a7a44920e01f84842dc946f"
+          "path": "data/evidence/rigel3d-round2.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/de70042b69a9a6b537583e4bc9510e33d2db4bd8/data/evidence/rigel3d-round2.json",
+          "sha256": "e1660c91615fbf170daa129332fc1b9756464dbcc53234844126f789f8fa566e"
         },
         {
           "path": "docs/reports/rigel3d.md",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/a3e5435e99cb0992f0c46c07ac93c8c4b60c4ef8/docs/reports/rigel3d.md",
-          "sha256": "a082c8ce110f5db26e9d9069475698d0693fe368cac7a38c0a4c524d11624a52"
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/de70042b69a9a6b537583e4bc9510e33d2db4bd8/docs/reports/rigel3d.md",
+          "sha256": "aabaf5966461f0ea1dff5dd56b35adead49feb002ba1fd7c4135713f078dfe75"
         }
       ]
     }
