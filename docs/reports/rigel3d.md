@@ -1,63 +1,71 @@
-# Rigel3D — reviewed real-DINO and image-only pilot snapshot
+# Rigel3D — reviewed TRELLIS and full-weight joint snapshot
 
-Reviewed2026-11-17; local implementation commit `5ca78bf417d2fd7f6c27c203bd9a095c244160c8`. **Code remains unpublished.** This public snapshot contains aggregate scalar evidence and a scalar-only plot. It publishes no original mesh, source image, sampled points, skin arrays, pretrained weights or local implementation code, and cannot independently replay the training.
+Reviewed 2026-11-17; local implementation commit `32d93a368828179eb75c87bec0dfcaee5ed09077`. **Implementation code remains unpublished.** This snapshot publishes aggregate scalar evidence and a scalar-only figure, with no raw mesh/image/points, generated skin arrays or pretrained/updated model weights. It cannot independently replay the training. No original paper table is numerically matched.
 
-21 tests passed. Nine formal decoder checkpoints and six sparse VAEs replayed on CPU. The preview uses three training seeds and a fixed25/6/10 aligned-asset cohort; skin accuracy supplies GT bones, rig reconstruction context supplies GT rig/skin-derived information. Image-only generation is separately evaluated from one image plus noise. Failures remain visible: CFG5 gives13/30 nonempty meshes versus29/30 for GT-latent reconstruction. No original architecture, baseline table or numerical result is reproduced.
+Actual official TRELLIS encoder/mesh/occupancy weights are integrated. All three seeds complete a short full-weight rig+mesh joint stage with the surface encoder frozen. Small patch SDF training, low-resolution neutral inputs and fresh compact flow models remain material differences from the paper.
 
-![Reconstruction and strict generation diagnostics](../../assets/previews/rigel3d.png)
+![GT reconstruction and strict generation failure decomposition](../../assets/previews/rigel3d.png)
 
-Dots: seeds; bars: sample SD. Empty fields receive a declared unit-box-diameter penalty in all-case mesh diagnostics. Raw-derived qualitative images remain local and are not used as this preview. Local file paths in the report below document unavailable local evidence, not public source links.
+Top panels require GT occupied positions and rig-derived conditioning; bottom panels are strict single-image generation after full-weight adaptation. Three seeds except the fixed official model/oracle controls. Error bars are sample SD. The changed foreground-balanced objective remains a diagnostic, not a replacement paper result. Nonempty pipeline counts do not establish correct geometry or animation.
 
-# Round 2: real DINO, Sparse VAE and strict image-only pilot
+Upstream sources: [Rigel3D](https://arxiv.org/abs/2605.13129), [fixed TRELLIS code](https://github.com/microsoft/TRELLIS/tree/193e0502b5cb3eb5997ec457d5340e95d09b158e), [fixed official weights](https://huggingface.co/microsoft/TRELLIS-image-large/tree/25e0d31ffbebe4b5a97464dd851910efc3002d96).
 
-Fixed source cohort:25 train/6 val/10 test,24/6/10 eligible skeletons; three seeds all reported. Decoder reconstruction uses GT rig geometry/weights; strict generation only uses one image plus noise.
+# Round3: pretrained TRELLIS and full-weight joint audit
 
-Independent small pipeline verification, not original architecture/scale, paper baselines or numerical reproduction. All original paper tables remain unmatched.
+Fixed aligned original cohort:25 train /6 validation /10 test,24/6/10 eligible skeletons. All 3 seeds retained; original benchmark tables remain unmatched.
 
-Mean ± sample SD across seeds. All distances below ×100. No direct comparison with original paper tables.
+Actual pretrained encoder/mesh/occupancy VAEs and short full-weight joint stage executed on Mac. GT-conditioned reconstruction/oracle quality is not single-image generation. Small fresh flow architecture, patch SDF loss, short training and missing original data/metrics/labels prevent a complete paper reproduction.
 
-| GT-context reconstruction | Skin L1 element | J2J | J2B | B2B | Cap hits /30 |
+## GT-conditioned reconstruction and support controls
+
+Official pretrained encoder+mesh: 10/10 nonempty, mesh CD×100=0.987. GT-support zero-channel shell (no learned decoder): 10/10 nonempty, CD×100=1.311. GT positions explain a substantial part of low reconstruction distance; neither result is image generation.
+
+Official occupancy VAE GT-mask reconstruction IoU: surface=0.983796, rig=1.000000. Decoder inputs are GT-encoded latents, not generated structure.
+
+| Three-seed GT-context task | Mesh CD×100 | Free J2J×100 | GT-bone element L1×100 | Cap hits /30 |
+|---|---:|---:|---:|---:|
+| Frozen latent decoder control | fixed official mesh above | 15.174 ± 1.401 | 3.581 ± 0.115 | 1/30 |
+| Joint adapters | 1.109 ± 0.001 | 14.239 ± 0.671 | 3.486 ± 0.180 | 15/30 |
+| Full-weight short stage | 1.179 ± 0.067 | 14.091 ± 1.056 | 3.301 ± 0.120 | 15/30 |
+
+Mesh CD uses2048 area-sampled mesh points vs8192 source points, unsquared symmetric mean/2; original paper uses a different render/depth sampling protocol. All-case empty-mesh penalty sqrt(3), unit-box diameter. Paired GT-bone skin rows use identical SHA-seeded512 point queries. No generated-topology skin accuracy is claimed.
+
+## Strict single-image generation
+
+These cases read only one image condition and noise at runtime. All empty/budget failures are retained. Main objective is standard MSE; foreground-balanced loss is an explicitly changed diagnostic, not a paper result.
+
+| Path | Nonempty meshes /30 | Surface IoU | Rig IoU | All-case mesh CD×100 | Cap hits / decoded |
 |---|---:|---:|---:|---:|---:|
-| Geometry proxy | 3.236 ± 0.235 | 13.722 ± 1.315 | 12.767 ± 1.501 | 12.103 ± 1.664 | 9/30 |
-| Real DINO | 3.730 ± 0.177 | 14.651 ± 1.042 | 13.781 ± 1.159 | 12.587 ± 1.056 | 6/30 |
-| Sparse VAE | 3.450 ± 0.330 | 14.223 ± 1.444 | 13.183 ± 1.513 | 12.237 ± 1.509 | 6/30 |
+| Adapters / standard MSE | 5/30 | 0.004851 ± 0.004113 | 0.000093 ± 0.000160 | 147.141 ± 32.337 | 3/5 |
+| Adapters / balanced rig | 23/30 | 0.006746 ± 0.006470 | 0.003212 ± 0.000304 | 50.438 ± 64.950 | 9/23 |
+| Full weights / standard MSE | 5/30 | 0.004851 ± 0.004113 | 0.000093 ± 0.000160 | 147.229 ± 32.163 | 4/5 |
+| Full weights / balanced rig | 23/30 | 0.006746 ± 0.006470 | 0.003212 ± 0.000304 | 50.492 ± 64.908 | 6/23 |
 
-## Sparse VAE component
+Failure categories (zero structure is not counted as an attempted empty mesh):
 
-Normalized real-DINO feature test MSE: surface 0.7510 ± 0.0067; rig 0.7024 ± 0.0095. Ground-truth active coordinates are retained. This is feature reconstruction, not learned occupancy or mesh generation.
+- Adapters / standard MSE: `{"empty_predicted_rig_occupancy": 10, "empty_predicted_surface_occupancy": 15, "none": 5}`
+- Adapters / balanced rig: `{"empty_predicted_surface_occupancy": 7, "none": 23}`
+- Full weights / standard MSE: `{"empty_predicted_rig_occupancy": 10, "empty_predicted_surface_occupancy": 15, "none": 5}`
+- Full weights / balanced rig: `{"empty_predicted_surface_occupancy": 7, "none": 23}`
 
-## Strict image-only generation
+Full-weight-stage local flows are re-aligned to updated rig latents; their occupancy weights and scaling stay bitwise unchanged. Thus unchanged occupancy failures cannot be credited as fixes by full mesh/rig finetuning. Nonempty exports are not semantic fidelity or valid animation.
 
-Nonempty extracted meshes: 13/30; reported failure flags: 17/30. Every failure remains in per-asset reports.
+## EOS / localization diagnostics
 
-| Path | Mesh Chamfer ×100 | J2J ×100 |
-|---|---:|---:|
-| GT-latent reconstruction | 14.906 ± 9.801 | not this diagnostic |
-| Image-only generation | 105.535 ± 39.816 | 14.961 ± 1.377 |
+| Adapter seed | Validation-selected threshold | Main cap hits /10 | Calibrated cap hits /10 | Main J2J×100 | Calibrated J2J×100 |
+|---|---:|---:|---:|---:|---:|
+| 0 | 0.5 | 0 | 0 | 15.014 | 15.014 |
+| 1 | 0.3 | 10 | 10 | 13.843 | 13.843 |
+| 2 | 0.4 | 5 | 3 | 13.859 | 14.100 |
 
-Empty mesh/skeleton cases receive sqrt(3), the unit-box diameter, in the all-case diagnostic aggregate; nonempty-only distances and denominators are also retained. Chamfer uses 2048 area-weighted sampled mesh points, 8192 target points, unsquared symmetric mean/2. Skinning on generated topology is checked for normalization only: no same-index GT-skin accuracy claim.
+Across adapter seeds, teacher matched-joint L2=0.3403; GT-rig-supported candidate control=0.3493. Restricting candidates to GT-rig support is an oracle diagnostic and did not repair the sequence localization. GT quantized-joint to rig-voxel-center distance=0.0072, versus free joints=0.0742. EOS/quantization alone do not explain the remaining coordinate error.
 
-## Guidance and distribution diagnostics
+## What remains unmatched
 
-The CFG5 setting remains the main result. The following are matched-noise test sensitivity audits, not a test-selected replacement.
+- Native kernels retain original weights/architecture, but no original CUDA rendering parity run exists. Actual features are DINO-L/reg x_prenorm; four native224 neutral views are upsampled518 and point-pooled, unlike full original rendering/preprocessing.
+- Adapter stage freezes mesh backbone; subsequent short stage updates full rig+mesh weights but uses only250 steps and16-cube geometry patches every8 steps after a2000-step warm start. Not original convergence or full rendering/normal/color loss.
+- Occupancy VAEs are frozen official transfer models; no original24-hour retraining. The four generator networks are compact newly trained conv/attention models, not pretrained TRELLIS flow transformers.
+- AR/skin heads remain small width64/two layers; exact coordinate-head factorization and EOS weighting are implementation assumptions. Full-vertex skin inference uses512-query chunks.
+- Source cohort is25/6/10 with availability/registration exclusions, not the full benchmark. No labels, textures, retargeting, official baselines or complete original figure/table match.
 
-| CFG | Nonempty meshes /30 | 96-joint caps /30 | J2J ×100 |
-|---|---:|---:|---:|
-| 1 | 16/30 | 9/30 | 14.910 |
-| 3 | 15/30 | 10/30 | 15.058 |
-| 5 | 13/30 | 10/30 | 14.961 |
-
-CFG5 mean coarse occupancy IoU: surface 0.2349, rig 0.0533. Generated normalized latent RMS: surface 1.658, rig 1.441, versus train RMS=1 by normalization. These show occupancy error and distribution shift; guidance alone does not resolve failures.
-
-## Known gaps
-
-- Random initialization; no pretrained TRELLIS surface encoder or mesh decoder, unlike the original method.
-- DINOv2-S 384 channels, four neutral 224px views; original TRELLIS configuration uses DINOv2-L/reg 1024 channels and 512px images.
-- Seven-tap axial sparse VAE, width32/8 latent channels; separately trained feature loss+KL, not original joint autoencoder losses or pretrained sparse transformer.
-- Direct 16³ occupancy MLP flows lack original occupancy VAEs, sparse flow transformers and cross-branch coupling.
-- Independent cross-attention field decoder predicts a 17³ vertex grid; fixed upstream FlexiCubes uses default blend weights, no learned vertex deformations.
-- Oriented-nearest-triangle SDF is weak supervision on open/inconsistently oriented meshes; original differentiable rendering losses absent.
-- Decoder models are small width64/two-layer, frozen VAE means and GT-rig reconstruction context. The 25/6/10 aligned-asset cohort is not the complete benchmark.
-- Semantic joint labels, textures, retargeting and original paper baselines/ablation tables remain unimplemented/unmatched.
-
-See docs/round2_experiments.md for source, exclusions, commands and inference boundaries.
+Detailed rebuild instructions and per-model artifacts remain with the unpublished local code. This public report is a reviewed scalar snapshot. All unfavorable seeds and earlier exploratory paths remain available.
