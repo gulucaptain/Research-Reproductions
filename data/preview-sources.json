@@ -50,10 +50,10 @@
   {
     "project": "articulation-in-prime",
     "asset": "assets/previews/articulation-in-prime.png",
-    "source_path": "articulation_in_prime/results/initial_comparison.png (unpublished local implementation)",
-    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/6db617895b5e680920822285ac5be47f1e1ae5fe/assets/previews/articulation-in-prime.png",
-    "sha256": "87a2ae7d577f2d9dc95c1280f807f4d9700270b31e985a384f2c7d93b9046c02",
-    "caption": "Procedural solver diagnostics: 8 frames × 256 points, five seeds and 2,000 steps; rings mark minimum-loss seeds. Bottom: selected hinge frame and unpruned proxies. Not official benchmarks.",
+    "source_path": "articulation_in_prime/results/round2/comparison.png (unpublished local implementation)",
+    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/826c7f1d68b9f49e85734a6b4df4889e39f1f182/assets/previews/articulation-in-prime.png",
+    "sha256": "36a15afc514ce87a33dbb36fc9ab09a1dc09e4ee9180c1887b0239326408cede",
+    "caption": "Top: procedural hinge, 8×256 points, five seeds per setting, 2000 steps; rings mark minimum loss; extra refit is separate. Bottom left: one original Arti4D cue, 25×512 core input, three seeds per setting; bottom right: extent4 seed2 pruning losses. No original table matched.",
     "source_scope": "Reviewed unchanged figure snapshot in the collection; does not imply public implementation code."
   }
 ]

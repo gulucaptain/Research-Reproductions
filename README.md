@@ -36,7 +36,7 @@ A growing collection of independent research-method implementations with traceab
 | **PhySPRING: Structure-Preserving Reduction of Physics-Informed Twins via GNN** | Physics<br>CPU + Apple Silicon | **Partial reproduction**<br>Core + local experiments | [Paper](https://arxiv.org/abs/2605.07687) · [GitHub](https://github.com/gulucaptain/PhySPRING-Reproduction) · [Results](https://github.com/gulucaptain/PhySPRING-Reproduction/blob/main/results/round3/results.md) |
 | **MatrixSplat: Matrix-Parallel and Feature-Scalable 3D Gaussian Splatting Rendering on GPUs** | Rendering<br>CPU + Apple Silicon | **Partial reproduction**<br>Components + local experiments | [Paper](https://arxiv.org/abs/2611.15153) · [GitHub](https://github.com/gulucaptain/MatrixSplat-Reproduction) · [Results](https://github.com/gulucaptain/MatrixSplat-Reproduction/blob/main/results/round05/REPORT.md) |
 | **SimuScene: Simulation-Ready Compositional 3D Scene Reconstruction from a Single Image** | Physics<br>CPU | **Partial reproduction**<br>Components + local experiments | [Paper](https://arxiv.org/abs/2606.03994) · [GitHub](https://github.com/gulucaptain/SimuScene-Reproduction) · [Results](https://github.com/gulucaptain/SimuScene-Reproduction/blob/main/results/round05/REPORT.md) |
-| **Articulation in Prime: Primitive-Based Articulated Object Understanding from a Single Casual Video** | 3D Vision<br>CPU + Apple Silicon | **Partial implementation**<br>Local core + initial diagnostics; code not published | [Paper](https://arxiv.org/abs/2605.18645) · Implementation not published · [Results](https://github.com/gulucaptain/Research-Reproductions/blob/6db617895b5e680920822285ac5be47f1e1ae5fe/docs/reports/articulation-in-prime.md) |
+| **Articulation in Prime: Primitive-Based Articulated Object Understanding from a Single Casual Video** | 3D Vision<br>CPU + Apple Silicon | **Partial implementation**<br>Core audit + one original Arti4D cue; code not published | [Paper](https://arxiv.org/abs/2605.18645) · Implementation not published · [Results](https://github.com/gulucaptain/Research-Reproductions/blob/826c7f1d68b9f49e85734a6b4df4889e39f1f182/docs/reports/articulation-in-prime.md) |
 
 <a id="result-previews"></a>
 ## 🖼️ Result previews
@@ -147,20 +147,20 @@ Previews come from the documented local experiments, with scope and limitations;
 
 ### 07 · Articulation in Prime: Primitive-Based Articulated Object Understanding from a Single Casual Video [Reproduction]
 
-[![Articulation in Prime experiment preview](assets/previews/articulation-in-prime.png)](https://github.com/gulucaptain/Research-Reproductions/blob/6db617895b5e680920822285ac5be47f1e1ae5fe/docs/reports/articulation-in-prime.md)
+[![Articulation in Prime experiment preview](assets/previews/articulation-in-prime.png)](https://github.com/gulucaptain/Research-Reproductions/blob/826c7f1d68b9f49e85734a6b4df4889e39f1f182/docs/reports/articulation-in-prime.md)
 
-*Procedural solver diagnostics: 8 frames × 256 points, five seeds and 2,000 steps; rings mark minimum-loss seeds. Bottom: selected hinge frame and unpruned proxies. Not official benchmarks.*
+*Top: procedural hinge, 8×256 points, five seeds per setting, 2000 steps; rings mark minimum loss; extra refit is separate. Bottom left: one original Arti4D cue, 25×512 core input, three seeds per setting; bottom right: extent4 seed2 pruning losses. No original table matched.*
 
 | | Local evidence |
 |:--|:--|
-| 🧩 **Implemented** | Superquadric proxies, mixed screw motion, soft assignments and all loss terms; independent CPU visibility replacement, with final pruning unresolved. |
-| 🧪 **Validation** | 30 procedural optimization runs · five core tests · CPU/MPS gradients · paper-shaped five-step resource checks. |
-| 📊 **Finding** | Hinge pivot error remains 23.73 cm after 10k steps. Drawer parts are missed and multi-joint types can be wrong; motion-penalty ablation supports scale-sensitivity investigation. |
-| 🔎 **Remaining gaps** | No original benchmark tables, author datasets or video preprocessing. Unpublished implementation; public evidence is a reviewed numerical snapshot only. |
+| 🧩 **Implemented** | Corrected angular SQ mesh, reversible observation-only normalization, all original losses, CPU rasterization plus continuous-SQ oracle, and explicit coverage-aware pruning; SAM2/GMSF RGB-D preprocessing. |
+| 🧪 **Validation** | 14 tests · 25 paired procedural audit runs · six original Arti4D pilot fits · 25 audit and six real objectives replayed; initial 30 runs retained. |
+| 📊 **Finding** | Scale sensitivity reduces one selected procedural pivot/state error to 8.47 cm / 6.59°, but only 1/5 types is correct. Original Arti4D weights: 0/3 correct types; no-motion: 1/3, selected axis 28.79° and pivot 39.67 cm. |
+| 🔎 **Remaining gaps** | Joint bias and collapse remain. One 25×512 RGB-D cue pilot, not the author 11-object benchmark or full 10k configuration. Unknown normalization/pruning; no GT states/labels. Video2Articulation-S Pending; code unpublished. |
 
-[📄 Paper](https://arxiv.org/abs/2605.18645) · **Implementation not published** · [📊 Report](https://github.com/gulucaptain/Research-Reproductions/blob/6db617895b5e680920822285ac5be47f1e1ae5fe/docs/reports/articulation-in-prime.md) · [📌 Reviewed evidence](https://github.com/gulucaptain/Research-Reproductions/tree/6db617895b5e680920822285ac5be47f1e1ae5fe)
+[📄 Paper](https://arxiv.org/abs/2605.18645) · **Implementation not published** · [📊 Report](https://github.com/gulucaptain/Research-Reproductions/blob/826c7f1d68b9f49e85734a6b4df4889e39f1f182/docs/reports/articulation-in-prime.md) · [📌 Reviewed evidence](https://github.com/gulucaptain/Research-Reproductions/tree/826c7f1d68b9f49e85734a6b4df4889e39f1f182)
 
-**Pinned evidence:** [data/evidence/articulation-in-prime-initial.json](https://github.com/gulucaptain/Research-Reproductions/blob/6db617895b5e680920822285ac5be47f1e1ae5fe/data/evidence/articulation-in-prime-initial.json) · [docs/reports/articulation-in-prime.md](https://github.com/gulucaptain/Research-Reproductions/blob/6db617895b5e680920822285ac5be47f1e1ae5fe/docs/reports/articulation-in-prime.md)
+**Pinned evidence:** [data/evidence/articulation-in-prime-round2.json](https://github.com/gulucaptain/Research-Reproductions/blob/826c7f1d68b9f49e85734a6b4df4889e39f1f182/data/evidence/articulation-in-prime-round2.json) · [docs/reports/articulation-in-prime.md](https://github.com/gulucaptain/Research-Reproductions/blob/826c7f1d68b9f49e85734a6b4df4889e39f1f182/docs/reports/articulation-in-prime.md)
 
 <a id="progress"></a>
 ## 🔎 How progress is reported
