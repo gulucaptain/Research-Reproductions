@@ -17,14 +17,23 @@ def load():
                 'image_caption', 'report', 'commit', 'updated', 'evidence', 'color'}
     for p in projects:
         assert required <= p.keys(), p['id']
-        assert all(p[key] for key in required), p['id']
+        assert all(p[key] for key in required - {'repo', 'commit'}), p['id']
+        local = p.get('publication') == 'local'
+        if local:
+            assert p['repo'] is None and p['commit'] is None, p['id']
+            assert p.get('evidence_repo') and p.get('evidence_commit'), p['id']
+        else:
+            assert p['repo'] and p['commit'], p['id']
         for key in ['repo', 'paper', 'report']:
+            if key == 'repo' and local:
+                continue
             url = urlparse(p[key])
             assert url.scheme == 'https' and url.netloc in {'github.com', 'arxiv.org'}, (p['id'], key)
-        assert len(p['commit']) == 40 and all(c in '0123456789abcdef' for c in p['commit'])
+        commit = p.get('evidence_commit') or p['commit']
+        assert len(commit) == 40 and all(c in '0123456789abcdef' for c in commit)
         assert (ROOT / p['image']).is_file(), p['image']
         for evidence in p['evidence']:
-            assert '/blob/' + p['commit'] + '/' in evidence['url']
+            assert '/blob/' + commit + '/' in evidence['url']
             assert len(evidence['sha256']) == 64
     previews = json.loads((ROOT / 'data/preview-sources.json').read_text())
     assert {x['project'] for x in previews} == {p['id'] for p in projects}
@@ -49,16 +58,20 @@ def render(data):
             '', '</div>', '',
             'A growing collection of independent research-method implementations with traceable configurations, experiments and evidence. Each paper keeps its own code, dependencies and experiment archive in a separate repository; this repository provides the shared index and presentation layer.', '',
             '> [!IMPORTANT]',
-            '> All six initial projects are partial reproductions. Implemented code, completed experiments, similar trends and matching paper numbers are different claims. The local results below do not establish full reproduction of the original papers.', '',
+            '> The projects below have remaining reproduction gaps. Implemented code, completed experiments, similar trends and matching paper numbers are different claims. The local results below do not establish full reproduction of the original papers.', '',
             f'**Last reviewed:** {data["updated"]}. Repository evidence is pinned to the reviewed commits; live repository and report links may subsequently change.', '',
             '<a id="paper-index"></a>', '## 📚 Paper index', '',
             '| Paper | Focus / compute | Reproduction progress | Links |',
             '|:--|:--|:--|:--|']
     for p in projects:
-        rows.append(f'| **{p["title"]}** | {p["category"]}<br>{p["platform"]} | **{p["status"]}**<br>{p["progress"]} | [Paper]({p["paper"]}) · [GitHub]({p["repo"]}) · [Results]({p["report"]}) |')
+        repo_link = f'[GitHub]({p["repo"]})' if p['repo'] else 'Implementation not published'
+        rows.append(f'| **{p["title"]}** | {p["category"]}<br>{p["platform"]} | **{p["status"]}**<br>{p["progress"]} | [Paper]({p["paper"]}) · {repo_link} · [Results]({p["report"]}) |')
     rows += ['', '<a id="result-previews"></a>', '## 🖼️ Result previews', '',
-             'All previews are copied from the public reproduction repositories. They illustrate the documented local experiments, including their scope and limitations; they are not official paper figures. [Figure provenance and SHA-256](data/preview-sources.json).', '']
+             'Previews come from the documented local experiments, with scope and limitations; they are not official paper figures. For unpublished implementations, the collection stores a reviewed result snapshot and does not imply publicly available code. [Figure provenance and SHA-256](data/preview-sources.json).', '']
     for number, p in enumerate(projects, 1):
+        repo_link = f'[💻 Repository]({p["repo"]})' if p['repo'] else '**Implementation not published**'
+        evidence_repo = p.get('evidence_repo') or p['repo']
+        evidence_commit = p.get('evidence_commit') or p['commit']
         rows += [f'### {number:02d} · {p["title"]} [Reproduction]', '',
                  f'[![{p["name"]} experiment preview]({p["image"]})]({p["report"]})', '',
                  f'*{p["image_caption"]}*', '',
@@ -67,7 +80,7 @@ def render(data):
                  f'| 🧪 **Validation** | {p["validation"]} |',
                  f'| 📊 **Finding** | {p["result"]} |',
                  f'| 🔎 **Remaining gaps** | {p["limitations"]} |', '',
-                 f'[📄 Paper]({p["paper"]}) · [💻 Repository]({p["repo"]}) · [📊 Report]({p["report"]}) · [📌 Reviewed source]({p["repo"]}/tree/{p["commit"]})', '',
+                 f'[📄 Paper]({p["paper"]}) · {repo_link} · [📊 Report]({p["report"]}) · [📌 Reviewed evidence]({evidence_repo}/tree/{evidence_commit})', '',
                  '**Pinned evidence:** ' + ' · '.join(f'[{x["path"]}]({x["url"]})' for x in p['evidence']), '']
     rows += ['<a id="progress"></a>', '## 🔎 How progress is reported', '',
              '| Claim | Meaning |', '|:--|:--|',

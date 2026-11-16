@@ -46,5 +46,14 @@
     "source_url": "https://github.com/gulucaptain/SimuScene-Reproduction/blob/3ebf35bf6119131de20a6b6a2b33985a30e50c21/results/round05/scenes.png",
     "sha256": "cf1c0f4290b8f69573e269a607c435024dbbc14b10c57129fb5a05de2e7082bd",
     "caption": "Procedural scenes before and after geometry/physics correction; not image-to-scene reconstruction."
+  },
+  {
+    "project": "articulation-in-prime",
+    "asset": "assets/previews/articulation-in-prime.png",
+    "source_path": "articulation_in_prime/results/initial_comparison.png (unpublished local implementation)",
+    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/6db617895b5e680920822285ac5be47f1e1ae5fe/assets/previews/articulation-in-prime.png",
+    "sha256": "87a2ae7d577f2d9dc95c1280f807f4d9700270b31e985a384f2c7d93b9046c02",
+    "caption": "Procedural solver diagnostics: 8 frames × 256 points, five seeds and 2,000 steps; rings mark minimum-loss seeds. Bottom: selected hinge frame and unpruned proxies. Not official benchmarks.",
+    "source_scope": "Reviewed unchanged figure snapshot in the collection; does not imply public implementation code."
   }
 ]

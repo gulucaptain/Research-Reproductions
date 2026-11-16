@@ -15,14 +15,17 @@ from build_readme import ROOT, load
 
 def article(p, index):
     title, name = esc(p['title']), esc(p['name'])
+    repo_link = f'<a href="{esc(p["repo"])}">Implementation ↗</a>' if p['repo'] else '<span>Implementation not published</span>'
+    evidence_repo = p.get('evidence_repo') or p['repo']
+    evidence_commit = p.get('evidence_commit') or p['commit']
     evidence = ''.join(f'<li><a href="{esc(e["url"])}">{esc(e["path"])} ↗</a><br><code>SHA-256: {esc(e["sha256"])}</code></li>' for e in p['evidence'])
     return f'''<article id="{esc(p['id'])}" class="study {'lead-study' if index == 1 else ''}" data-category="{esc(p['category'])}" style="--project:{p['color']}">
 <div class="study-heading"><span class="folio">{index:02}</span><div><div class="eyebrow"><span class="category">{esc(p['category'])}</span><span>{esc(p['platform'])}</span></div><h2>{title}</h2><div class="state"><span class="square" aria-hidden="true"></span>{esc(p['status'])} <span class="scope">/ {esc(p['progress'])}</span></div></div></div>
 <div class="study-content"><figure><button type="button" class="figure-open" data-figure="{esc(p['image'])}" data-name="{name}" data-caption="{esc(p['image_caption'])}" aria-label="Enlarge result figure for {name}"><img src="{esc(p['image'])}" alt="{esc(p['image_caption'])}" {'fetchpriority="high"' if index == 1 else 'loading="lazy"'} decoding="async"></button><figcaption><span>Fig. {index}.</span> {esc(p['image_caption'])}<span class="figure-hint">Select the figure to inspect at full size.</span></figcaption></figure>
 <div class="abstract"><p class="result">{esc(p['result'])}</p><div class="finding"><span class="small-label">What remains open</span><p>{esc(p['limitations'])}</p></div>
 <details><summary>Implementation &amp; local validation</summary><dl><dt>Implemented</dt><dd>{esc(p['implemented'])}</dd><dt>Locally validated</dt><dd>{esc(p['validation'])}</dd></dl></details>
-<nav class="paper-links" aria-label="{name} resources"><a href="{esc(p['paper'])}">Original paper ↗</a><a href="{esc(p['repo'])}">Implementation ↗</a><a href="{esc(p['report'])}">Experiment report ↗</a></nav>
-<details class="evidence"><summary>Pinned evidence &amp; provenance</summary><ul>{evidence}</ul><p class="reviewed">Reviewed {esc(p['updated'])} · <a href="{esc(p['repo'])}/tree/{p['commit']}">source {p['commit'][:7]} ↗</a></p></details></div></div></article>'''
+<nav class="paper-links" aria-label="{name} resources"><a href="{esc(p['paper'])}">Original paper ↗</a>{repo_link}<a href="{esc(p['report'])}">Experiment report ↗</a></nav>
+<details class="evidence"><summary>Pinned evidence &amp; provenance</summary><ul>{evidence}</ul><p class="reviewed">Reviewed {esc(p['updated'])} · <a href="{esc(evidence_repo)}/tree/{evidence_commit}">evidence {evidence_commit[:7]} ↗</a></p></details></div></div></article>'''
 
 
 def render(data, site):

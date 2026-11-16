@@ -9,4 +9,4 @@ This is a collection of independent reproductions, not official author implement
 - The copied preview must be unchanged, have a recorded digest, and retain a caption describing scope. Figure excerpts may include source data for research comparison; do not treat those excerpts as newly licensed data.
 - An update requires reading the new result and its limitations. The collection generator checks structure, hashes and reproducible output; it does not audit numerical correctness of an upstream algorithm.
 
-As of 2026-11-16, all six initial projects retain the status Partial reproduction.
+For a local, unpublished implementation, this collection may publish a reviewed numerical snapshot and permitted preview. Its pinned evidence identifies the collection snapshot, not publicly released implementation code. The report must state that limitation explicitly. Never create a fictitious paper repository or imply that snapshot hashes make the missing code publicly replayable.

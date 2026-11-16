@@ -8,3 +8,7 @@
 6. Commit the registry, preview, provenance and generated documentation together. When updating an existing paper, review its new evidence and advance the pinned commit deliberately; upstream changes are not silently accepted.
 
 Project IDs should remain stable. New categories and additional papers should be data changes, not a redesign of the homepage. The production website uses the selected B publication layout. `site/` holds its CSS and browser behavior; `scripts/build_site.py` generates the complete static page from the same reviewed registry. The three initial concepts remain as design history. See `docs/WEBSITE.md` for preview and deployment.
+
+## Implementations not yet published
+
+Do not invent a repository URL. Set `publication` to `local`, with `repo` and `commit` both `null`. Store a reviewed result snapshot and permitted preview in this collection, commit them first, then set `evidence_repo` and `evidence_commit` to that collection snapshot. Evidence URLs and hashes refer to those exact committed files. The report must distinguish the public snapshot from the local implementation and state what can and cannot be independently replayed from public materials. The generators display “Implementation not published” and omit repository links. Publishing a new paper repository still requires that project's own authorization.

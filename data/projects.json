@@ -199,6 +199,42 @@
           "sha256": "605d685a4c51bc03d1f5088f3286d1635e22f3fe09a8c6bb3dccf540d5bc2c27"
         }
       ]
+    },
+    {
+      "id": "articulation-in-prime",
+      "name": "Articulation in Prime",
+      "title": "Articulation in Prime: Primitive-Based Articulated Object Understanding from a Single Casual Video",
+      "repo": null,
+      "publication": "local",
+      "paper": "https://arxiv.org/abs/2605.18645",
+      "category": "3D Vision",
+      "color": "#4f46e5",
+      "platform": "CPU + Apple Silicon",
+      "status": "Partial implementation",
+      "progress": "Local core + initial diagnostics; code not published",
+      "implemented": "Superquadric proxies, mixed screw motion, soft assignments and all loss terms; independent CPU visibility replacement, with final pruning unresolved.",
+      "validation": "30 procedural optimization runs · five core tests · CPU/MPS gradients · paper-shaped five-step resource checks.",
+      "result": "Hinge pivot error remains 23.73 cm after 10k steps. Drawer parts are missed and multi-joint types can be wrong; motion-penalty ablation supports scale-sensitivity investigation.",
+      "limitations": "No original benchmark tables, author datasets or video preprocessing. Unpublished implementation; public evidence is a reviewed numerical snapshot only.",
+      "image": "assets/previews/articulation-in-prime.png",
+      "image_caption": "Procedural solver diagnostics: 8 frames × 256 points, five seeds and 2,000 steps; rings mark minimum-loss seeds. Bottom: selected hinge frame and unpruned proxies. Not official benchmarks.",
+      "report": "https://github.com/gulucaptain/Research-Reproductions/blob/6db617895b5e680920822285ac5be47f1e1ae5fe/docs/reports/articulation-in-prime.md",
+      "commit": null,
+      "evidence_repo": "https://github.com/gulucaptain/Research-Reproductions",
+      "evidence_commit": "6db617895b5e680920822285ac5be47f1e1ae5fe",
+      "updated": "2026-11-16",
+      "evidence": [
+        {
+          "path": "data/evidence/articulation-in-prime-initial.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/6db617895b5e680920822285ac5be47f1e1ae5fe/data/evidence/articulation-in-prime-initial.json",
+          "sha256": "9d72f60b4fdebe9ee823881e79b837feecd5d6b5d1363bcbef4afea02b385dee"
+        },
+        {
+          "path": "docs/reports/articulation-in-prime.md",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/6db617895b5e680920822285ac5be47f1e1ae5fe/docs/reports/articulation-in-prime.md",
+          "sha256": "3d425824af0a912058aa57d261c05e1f74350376191b957a77d69fde026504cb"
+        }
+      ]
     }
   ]
 }

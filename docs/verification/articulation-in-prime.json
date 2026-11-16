@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-16",
+  "scope": "Local preview; public deployment verification recorded separately",
+  "desktop": {
+    "viewport_width": 978,
+    "document_scroll_width": 963
+  },
+  "mobile": {
+    "viewport_width": 390,
+    "document_scroll_width": 375
+  },
+  "checks": [
+    "search: Articulation -> 1 of 7",
+    "area: 3D Vision -> 2 of 7",
+    "empty result and reset",
+    "new figure dialog opens and closes",
+    "study index reveals target",
+    "no captured browser warnings/errors"
+  ],
+  "evidence_hashes_verified": true
+}

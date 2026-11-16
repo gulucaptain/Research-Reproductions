@@ -8,7 +8,7 @@
 <p>Independent algorithms · CPU & Apple Silicon · Documented results and limitations</p>
 
 <p>
-<img src="https://img.shields.io/badge/Collection-6%20papers-2563eb?style=flat-square" alt="Collection: 6 papers">
+<img src="https://img.shields.io/badge/Collection-7%20papers-2563eb?style=flat-square" alt="Collection: 7 papers">
 <img src="https://img.shields.io/badge/Scope-Independent%20reproductions-059669?style=flat-square" alt="Independent reproductions">
 <a href="https://github.com/gulucaptain/Research-Reproductions/actions/workflows/checks.yml"><img src="https://github.com/gulucaptain/Research-Reproductions/actions/workflows/checks.yml/badge.svg" alt="Registry and documentation checks"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="Code license: MIT"></a>
@@ -21,7 +21,7 @@
 A growing collection of independent research-method implementations with traceable configurations, experiments and evidence. Each paper keeps its own code, dependencies and experiment archive in a separate repository; this repository provides the shared index and presentation layer.
 
 > [!IMPORTANT]
-> All six initial projects are partial reproductions. Implemented code, completed experiments, similar trends and matching paper numbers are different claims. The local results below do not establish full reproduction of the original papers.
+> The projects below have remaining reproduction gaps. Implemented code, completed experiments, similar trends and matching paper numbers are different claims. The local results below do not establish full reproduction of the original papers.
 
 **Last reviewed:** 2026-11-16. Repository evidence is pinned to the reviewed commits; live repository and report links may subsequently change.
 
@@ -36,11 +36,12 @@ A growing collection of independent research-method implementations with traceab
 | **PhySPRING: Structure-Preserving Reduction of Physics-Informed Twins via GNN** | Physics<br>CPU + Apple Silicon | **Partial reproduction**<br>Core + local experiments | [Paper](https://arxiv.org/abs/2605.07687) · [GitHub](https://github.com/gulucaptain/PhySPRING-Reproduction) · [Results](https://github.com/gulucaptain/PhySPRING-Reproduction/blob/main/results/round3/results.md) |
 | **MatrixSplat: Matrix-Parallel and Feature-Scalable 3D Gaussian Splatting Rendering on GPUs** | Rendering<br>CPU + Apple Silicon | **Partial reproduction**<br>Components + local experiments | [Paper](https://arxiv.org/abs/2611.15153) · [GitHub](https://github.com/gulucaptain/MatrixSplat-Reproduction) · [Results](https://github.com/gulucaptain/MatrixSplat-Reproduction/blob/main/results/round05/REPORT.md) |
 | **SimuScene: Simulation-Ready Compositional 3D Scene Reconstruction from a Single Image** | Physics<br>CPU | **Partial reproduction**<br>Components + local experiments | [Paper](https://arxiv.org/abs/2606.03994) · [GitHub](https://github.com/gulucaptain/SimuScene-Reproduction) · [Results](https://github.com/gulucaptain/SimuScene-Reproduction/blob/main/results/round05/REPORT.md) |
+| **Articulation in Prime: Primitive-Based Articulated Object Understanding from a Single Casual Video** | 3D Vision<br>CPU + Apple Silicon | **Partial implementation**<br>Local core + initial diagnostics; code not published | [Paper](https://arxiv.org/abs/2605.18645) · Implementation not published · [Results](https://github.com/gulucaptain/Research-Reproductions/blob/6db617895b5e680920822285ac5be47f1e1ae5fe/docs/reports/articulation-in-prime.md) |
 
 <a id="result-previews"></a>
 ## 🖼️ Result previews
 
-All previews are copied from the public reproduction repositories. They illustrate the documented local experiments, including their scope and limitations; they are not official paper figures. [Figure provenance and SHA-256](data/preview-sources.json).
+Previews come from the documented local experiments, with scope and limitations; they are not official paper figures. For unpublished implementations, the collection stores a reviewed result snapshot and does not imply publicly available code. [Figure provenance and SHA-256](data/preview-sources.json).
 
 ### 01 · Achieving Directional-Stationarity from a Single Random Direction Step [Reproduction]
 
@@ -55,7 +56,7 @@ All previews are copied from the public reproduction repositories. They illustra
 | 📊 **Finding** | Trimmed Lasso: 99 wins / 1 tie / 0 losses, matching the reported count; overall numerical results still differ. |
 | 🔎 **Remaining gaps** | Some counts match; overall numerical results differ. Several original settings remain unspecified. |
 
-[📄 Paper](https://arxiv.org/abs/2605.22045) · [💻 Repository](https://github.com/gulucaptain/Directional-Stationarity-Reproduction) · [📊 Report](https://github.com/gulucaptain/Directional-Stationarity-Reproduction/blob/main/results/report-v2/summary.json) · [📌 Reviewed source](https://github.com/gulucaptain/Directional-Stationarity-Reproduction/tree/4f3e3748195869b84d22d0df5de8ee7752d095ad)
+[📄 Paper](https://arxiv.org/abs/2605.22045) · [💻 Repository](https://github.com/gulucaptain/Directional-Stationarity-Reproduction) · [📊 Report](https://github.com/gulucaptain/Directional-Stationarity-Reproduction/blob/main/results/report-v2/summary.json) · [📌 Reviewed evidence](https://github.com/gulucaptain/Directional-Stationarity-Reproduction/tree/4f3e3748195869b84d22d0df5de8ee7752d095ad)
 
 **Pinned evidence:** [results/report-v2/summary.json](https://github.com/gulucaptain/Directional-Stationarity-Reproduction/blob/4f3e3748195869b84d22d0df5de8ee7752d095ad/results/report-v2/summary.json) · [docs/comparison.md](https://github.com/gulucaptain/Directional-Stationarity-Reproduction/blob/4f3e3748195869b84d22d0df5de8ee7752d095ad/docs/comparison.md)
 
@@ -72,7 +73,7 @@ All previews are copied from the public reproduction repositories. They illustra
 | 📊 **Finding** | Stroke auditing: +0.2309 dB mean paired PSNR across 9 pairs; 8 improve and 1 declines. |
 | 🔎 **Remaining gaps** | No completed learned-initializer training, full benchmark or paper-equivalent CUDA speedup. |
 
-[📄 Paper](https://arxiv.org/abs/2611.10713) · [💻 Repository](https://github.com/gulucaptain/Quadratic-Bezier-Splatting-Reproduction) · [📊 Report](https://github.com/gulucaptain/Quadratic-Bezier-Splatting-Reproduction/blob/main/docs/results.md) · [📌 Reviewed source](https://github.com/gulucaptain/Quadratic-Bezier-Splatting-Reproduction/tree/ccd939e900b0cefff1aa30d3e0e7cbfe267852b0)
+[📄 Paper](https://arxiv.org/abs/2611.10713) · [💻 Repository](https://github.com/gulucaptain/Quadratic-Bezier-Splatting-Reproduction) · [📊 Report](https://github.com/gulucaptain/Quadratic-Bezier-Splatting-Reproduction/blob/main/docs/results.md) · [📌 Reviewed evidence](https://github.com/gulucaptain/Quadratic-Bezier-Splatting-Reproduction/tree/ccd939e900b0cefff1aa30d3e0e7cbfe267852b0)
 
 **Pinned evidence:** [results/pilot_summary.csv](https://github.com/gulucaptain/Quadratic-Bezier-Splatting-Reproduction/blob/ccd939e900b0cefff1aa30d3e0e7cbfe267852b0/results/pilot_summary.csv) · [docs/results.md](https://github.com/gulucaptain/Quadratic-Bezier-Splatting-Reproduction/blob/ccd939e900b0cefff1aa30d3e0e7cbfe267852b0/docs/results.md)
 
@@ -89,7 +90,7 @@ All previews are copied from the public reproduction repositories. They illustra
 | 📊 **Finding** | SH3 vs SH0: +1.102 PSNR AUC. KoalaGS vs prefix: +0.040 on average, two seeds win and one loses. |
 | 🔎 **Remaining gaps** | Small-scale Lego evaluation; relative prefix-baseline advantage is not consistent across seeds. |
 
-[📄 Paper](https://arxiv.org/abs/2610.28615) · [💻 Repository](https://github.com/gulucaptain/KoalaGS-Reproduction) · [📊 Report](https://github.com/gulucaptain/KoalaGS-Reproduction/blob/main/results/expanded_report/results.md) · [📌 Reviewed source](https://github.com/gulucaptain/KoalaGS-Reproduction/tree/c71666958cff0b97b15684dcb4df786b7e9fcdcd)
+[📄 Paper](https://arxiv.org/abs/2610.28615) · [💻 Repository](https://github.com/gulucaptain/KoalaGS-Reproduction) · [📊 Report](https://github.com/gulucaptain/KoalaGS-Reproduction/blob/main/results/expanded_report/results.md) · [📌 Reviewed evidence](https://github.com/gulucaptain/KoalaGS-Reproduction/tree/c71666958cff0b97b15684dcb4df786b7e9fcdcd)
 
 **Pinned evidence:** [results/expanded_report/summary.json](https://github.com/gulucaptain/KoalaGS-Reproduction/blob/c71666958cff0b97b15684dcb4df786b7e9fcdcd/results/expanded_report/summary.json) · [results/expanded_report/results.md](https://github.com/gulucaptain/KoalaGS-Reproduction/blob/c71666958cff0b97b15684dcb4df786b7e9fcdcd/results/expanded_report/results.md)
 
@@ -106,7 +107,7 @@ All previews are copied from the public reproduction repositories. They illustra
 | 📊 **Finding** | Local learned L3: 27.08 ± 0.79 mm future observation error; independent tracks still favor geometry. |
 | 🔎 **Remaining gaps** | One cloth subset; independent tracks still favor geometry. Full paper benchmarks remain incomplete. |
 
-[📄 Paper](https://arxiv.org/abs/2605.07687) · [💻 Repository](https://github.com/gulucaptain/PhySPRING-Reproduction) · [📊 Report](https://github.com/gulucaptain/PhySPRING-Reproduction/blob/main/results/round3/results.md) · [📌 Reviewed source](https://github.com/gulucaptain/PhySPRING-Reproduction/tree/11bf3814d84042dd7bcfa2a5e258d00e5a85a480)
+[📄 Paper](https://arxiv.org/abs/2605.07687) · [💻 Repository](https://github.com/gulucaptain/PhySPRING-Reproduction) · [📊 Report](https://github.com/gulucaptain/PhySPRING-Reproduction/blob/main/results/round3/results.md) · [📌 Reviewed evidence](https://github.com/gulucaptain/PhySPRING-Reproduction/tree/11bf3814d84042dd7bcfa2a5e258d00e5a85a480)
 
 **Pinned evidence:** [results/round3/results.md](https://github.com/gulucaptain/PhySPRING-Reproduction/blob/11bf3814d84042dd7bcfa2a5e258d00e5a85a480/results/round3/results.md) · [results/round3/sparse_gt.json](https://github.com/gulucaptain/PhySPRING-Reproduction/blob/11bf3814d84042dd7bcfa2a5e258d00e5a85a480/results/round3/sparse_gt.json)
 
@@ -123,7 +124,7 @@ All previews are copied from the public reproduction repositories. They illustra
 | 📊 **Finding** | Held-out RGB PSNR: 10.66 → 33.21 dB across 5 synthetic training seeds. 144 GPU timing configurations. |
 | 🔎 **Remaining gaps** | No NVIDIA kernel, official datasets or paper-equivalent speed comparisons. |
 
-[📄 Paper](https://arxiv.org/abs/2611.15153) · [💻 Repository](https://github.com/gulucaptain/MatrixSplat-Reproduction) · [📊 Report](https://github.com/gulucaptain/MatrixSplat-Reproduction/blob/main/results/round05/REPORT.md) · [📌 Reviewed source](https://github.com/gulucaptain/MatrixSplat-Reproduction/tree/2229a8199fbb53a8bd2c3da6720c1ac1646d6801)
+[📄 Paper](https://arxiv.org/abs/2611.15153) · [💻 Repository](https://github.com/gulucaptain/MatrixSplat-Reproduction) · [📊 Report](https://github.com/gulucaptain/MatrixSplat-Reproduction/blob/main/results/round05/REPORT.md) · [📌 Reviewed evidence](https://github.com/gulucaptain/MatrixSplat-Reproduction/tree/2229a8199fbb53a8bd2c3da6720c1ac1646d6801)
 
 **Pinned evidence:** [results/round05/REPORT.md](https://github.com/gulucaptain/MatrixSplat-Reproduction/blob/2229a8199fbb53a8bd2c3da6720c1ac1646d6801/results/round05/REPORT.md) · [COVERAGE.md](https://github.com/gulucaptain/MatrixSplat-Reproduction/blob/2229a8199fbb53a8bd2c3da6720c1ac1646d6801/COVERAGE.md)
 
@@ -140,9 +141,26 @@ All previews are copied from the public reproduction repositories. They illustra
 | 📊 **Finding** | Synthetic stack IoU: 0.89443 → 0.99660. Pose-only errors worsen; severe cases remain unresolved. |
 | 🔎 **Remaining gaps** | Geometry/physics components only; no complete image-to-scene pipeline or original benchmarks. |
 
-[📄 Paper](https://arxiv.org/abs/2606.03994) · [💻 Repository](https://github.com/gulucaptain/SimuScene-Reproduction) · [📊 Report](https://github.com/gulucaptain/SimuScene-Reproduction/blob/main/results/round05/REPORT.md) · [📌 Reviewed source](https://github.com/gulucaptain/SimuScene-Reproduction/tree/3ebf35bf6119131de20a6b6a2b33985a30e50c21)
+[📄 Paper](https://arxiv.org/abs/2606.03994) · [💻 Repository](https://github.com/gulucaptain/SimuScene-Reproduction) · [📊 Report](https://github.com/gulucaptain/SimuScene-Reproduction/blob/main/results/round05/REPORT.md) · [📌 Reviewed evidence](https://github.com/gulucaptain/SimuScene-Reproduction/tree/3ebf35bf6119131de20a6b6a2b33985a30e50c21)
 
 **Pinned evidence:** [results/round05/REPORT.md](https://github.com/gulucaptain/SimuScene-Reproduction/blob/3ebf35bf6119131de20a6b6a2b33985a30e50c21/results/round05/REPORT.md) · [COVERAGE.md](https://github.com/gulucaptain/SimuScene-Reproduction/blob/3ebf35bf6119131de20a6b6a2b33985a30e50c21/COVERAGE.md)
+
+### 07 · Articulation in Prime: Primitive-Based Articulated Object Understanding from a Single Casual Video [Reproduction]
+
+[![Articulation in Prime experiment preview](assets/previews/articulation-in-prime.png)](https://github.com/gulucaptain/Research-Reproductions/blob/6db617895b5e680920822285ac5be47f1e1ae5fe/docs/reports/articulation-in-prime.md)
+
+*Procedural solver diagnostics: 8 frames × 256 points, five seeds and 2,000 steps; rings mark minimum-loss seeds. Bottom: selected hinge frame and unpruned proxies. Not official benchmarks.*
+
+| | Local evidence |
+|:--|:--|
+| 🧩 **Implemented** | Superquadric proxies, mixed screw motion, soft assignments and all loss terms; independent CPU visibility replacement, with final pruning unresolved. |
+| 🧪 **Validation** | 30 procedural optimization runs · five core tests · CPU/MPS gradients · paper-shaped five-step resource checks. |
+| 📊 **Finding** | Hinge pivot error remains 23.73 cm after 10k steps. Drawer parts are missed and multi-joint types can be wrong; motion-penalty ablation supports scale-sensitivity investigation. |
+| 🔎 **Remaining gaps** | No original benchmark tables, author datasets or video preprocessing. Unpublished implementation; public evidence is a reviewed numerical snapshot only. |
+
+[📄 Paper](https://arxiv.org/abs/2605.18645) · **Implementation not published** · [📊 Report](https://github.com/gulucaptain/Research-Reproductions/blob/6db617895b5e680920822285ac5be47f1e1ae5fe/docs/reports/articulation-in-prime.md) · [📌 Reviewed evidence](https://github.com/gulucaptain/Research-Reproductions/tree/6db617895b5e680920822285ac5be47f1e1ae5fe)
+
+**Pinned evidence:** [data/evidence/articulation-in-prime-initial.json](https://github.com/gulucaptain/Research-Reproductions/blob/6db617895b5e680920822285ac5be47f1e1ae5fe/data/evidence/articulation-in-prime-initial.json) · [docs/reports/articulation-in-prime.md](https://github.com/gulucaptain/Research-Reproductions/blob/6db617895b5e680920822285ac5be47f1e1ae5fe/docs/reports/articulation-in-prime.md)
 
 <a id="progress"></a>
 ## 🔎 How progress is reported
