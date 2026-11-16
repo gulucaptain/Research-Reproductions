@@ -1,77 +1,119 @@
-# Rigel3D — initial reviewed component snapshot
+# Rigel3D — original Anymate subset reviewed snapshot
 
-Reviewed 2026-11-16. Local implementation commit: `566a084dc24fcc79697e11a704a249defa434423`. **Implementation not published.** Public files contain a scalar component-check snapshot and procedural representation figure; they cannot replay unpublished code.
+Reviewed 2026-11-16. Local implementation commit: `baa1614a8399f7c88d3f707f8aee7e231ae6144e`. **Implementation code remains unpublished.** This public snapshot contains scalar results, source references and an aggregate figure; no original mesh, RGB image, sampled points, pointwise weights, pretrained checkpoint or local implementation is published here. The public snapshot cannot independently replay optimization. No original paper table is matched.
 
-Eight component tests passed. No generative model was trained, no original asset experiment ran, and no paper table is reproduced. The small skinning decoder has 46,208 parameters, width 32, 512 query points and 32 bones; these are local pilot choices, not the author architecture. CPU/MPS output max difference is 1.49e-8 and gradient max difference 1.75e-9 for one forward/backward. This is not a speed or full-model memory benchmark.
+16 tests passed; all nine validation-selected checkpoints replayed on CPU. Three conditions × three seeds ×2000 steps use 96 train/16 validation/32 official-test assets. Skeleton eligibility is 83/14/32; all selected assets remain in the skinning task with explicit point masks.
 
-![Representation component check](../../assets/previews/rigel3d.png)
+![Held-out reconstruction results](../../assets/previews/rigel3d.png)
 
-Left: actual 64³ closed-cell occupancy of a procedural five-joint tree. Right: coordinate quantization errors over 3200 random joints at each resolution, seed 2026, against the stated rounding bound. No generated rigged asset or original paper image is shown.
+32 original test assets and three seeds per condition; dots are seeds, error bars sample SD. Skinning uses supplied GT bones; rig-context features also encode GT skinning. Geometry-rig control still receives GT skeleton geometry. These are small reconstruction proxies, not image-conditioned asset generation. No raw dataset image is used as the overview preview.
 
-# Rigel3D：方法、原文设置和 Mac 实现路线
+# Anymate 真实子集：实现、差异和实验核查
 
-核查日期：2026-11-16。论文：[arXiv:2605.13129v1](https://arxiv.org/html/2605.13129v1)；[官方项目](https://nchatzis.github.io/Rigel3D/)；[官方占位仓库](https://github.com/nchatzis/Rigel3D)。仓库只有 README 和 LICENSE，标注 Coming soon，尚无作者实现或 checkpoint 可供回放。原文和公开数据卡的本地快照哈希见 `sources/manifest.json`。
+审阅：2026-11-16。数值完整表见 the all-seed table below，全部种子与误差口径见 `results/round1/summary.json`。**这是基于真实资产的局部解码器训练与留出重建实验，不是完整 Rigel3D，也未复现原论文表格。**
 
-## 核心创新与适用范围
+## 数据接入和独立划分
 
-Rigel3D 解决从图像生成可骨骼动画驱动的三维资产：输出网格、骨架树、蒙皮权重及可选语义标签。它研究的是资产生成和绑定，不是逐视频运动恢复或物理仿真器。
+固定官方 Hugging Face 数据版本 `096e25372f38db1964c5f5ecaa68c45d78f72ec8`。仅使用官方 train_0 的资产建立训练/验证子集，测试仅来自官方 test。按 `sha256("rigel-subset-v1:"+asset_name)` 排序，先取训练 96、验证 16；官方 test 独立取 32。没有按结果或几何复杂度挑样本。完整资产 ID 和逐存储块校验写入 `anymate_subset_manifest.json`。
 
-关键是**表面和内部骨架各有一套稀疏结构潜变量**。只学习表面特征可能缺少内部运动结构；单独预测骨架后再绑定，也可能与生成形状不一致。这里骨架潜变量参与网格解码，表面与骨架潜变量又共同参与骨架和蒙皮解码。第二项创新是用坐标与父节点 token 自回归产生不同大小的骨架树；第三项是把关节嵌入 OpenCLIP 文本空间，按任意候选名称检索以便重定向。
+torch-save 实际是 ZIP。通过 HTTP range 读取目录与 `data.pkl`；元数据只允许特定 tensor-storage 描述，禁止任意 pickle global 执行，不调用外部 `torch.load(weights_only=False)`。只提取选择资产的 storage，并校验长度、ZIP CRC 与 SHA-256。张量提取传输约 51.1MB，目录/元数据另约 47.1MB；没有下载完整 10.8GB 训练分片或 4.7GB 测试包。部分读取只能验证这些成员，不声称校验了完整原始大包。
 
-## 完整流程
+实际数据与 README 不同：`pc` 是 8192×6，`conns` 是父索引向量，蒙皮为 `skins_index` 与 `skins_weight` 稀疏表示；不是 8196 点、连接邻接矩阵或直接稠密权重。适配器严格保留点顺序、按索引累加权重，不裁剪错配。有效非零权重行归一化；零质量行明确排除蒙皮损失与评价，记录数量。
 
-1. **训练数据与表面特征。** 对带绑定的网格多视图渲染，提取 DINOv2 特征，聚合到 64³ 表面活跃体素，由 TRELLIS 稀疏编码器得到 surface SLats。不是把整块 64³ 体素全部当成密集 transformer token。
-2. **骨骼特征和 rig encoder。** 对骨骼 b，按顶点蒙皮权重池化：`f_b=sum_v(w_vb*f_v)/(sum_v w_vb+epsilon)`。将骨段及头尾关节栅格化到同一 64³ 网格；多骨相交体素的特征取平均。单独稀疏编码器得到 skeleton SLats。
-3. **联合自编码器。** 网格解码器在 TRELLIS/FlexiCubes 中加入 surface→skeleton cross-attention。骨架解码器按 BFS 排序，同一深度按 z-y-x 排列，用 128³ 坐标和父索引 token；父索引只能指向已生成关节，保证树的生成次序。蒙皮解码器用点位置/法向、骨头尾坐标和两套 SLats，经注意力后用点—骨内积及 softmax 输出每点权重。
-4. **损失。** 网格重建 + 骨架坐标/父索引交叉熵 + 蒙皮软交叉熵 + KL。骨架与蒙皮权重各为 1；网格损失沿用 TRELLIS。主文说编码器初始来自 TRELLIS 并微调，附录说明先微调再冻结 surface encoder、预提取 SLats；复现必须区分阶段，不能把所有网络始终联合训练。
-5. **图像条件生成。** 对表面与骨架，各自学习 occupancy flow 和 latent flow，共四个 rectified-flow 模型。占据 VAE 把 64³ 压缩到 16³；先生成占据，再生成活跃体素潜变量，最后进入三个联合解码器。原文没有明确写 skeleton flow 条件依赖已生成 surface SLats，不能自行补成另一种生成顺序。
-6. **开放词表命名。** 用 Qwen3-8B 清理原始名称，冻结 OpenCLIP 文本编码器；关节网络通过 InfoNCE 对齐文本嵌入。最佳变体按 BFS 自回归，依赖之前预测的标签嵌入。仅计算一个对比损失不等于实现完整语义命名。
+部分层级多根或成环。未修补成“看起来正确”的树：训练 83/96、验证 14/16 满足单根无环条件，测试 32/32 可用；其余资产仍参与蒙皮任务。15 个骨架排除原因逐项保存：14 个不满足单根，1 个有不连通循环。资产 ID 与原始来源家族在三个子集间均无重叠。原始骨头尾与 joint 集的对应、文件哈希、权重行和等已独立核查。
 
-## 计算规模与 Mac 判断
+## 实现与条件信息
 
-| 原文阶段 | 披露的资源与时长 |
-|---|---|
-| TRELLIS 表面模块微调 | 4×RTX 6000 Ada 48GB，1 天 |
-| rig-aware AE 联合训练 | 同样 4×48GB，约 10 天，每 GPU batch=4 |
-| 表面/骨架 occupancy VAE | 4×A5000 24GB，24 小时 |
-| 四个 flow 模型 | 每个 8×A5000，2 天，每 GPU batch=2 |
-| 标签网络 | 4×A5000，约 3 天 |
+骨架 AR 解码器包含右移教师强制、可学习 BOS、EOS 分类、128³ 坐标头、父索引头、序列位置编码、因果自注意力以及依次访问表面/骨架上下文的 cross-attention。根父指自己，其他父索引只能指向较早关节；推理不喂真实前缀，只按预测 token 继续，记录 EOS 和 96 关节上限。
 
-AdamW lr=1e-4；AE 联合阶段 cosine，5000 warmup；生成 25 步，CFG=5。训练约 225K Anymate 资产，测试约 5.6K Anymate +270 ModelsResource；AniGen 比较还涉及 ArticulationXL。单台 48GB 统一内存 Mac 不等于上述多卡环境，完整重训不能承诺合理用时。TRELLIS 官方主路径依赖 CUDA/spconv/Nvdiffrast 等，不能把安装 MPS 视为完成移植。
+蒙皮解码器使用位置/法向、骨头尾坐标的 Fourier 位置编码、自注意力和双上下文注意力，再做点—骨相似度及骨维 softmax。变长 joint/bone/context 均有掩码。两任务共享小型可学习上下文投影，按骨架 CE + 蒙皮软 CE 联合训练。
 
-Mac 路线：先实现可独立核验的表示、树约束和注意力，再接入真实绑定数据；稀疏计算采用活跃坐标列表和原生 PyTorch 算子，先验证与小网格密集参照的等价性，之后才移植预训练稀疏编码器、FlexiCubes 和可微渲染。每项替代都必须记录差异。完整生成与泛化指标仍需要原始权重或大规模训练，不能用程序生成小数据的拟合结果代替。
+**重要条件范围：** 此轮没有假装拥有 TRELLIS/DINO 训练特征。表面上下文为真实点云上的 16 维确定几何特征；骨架上下文来自 64³ 骨段体素，压到最多 48 个空间分布 token，再经学习投影。
 
-## 当前实现与未披露设置
+- `rig`：按照 Eq.2 用真实蒙皮池化几何特征，编码真实骨架。这是含真实绑定的重建代理，不是独立 image-to-rig 推断。
+- `geometry`：骨段上下文仅由给定真实骨段几何构造，不使用目标蒙皮权重池化；**仍有真实骨架几何输入**，不能称 mesh-only skeleton generation。
+- 蒙皮评价提供同一真实骨骼列表，点/骨索引可对齐，所以直接比较权重。完整生成骨架与网格的评价需要最优传输等对应处理；本轮不声称已验证该部分。
 
-已实现 Eq.2、闭体素骨段栅格化、BFS/父节点重排及可逆量化，以及初版双上下文蒙皮注意力 Eq.7。蒙皮宽度 32、4 heads、一个 block 是资源诊断选择，**不是作者网络**；位置编码、padding mask、完整 decoder、AR BOS/EOS、Sparse VAE、FlexiCubes、四个生成器及语义模块尚未实现。
+## 实验设置和选择
 
-量化采用 [-0.5,0.5] 端点网格的最近舍入；边界接触计入所有闭体素，重复坐标排序以原索引打破平局。原文未唯一规定这些细节；将来不得静默换规则。模型维数、层数、KL 系数、全部 checkpoint 兼容细节及标签温度也需进一步从源码或作者说明核实。
+每种设置种子 0/1/2，2000 步，batch=4，宽度 64、2 层、约 597K 参数；训练每资产抽 256 有效点，评价固定 512 点。AdamW lr=1e-4，200 warmup 后 cosine。归一化按点、joint、bone 合并包围盒的最长边统一到 1，所有几何共同变换。这是明确的重建约定，作者 TRELLIS 预处理/骨架包围盒约定尚未完全复刻。
 
-## 数据和评价的风险
+各种子只按验证集联合损失选 checkpoint；测试不选种子、不调权重。报告三种子的均值和样本标准差，不是对完整数据集的置信区间。初期 20 步 smoke 单独保留，不计入 9 次正式训练。
 
-Anymate 官方数据卡标注 Apache-2.0，但原资产来源和后续分发仍需保留其各自信息。公开文件列表中测试包约 4.724 GB、八个训练分片各约 10.8 GB。本轮只核查元数据，未下载约 90GB 完整数据。processed 数据提供点、法向、骨架、权重；它们不等于原始网格、多视图 DINO 特征和骨骼名称已齐备。数据说明中的 pc=8196 与 skins=8192 也需在真实文件中核实，不按文本直接截断配对。
+原文约 225K 训练资产、4×48GB GPU、约 10 天的联合 AE，以及预训练 Sparse VAE/DINO 特征，均与此轮不同；5000 warmup 在此轮明确缩成 200。模型层数/维数、EOS 分类细节原文未充分披露，因此不把本地结构或训练时间视作作者配置。
 
-J2J/J2B/B2B 在单位包围盒上计算，表格若标 ×100 要统一还原。生成网格与参考网格/骨架没有自然索引对应；原文采用基于关节 Wasserstein 距离的最优传输对齐蒙皮。仅比较同索引的权重会产生错误结论。Table 1–6 的几何、蒙皮、生成分布、消融及标签结果均尚未复现。
+## EOS 失败及修正对照
+
+无权重 EOS CE 在稀少正例下，教师强制损失低却可始终预测“继续”：`rig` 和 `geometry` 都在 3×32 次测试中 **96/96 达到最大关节数**。这不是有效自由生成成功。
+
+增加显式的停止类别平衡：继续/停止两类分别求 CE 均值，再各取 0.5。其余数据/种子/预算不变，单独运行三种子，不覆盖原结果。达到上限降至 **2/96**，但 J2J×100 从 **13.341±1.167** 变差到 **15.015±1.281**。只能说改善停止行为，不能说修复了骨架位置或拓扑；父索引的教师强制准确率也有下降。
+
+GT 量化 oracle 的 J2J 约 0.00373；实际自由生成误差远大于此，因此不能归因于 128³ 量化精度。教师强制几何、自由生成和已知 GT 数量的截断诊断另存为不同字段；其中教师强制和 GT 数量截断使用额外目标信息，绝不当成主结果。
+
+## 指标与对照
+
+主报告采用固定 Anymate/RigNet 源码的距离约定：未平方欧氏距离、双向均值/2，骨段按 `round(length/0.005)` 均匀采样。初版运行日志中的解析 J2B 与每骨等权 32 点 B2B 保留为 v1 诊断，主比较重新从保存预测计算为 `evaluation_metrics_v2.json`。另报告四倍采样密度敏感性，避免把不同定义混用。
+
+蒙皮 L1 同时保存逐元素平均和每点向量 L1，L2 向量范数与逐元素 MSE 分开。Precision/Recall 使用官方阈值 0.05 和逐点宏平均。额外训练骨段距离 softmax 温度只在验证集选出 0.02；形状检索对照只在训练资产中按表面 Chamfer 选择骨架，不访问测试骨架。它们是本地对照，不冒充 Anymate/Puppeteer/AniGen 原始基线。
+
+原设置蒙皮逐元素 L1×100 为 **3.484±0.084**，几何对照 **3.490±0.070**，骨段距离对照 **3.501**；优势很小且跨种子并不稳定。训练骨架检索 J2J×100 为 **10.015**，比当前神经解码器更好。负结果完整保留，不宣称匹配论文。
+
+## 完整生成流程的实际推进
+
+已追溯所有 112 个训练/验证家族到 Anymate 官方原资产映射；其中 101 个可在固定 Objaverse-XL GitHub 索引中定位。首个训练资产的原始 FBX 已按 SHA-256 核验，Blender 5.2.3 在禁用自动脚本的后台模式完成四个 224² 视图，官方 DINOv2 ViT-S/14 在 MPS 提取 4×256×384 特征。
+
+首次导出未求值的 FBX 顶点与实际渲染姿态不一致，导致可见顶点为零；失败记录保留。改为导出 armature/modifier 求值后的网格，并加入非空检查，现有 1871 顶点中 1253 被四视图观测，聚合为 1028 个 64³ 活跃表面体素，384 维特征。它是后续真实 Sparse VAE 的输入准备，**不是已经得到作者 SLats**，也未混入本轮九次训练。
+
+目前没有训练/移植 FlexiCubes 几何解码、完整稀疏 VAE、四个图像条件 flow 或语义命名模块。完整生成训练仍需一致的网格/DINO/rig 预处理、预训练模块兼容性与联合重建验证；停止行为改善不足以支持直接宣称完整生成成功。原始资产、图像、点预测和模型权重保持本地，不上传到总览。
+
+## 重建入口
+
+```sh
+python scripts/inspect_anymate.py --split train
+python scripts/inspect_anymate.py --split test
+python scripts/download_subset.py
+python scripts/prepare_subset.py
+python scripts/audit_data.py
+python scripts/train_subset.py --mode rig --device mps --name round1
+python scripts/train_subset.py --mode geometry --device mps --name round1
+python scripts/train_subset.py --mode rig --device mps --name round1_balanced --balanced-stop
+python scripts/audit_evaluations.py
+python scripts/verify_checkpoint.py --suite round1
+python scripts/verify_checkpoint.py --suite round1_balanced
+python scripts/report_training.py
+```
+
+训练目录非空时拒绝覆盖；重跑另选 `--name` 并保留历史。下载缓存逐资产验哈希；prepare 可重建相同预处理，配置保存其清单哈希；回放拒绝清单不一致。
+
+生成数据准备单独运行：
+
+```sh
+python scripts/resolve_original_mesh.py --download-index
+/Applications/Blender.app/Contents/MacOS/Blender --background --disable-autoexec --python scripts/render_preflight.py
+python scripts/extract_preflight_features.py
+```
+
+此额外流程首次需要约 0.8GB 公共网格元数据索引和约 86MB DINO 权重；已缓存可复用。Blender/MPS 在受限后台不可用时须使用正常桌面执行环境。完整依赖版本写入 `requirements-lock.txt`。
 
 
-# Paper-to-implementation coverage
+# Original Anymate subset: all-seed results
 
-Reviewed 2026-11-16. All original experiment tables are unreplicated.
+Real Anymate subset: 96 train/16 validation/32 test; 83/14/32 eligible single-root skeletons; 2000 steps, three seeds per condition, width64/layers2, 256 train queries and 512 eval queries
 
-| Component | Status | Evidence or gap |
-|---|---|---|
-| Rig-aware feature pooling, Eq.2 | Implemented and tested | Exact weighted-average reference and gradients |
-| Bone 64³ occupancy | Independent implementation | Closed-cell boundary assumption explicit; not author-equivalent voxelizer |
-| BFS coordinate/parent tokens | Implemented and tested | Global depth z-y-x sort; 100 random permutations; invalid-tree rejection |
-| Surface/skeleton sparse encoders | Missing | No DINO/TRELLIS extraction or rig Sparse VAE |
-| Rig-conditioned FlexiCubes mesh | Missing | No CUDA-equivalent mesh/rendering port |
-| Autoregressive skeleton decoder | Missing | Token preprocessing alone is not decoder generation |
-| Point-bone skinning Eq.7 | Initial small component only | Eight tests total; CPU/MPS one forward/backward; no training, PE or masks |
-| Four rectified flow models | Missing | No occupancy VAE or image-conditioned training |
-| Open-vocabulary joint labels | Missing | No Qwen cleanup or learned CLIP-aligned joint embeddings |
-| Tables 1–2, generated rigs | Not reproduced | No original data/model experiment |
-| Table 3, mesh/generation quality | Not reproduced | No trained geometry/generator |
-| Tables 4–5, mesh-conditioned ablations | Not reproduced | No real-data model training |
-| Table 6, semantic labeling | Not reproduced | No label data/model experiment |
+Held-out reconstruction proxy; GT rig geometry remains a conditioning input. Rig-context mode also uses GT skin weights to form context. Not image-conditioned generation or original-paper numerical reproduction.
 
-Anymate public metadata and download entry have been inspected; original data have not been downloaded or executed. No procedural check establishes generalization or numerical agreement.
+Distances and L1 below are multiplied by 100 for readability. Mean ± sample SD across three seeds. They are not comparable to image-conditioned paper tables.
+
+| Condition | Skin element L1 ×100 | J2J ×100 | J2B ×100 | B2B ×100 | Cap hits /96 |
+|---|---:|---:|---:|---:|---:|
+| Rig reconstruction | 3.484 ± 0.084 | 13.341 ± 1.167 | 12.361 ± 1.348 | 11.169 ± 1.132 | 96/96 |
+| Geometry rig | 3.490 ± 0.070 | 13.575 ± 1.064 | 12.599 ± 1.221 | 11.252 ± 1.101 | 96/96 |
+| Balanced EOS | 3.587 ± 0.095 | 15.015 ± 1.281 | 14.090 ± 1.487 | 12.514 ± 1.356 | 2/96 |
+
+Bone-distance control: skin element L1 ×100 = 3.501; train-rig surface retrieval: J2J ×100 = 10.015. These are local controls, not the paper baselines.
+
+The unweighted-stop settings reach the cap frequently. Balanced EOS is an explicitly changed diagnostic loss; its improvement in stopping does not establish improved geometry. No unsuccessful run is replaced by a favorable seed.
+
+Skinning evaluation uses supplied GT bone geometry and point correspondence. The rig reconstruction context also contains GT-skin-derived pooled features. No full image-to-asset generation, learned Sparse VAE, geometry decoder or paper table is reproduced.
+
+Original raw files, pointwise predictions and pretrained weights remain local and ignored by Git. Configs, traces, hashes, exclusions and per-asset scalar metrics are retained.
