@@ -1,0 +1,50 @@
+[
+  {
+    "project": "directional-stationarity",
+    "asset": "assets/previews/directional-stationarity.png",
+    "source_path": "results/report-v2/figure2.png",
+    "source_url": "https://github.com/gulucaptain/Directional-Stationarity-Reproduction/blob/4f3e3748195869b84d22d0df5de8ee7752d095ad/results/report-v2/figure2.png",
+    "sha256": "77c5b34134ec4ed3d73af3419995539cf196fec01be222e96281ae92d38756b5",
+    "caption": "Trimmed Lasso local trajectories; representative instance, not the original paper instance."
+  },
+  {
+    "project": "quadratic-bezier-splatting",
+    "asset": "assets/previews/quadratic-bezier-splatting.png",
+    "source_path": "results/comparison.png",
+    "source_url": "https://github.com/gulucaptain/Quadratic-Bezier-Splatting-Reproduction/blob/ccd939e900b0cefff1aa30d3e0e7cbfe267852b0/results/comparison.png",
+    "sha256": "0afccf2989ffab9b2420e5a22494616b602727fb5711b6ebc263c75e4dbf1afd",
+    "caption": "Three-image local comparison at 128×128 with 128 strokes; no trained initializer."
+  },
+  {
+    "project": "koalags",
+    "asset": "assets/previews/koalags.png",
+    "source_path": "results/expanded_report/common_48.png",
+    "source_url": "https://github.com/gulucaptain/KoalaGS-Reproduction/blob/c71666958cff0b97b15684dcb4df786b7e9fcdcd/results/expanded_report/common_48.png",
+    "sha256": "c2141d980bece1418627d2ce45d3edc827b0a805571e983c050477b2b17e3150",
+    "caption": "All three seeds at common 48×48 evaluation; two training rounds use different capacities."
+  },
+  {
+    "project": "physpring",
+    "asset": "assets/previews/physpring.png",
+    "source_path": "results/round3/comparison.png",
+    "source_url": "https://github.com/gulucaptain/PhySPRING-Reproduction/blob/11bf3814d84042dd7bcfa2a5e258d00e5a85a480/results/round3/comparison.png",
+    "sha256": "f87e6505a6fa8d02d8ab39c6402973b847c5a402b45a5f603256381c7198bd31",
+    "caption": "Real cloth subset and force diagnostics; panels use different metrics and cannot be compared directly."
+  },
+  {
+    "project": "matrixsplat",
+    "asset": "assets/previews/matrixsplat.png",
+    "source_path": "results/round05/render_comparison.png",
+    "source_url": "https://github.com/gulucaptain/MatrixSplat-Reproduction/blob/2229a8199fbb53a8bd2c3da6720c1ac1646d6801/results/round05/render_comparison.png",
+    "sha256": "bad3e16e0cc223a1808df562ae32f095f5cce6471d79857b11c19ad65d7ab293",
+    "caption": "Held-out synthetic rendering; fixed geometry, local appearance/blending optimization."
+  },
+  {
+    "project": "simuscene",
+    "asset": "assets/previews/simuscene.png",
+    "source_path": "results/round05/scenes.png",
+    "source_url": "https://github.com/gulucaptain/SimuScene-Reproduction/blob/3ebf35bf6119131de20a6b6a2b33985a30e50c21/results/round05/scenes.png",
+    "sha256": "cf1c0f4290b8f69573e269a607c435024dbbc14b10c57129fb5a05de2e7082bd",
+    "caption": "Procedural scenes before and after geometry/physics correction; not image-to-scene reconstruction."
+  }
+]
