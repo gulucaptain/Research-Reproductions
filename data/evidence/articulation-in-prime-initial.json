@@ -1,0 +1,3002 @@
+{
+  "scope": "Procedural solver diagnostics, not official AiP benchmarks",
+  "run_count": 30,
+  "selection": "Best of 5 for main pilot; best of 3 for ablations; one selected seed for convergence",
+  "selected": [
+    {
+      "suite": "ablations",
+      "case": "hinge",
+      "variant": "no_flow",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "selected_seed": 1,
+      "selection": "minimum final objective (no GT selection)",
+      "final_loss": 0.04276549443602562,
+      "metrics": {
+        "miou": 0.9522824804307326,
+        "joint_type_accuracy": 1.0,
+        "missing_parts": 0,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 2,
+            "iou": 0.9618441971383148,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.019689500331878662,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 1,
+            "iou": 0.9427207637231504,
+            "gt_type": "revolute",
+            "predicted_type": "revolute",
+            "type_correct": true,
+            "motion_amplitude": 0.26355475187301636,
+            "status": "matched",
+            "axis_error_deg": 7.049292123501511,
+            "state_error_deg": 26.694710078464098,
+            "pivot_error_cm": 134.51573181152344
+          }
+        ],
+        "axis_error_deg": 7.049292123501511,
+        "pivot_error_cm": 134.51573181152344,
+        "state_error_deg": 26.694710078464098,
+        "state_error_cm": null,
+        "state_metric_coverage": 1.0
+      },
+      "source": "results/ablations/hinge/no_flow/seed1/summary.json",
+      "all_seed_miou": [
+        0.29736328125,
+        0.9522824804307326,
+        0.29736328125
+      ],
+      "all_seed_type_accuracy": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "missing_part_runs": 2,
+      "elapsed_s": 82.76593512482941
+    },
+    {
+      "suite": "ablations",
+      "case": "hinge",
+      "variant": "no_motion",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "selected_seed": 1,
+      "selection": "minimum final objective (no GT selection)",
+      "final_loss": 0.041434984654188156,
+      "metrics": {
+        "miou": 0.9969677526182887,
+        "joint_type_accuracy": 1.0,
+        "missing_parts": 0,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 0,
+            "iou": 0.9975369458128078,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.0011196206323802471,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 1,
+            "iou": 0.9963985594237695,
+            "gt_type": "revolute",
+            "predicted_type": "revolute",
+            "type_correct": true,
+            "motion_amplitude": 1.2002592086791992,
+            "status": "matched",
+            "axis_error_deg": 0.0,
+            "state_error_deg": 0.047013045830844015,
+            "pivot_error_cm": 0.027946745976805687
+          }
+        ],
+        "axis_error_deg": 0.0,
+        "pivot_error_cm": 0.027946745976805687,
+        "state_error_deg": 0.047013045830844015,
+        "state_error_cm": null,
+        "state_metric_coverage": 1.0
+      },
+      "source": "results/ablations/hinge/no_motion/seed1/summary.json",
+      "all_seed_miou": [
+        0.29736328125,
+        0.9969677526182887,
+        1.0
+      ],
+      "all_seed_type_accuracy": [
+        0.0,
+        1.0,
+        1.0
+      ],
+      "missing_part_runs": 1,
+      "elapsed_s": 85.11241637507919
+    },
+    {
+      "suite": "ablations",
+      "case": "hinge",
+      "variant": "no_visibility",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "selected_seed": 2,
+      "selection": "minimum final objective (no GT selection)",
+      "final_loss": 0.12158796936273575,
+      "metrics": {
+        "miou": 0.29736328125,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 0,
+            "iou": 0.5947265625,
+            "gt_type": "static",
+            "predicted_type": "revolute",
+            "type_correct": false,
+            "motion_amplitude": 0.18279728293418884,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "source": "results/ablations/hinge/no_visibility/seed2/summary.json",
+      "all_seed_miou": [
+        0.29736328125,
+        0.29736328125,
+        0.29736328125
+      ],
+      "all_seed_type_accuracy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "missing_part_runs": 3,
+      "elapsed_s": 71.10278495692182
+    },
+    {
+      "suite": "convergence",
+      "case": "hinge",
+      "variant": "full",
+      "seeds": [
+        2
+      ],
+      "selected_seed": 2,
+      "selection": "minimum final objective (no GT selection)",
+      "final_loss": 0.05785965174436569,
+      "metrics": {
+        "miou": 0.9879210057228633,
+        "joint_type_accuracy": 1.0,
+        "missing_parts": 0,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 3,
+            "iou": 0.9901960784313726,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.0017611763905733824,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 0,
+            "iou": 0.9856459330143541,
+            "gt_type": "revolute",
+            "predicted_type": "revolute",
+            "type_correct": true,
+            "motion_amplitude": 0.7132543921470642,
+            "status": "matched",
+            "axis_error_deg": 0.0,
+            "state_error_deg": 13.743796294132514,
+            "pivot_error_cm": 23.72808837890625
+          }
+        ],
+        "axis_error_deg": 0.0,
+        "pivot_error_cm": 23.72808837890625,
+        "state_error_deg": 13.743796294132514,
+        "state_error_cm": null,
+        "state_metric_coverage": 1.0
+      },
+      "source": "results/convergence/hinge/full/seed2/summary.json",
+      "all_seed_miou": [
+        0.9879210057228633
+      ],
+      "all_seed_type_accuracy": [
+        1.0
+      ],
+      "missing_part_runs": 0,
+      "elapsed_s": 135.2697198340902
+    },
+    {
+      "suite": "pilot",
+      "case": "drawer",
+      "variant": "full",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "selected_seed": 3,
+      "selection": "minimum final objective (no GT selection)",
+      "final_loss": 0.07440938800573349,
+      "metrics": {
+        "miou": 0.460693359375,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 2,
+            "iou": 0.92138671875,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.003079833462834358,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "source": "results/pilot/drawer/full/seed3/summary.json",
+      "all_seed_miou": [
+        0.460693359375,
+        0.460693359375,
+        0.460693359375,
+        0.460693359375,
+        0.460693359375
+      ],
+      "all_seed_type_accuracy": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "missing_part_runs": 5,
+      "elapsed_s": 139.430233583902
+    },
+    {
+      "suite": "pilot",
+      "case": "dual",
+      "variant": "full",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "selected_seed": 2,
+      "selection": "minimum final objective (no GT selection)",
+      "final_loss": 0.06847308576107025,
+      "metrics": {
+        "miou": 0.96727820095239,
+        "joint_type_accuracy": 0.5,
+        "missing_parts": 0,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 1,
+            "iou": 0.9673076923076923,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.000788832432590425,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 2,
+            "iou": 0.9675599435825106,
+            "gt_type": "revolute",
+            "predicted_type": "prismatic",
+            "type_correct": false,
+            "motion_amplitude": 0.3609295189380646,
+            "status": "matched",
+            "axis_error_deg": 89.96892362159348
+          },
+          {
+            "gt_part": 2,
+            "pred_part": 3,
+            "iou": 0.9669669669669669,
+            "gt_type": "prismatic",
+            "predicted_type": "prismatic",
+            "type_correct": true,
+            "motion_amplitude": 0.3331354856491089,
+            "status": "matched",
+            "axis_error_deg": 0.05595291190411357,
+            "state_error_cm": 1.13357650116086
+          }
+        ],
+        "axis_error_deg": 45.012438266748795,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": 1.13357650116086,
+        "state_metric_coverage": 0.5
+      },
+      "source": "results/pilot/dual/full/seed2/summary.json",
+      "all_seed_miou": [
+        0.5607010149752111,
+        0.4683427047649485,
+        0.96727820095239,
+        0.5634020347851826,
+        0.16650390625
+      ],
+      "all_seed_type_accuracy": [
+        0.0,
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "missing_part_runs": 4,
+      "elapsed_s": 141.1192384158494
+    },
+    {
+      "suite": "pilot",
+      "case": "hinge",
+      "variant": "full",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "selected_seed": 2,
+      "selection": "minimum final objective (no GT selection)",
+      "final_loss": 0.06188030168414116,
+      "metrics": {
+        "miou": 1.0,
+        "joint_type_accuracy": 1.0,
+        "missing_parts": 0,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 3,
+            "iou": 1.0,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.002772250445559621,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 0,
+            "iou": 1.0,
+            "gt_type": "revolute",
+            "predicted_type": "revolute",
+            "type_correct": true,
+            "motion_amplitude": 0.6658838391304016,
+            "status": "matched",
+            "axis_error_deg": 0.027976455118293345,
+            "state_error_deg": 15.089658603100492,
+            "pivot_error_cm": 28.034337997436523
+          }
+        ],
+        "axis_error_deg": 0.027976455118293345,
+        "pivot_error_cm": 28.034337997436523,
+        "state_error_deg": 15.089658603100492,
+        "state_error_cm": null,
+        "state_metric_coverage": 1.0
+      },
+      "source": "results/pilot/hinge/full/seed2/summary.json",
+      "all_seed_miou": [
+        0.29736328125,
+        0.9680244735759937,
+        1.0,
+        0.9571678871339313,
+        0.29736328125
+      ],
+      "all_seed_type_accuracy": [
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "missing_part_runs": 2,
+      "elapsed_s": 126.58158283308148
+    },
+    {
+      "suite": "pilot",
+      "case": "occluded_hinge",
+      "variant": "full",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "selected_seed": 2,
+      "selection": "minimum final objective (no GT selection)",
+      "final_loss": 0.05948788300156593,
+      "metrics": {
+        "miou": 0.8119426437139232,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 0,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 1,
+            "iou": 0.9311900733220531,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.0026386617682874203,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 3,
+            "iou": 0.6926952141057935,
+            "gt_type": "revolute",
+            "predicted_type": "prismatic",
+            "type_correct": false,
+            "motion_amplitude": 0.2064119428396225,
+            "status": "matched",
+            "axis_error_deg": 89.92623863234425
+          }
+        ],
+        "axis_error_deg": 89.92623863234425,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "source": "results/pilot/occluded_hinge/full/seed2/summary.json",
+      "all_seed_miou": [
+        0.432861328125,
+        0.432861328125,
+        0.8119426437139232,
+        0.432861328125,
+        0.432861328125
+      ],
+      "all_seed_type_accuracy": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "missing_part_runs": 4,
+      "elapsed_s": 138.48446191614494
+    }
+  ],
+  "records": [
+    {
+      "final_loss": 0.11385487020015717,
+      "elapsed_s": 27.73268874990754,
+      "metrics": {
+        "miou": 0.29736328125,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 2,
+            "iou": 0.5947265625,
+            "gt_type": "static",
+            "predicted_type": "prismatic",
+            "type_correct": false,
+            "motion_amplitude": 0.21592217683792114,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 0.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 0,
+      "ablation": "no_flow",
+      "device": "cpu",
+      "data_sha256": "d0f5786b8c2cff40d0596dacc9f1c92e6d08491cd6e0d9fbb75acad637e469a1",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:35:13+0800",
+      "_path": "results/ablations/hinge/no_flow/seed0/summary.json",
+      "data_file": "hinge.npz"
+    },
+    {
+      "final_loss": 0.04276549443602562,
+      "elapsed_s": 26.905899624922313,
+      "metrics": {
+        "miou": 0.9522824804307326,
+        "joint_type_accuracy": 1.0,
+        "missing_parts": 0,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 2,
+            "iou": 0.9618441971383148,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.019689500331878662,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 1,
+            "iou": 0.9427207637231504,
+            "gt_type": "revolute",
+            "predicted_type": "revolute",
+            "type_correct": true,
+            "motion_amplitude": 0.26355475187301636,
+            "status": "matched",
+            "axis_error_deg": 7.049292123501511,
+            "state_error_deg": 26.694710078464098,
+            "pivot_error_cm": 134.51573181152344
+          }
+        ],
+        "axis_error_deg": 7.049292123501511,
+        "pivot_error_cm": 134.51573181152344,
+        "state_error_deg": 26.694710078464098,
+        "state_error_cm": null,
+        "state_metric_coverage": 1.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 0.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 1,
+      "ablation": "no_flow",
+      "device": "cpu",
+      "data_sha256": "d0f5786b8c2cff40d0596dacc9f1c92e6d08491cd6e0d9fbb75acad637e469a1",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:35:42+0800",
+      "_path": "results/ablations/hinge/no_flow/seed1/summary.json",
+      "data_file": "hinge.npz"
+    },
+    {
+      "final_loss": 0.05337827280163765,
+      "elapsed_s": 28.12734674999956,
+      "metrics": {
+        "miou": 0.29736328125,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 2,
+            "iou": 0.5947265625,
+            "gt_type": "static",
+            "predicted_type": "prismatic",
+            "type_correct": false,
+            "motion_amplitude": 0.27348214387893677,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 0.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 2,
+      "ablation": "no_flow",
+      "device": "cpu",
+      "data_sha256": "d0f5786b8c2cff40d0596dacc9f1c92e6d08491cd6e0d9fbb75acad637e469a1",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:36:12+0800",
+      "_path": "results/ablations/hinge/no_flow/seed2/summary.json",
+      "data_file": "hinge.npz"
+    },
+    {
+      "final_loss": 0.1720183789730072,
+      "elapsed_s": 28.52985033299774,
+      "metrics": {
+        "miou": 0.29736328125,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 2,
+            "iou": 0.5947265625,
+            "gt_type": "static",
+            "predicted_type": "prismatic",
+            "type_correct": false,
+            "motion_amplitude": 0.06318431347608566,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.0,
+        "match": 0.1
+      },
+      "seed": 0,
+      "ablation": "no_motion",
+      "device": "cpu",
+      "data_sha256": "d0f5786b8c2cff40d0596dacc9f1c92e6d08491cd6e0d9fbb75acad637e469a1",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:38:00+0800",
+      "_path": "results/ablations/hinge/no_motion/seed0/summary.json",
+      "data_file": "hinge.npz"
+    },
+    {
+      "final_loss": 0.041434984654188156,
+      "elapsed_s": 28.580065167043358,
+      "metrics": {
+        "miou": 0.9969677526182887,
+        "joint_type_accuracy": 1.0,
+        "missing_parts": 0,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 0,
+            "iou": 0.9975369458128078,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.0011196206323802471,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 1,
+            "iou": 0.9963985594237695,
+            "gt_type": "revolute",
+            "predicted_type": "revolute",
+            "type_correct": true,
+            "motion_amplitude": 1.2002592086791992,
+            "status": "matched",
+            "axis_error_deg": 0.0,
+            "state_error_deg": 0.047013045830844015,
+            "pivot_error_cm": 0.027946745976805687
+          }
+        ],
+        "axis_error_deg": 0.0,
+        "pivot_error_cm": 0.027946745976805687,
+        "state_error_deg": 0.047013045830844015,
+        "state_error_cm": null,
+        "state_metric_coverage": 1.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.0,
+        "match": 0.1
+      },
+      "seed": 1,
+      "ablation": "no_motion",
+      "device": "cpu",
+      "data_sha256": "d0f5786b8c2cff40d0596dacc9f1c92e6d08491cd6e0d9fbb75acad637e469a1",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:38:32+0800",
+      "_path": "results/ablations/hinge/no_motion/seed1/summary.json",
+      "data_file": "hinge.npz"
+    },
+    {
+      "final_loss": 0.04329443350434303,
+      "elapsed_s": 28.002500875038095,
+      "metrics": {
+        "miou": 1.0,
+        "joint_type_accuracy": 1.0,
+        "missing_parts": 0,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 3,
+            "iou": 1.0,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.003147769719362259,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 0,
+            "iou": 1.0,
+            "gt_type": "revolute",
+            "predicted_type": "revolute",
+            "type_correct": true,
+            "motion_amplitude": 1.200641393661499,
+            "status": "matched",
+            "axis_error_deg": 0.03426402009603798,
+            "state_error_deg": 0.027700605911353628,
+            "pivot_error_cm": 0.1953476518392563
+          }
+        ],
+        "axis_error_deg": 0.03426402009603798,
+        "pivot_error_cm": 0.1953476518392563,
+        "state_error_deg": 0.027700605911353628,
+        "state_error_cm": null,
+        "state_metric_coverage": 1.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.0,
+        "match": 0.1
+      },
+      "seed": 2,
+      "ablation": "no_motion",
+      "device": "cpu",
+      "data_sha256": "d0f5786b8c2cff40d0596dacc9f1c92e6d08491cd6e0d9fbb75acad637e469a1",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:39:03+0800",
+      "_path": "results/ablations/hinge/no_motion/seed2/summary.json",
+      "data_file": "hinge.npz"
+    },
+    {
+      "final_loss": 0.12608131766319275,
+      "elapsed_s": 23.60355029103812,
+      "metrics": {
+        "miou": 0.29736328125,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 0,
+            "iou": 0.5947265625,
+            "gt_type": "static",
+            "predicted_type": "revolute",
+            "type_correct": false,
+            "motion_amplitude": 0.17529642581939697,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": false,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 0,
+      "ablation": "no_visibility",
+      "device": "cpu",
+      "data_sha256": "d0f5786b8c2cff40d0596dacc9f1c92e6d08491cd6e0d9fbb75acad637e469a1",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:36:42+0800",
+      "_path": "results/ablations/hinge/no_visibility/seed0/summary.json",
+      "data_file": "hinge.npz"
+    },
+    {
+      "final_loss": 0.12283339351415634,
+      "elapsed_s": 23.447037540958263,
+      "metrics": {
+        "miou": 0.29736328125,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 0,
+            "iou": 0.5947265625,
+            "gt_type": "static",
+            "predicted_type": "revolute",
+            "type_correct": false,
+            "motion_amplitude": 0.1916351318359375,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": false,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 1,
+      "ablation": "no_visibility",
+      "device": "cpu",
+      "data_sha256": "d0f5786b8c2cff40d0596dacc9f1c92e6d08491cd6e0d9fbb75acad637e469a1",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:37:08+0800",
+      "_path": "results/ablations/hinge/no_visibility/seed1/summary.json",
+      "data_file": "hinge.npz"
+    },
+    {
+      "final_loss": 0.12158796936273575,
+      "elapsed_s": 24.052197124925442,
+      "metrics": {
+        "miou": 0.29736328125,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 0,
+            "iou": 0.5947265625,
+            "gt_type": "static",
+            "predicted_type": "revolute",
+            "type_correct": false,
+            "motion_amplitude": 0.18279728293418884,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": false,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 2,
+      "ablation": "no_visibility",
+      "device": "cpu",
+      "data_sha256": "d0f5786b8c2cff40d0596dacc9f1c92e6d08491cd6e0d9fbb75acad637e469a1",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:37:34+0800",
+      "_path": "results/ablations/hinge/no_visibility/seed2/summary.json",
+      "data_file": "hinge.npz"
+    },
+    {
+      "final_loss": 0.05785965174436569,
+      "elapsed_s": 135.2697198340902,
+      "metrics": {
+        "miou": 0.9879210057228633,
+        "joint_type_accuracy": 1.0,
+        "missing_parts": 0,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 3,
+            "iou": 0.9901960784313726,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.0017611763905733824,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 0,
+            "iou": 0.9856459330143541,
+            "gt_type": "revolute",
+            "predicted_type": "revolute",
+            "type_correct": true,
+            "motion_amplitude": 0.7132543921470642,
+            "status": "matched",
+            "axis_error_deg": 0.0,
+            "state_error_deg": 13.743796294132514,
+            "pivot_error_cm": 23.72808837890625
+          }
+        ],
+        "axis_error_deg": 0.0,
+        "pivot_error_cm": 23.72808837890625,
+        "state_error_deg": 13.743796294132514,
+        "state_error_cm": null,
+        "state_metric_coverage": 1.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 10000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 2,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "d0f5786b8c2cff40d0596dacc9f1c92e6d08491cd6e0d9fbb75acad637e469a1",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:35:11+0800",
+      "_path": "results/convergence/hinge/full/seed2/summary.json",
+      "data_file": "hinge.npz"
+    },
+    {
+      "final_loss": 0.10672128200531006,
+      "elapsed_s": 28.043084374978207,
+      "metrics": {
+        "miou": 0.460693359375,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 1,
+            "iou": 0.92138671875,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.0054887766018509865,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 0,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "e8be7540d04b3d5f7e781823fdc80ae890591e86f2d0edf66abf02a69072a3e4",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:33:33+0800",
+      "_path": "results/pilot/drawer/full/seed0/summary.json",
+      "data_file": "drawer.npz"
+    },
+    {
+      "final_loss": 0.08843929320573807,
+      "elapsed_s": 27.255391584010795,
+      "metrics": {
+        "miou": 0.460693359375,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 0,
+            "iou": 0.92138671875,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.006103131454437971,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 1,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "e8be7540d04b3d5f7e781823fdc80ae890591e86f2d0edf66abf02a69072a3e4",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:34:04+0800",
+      "_path": "results/pilot/drawer/full/seed1/summary.json",
+      "data_file": "drawer.npz"
+    },
+    {
+      "final_loss": 0.09313920140266418,
+      "elapsed_s": 26.7403494999744,
+      "metrics": {
+        "miou": 0.460693359375,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 3,
+            "iou": 0.92138671875,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.0022859175223857164,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 2,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "e8be7540d04b3d5f7e781823fdc80ae890591e86f2d0edf66abf02a69072a3e4",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:34:34+0800",
+      "_path": "results/pilot/drawer/full/seed2/summary.json",
+      "data_file": "drawer.npz"
+    },
+    {
+      "final_loss": 0.07440938800573349,
+      "elapsed_s": 28.335213665966876,
+      "metrics": {
+        "miou": 0.460693359375,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 2,
+            "iou": 0.92138671875,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.003079833462834358,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 3,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "e8be7540d04b3d5f7e781823fdc80ae890591e86f2d0edf66abf02a69072a3e4",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:35:03+0800",
+      "_path": "results/pilot/drawer/full/seed3/summary.json",
+      "data_file": "drawer.npz"
+    },
+    {
+      "final_loss": 0.08317842334508896,
+      "elapsed_s": 29.05619445897173,
+      "metrics": {
+        "miou": 0.460693359375,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 1,
+            "iou": 0.92138671875,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.0029336814768612385,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 4,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "e8be7540d04b3d5f7e781823fdc80ae890591e86f2d0edf66abf02a69072a3e4",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:35:33+0800",
+      "_path": "results/pilot/drawer/full/seed4/summary.json",
+      "data_file": "drawer.npz"
+    },
+    {
+      "final_loss": 0.09979583323001862,
+      "elapsed_s": 28.053078999975696,
+      "metrics": {
+        "miou": 0.5607010149752111,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 2,
+            "iou": 0.7364963503649635,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.008194646798074245,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 3,
+            "iou": 0.9456066945606695,
+            "gt_type": "revolute",
+            "predicted_type": "prismatic",
+            "type_correct": false,
+            "motion_amplitude": 0.36502933502197266,
+            "status": "matched",
+            "axis_error_deg": 89.97356573790391
+          },
+          {
+            "gt_part": 2,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": 89.97356573790391,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 0,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "a9ca12191202eddf64905362ea1caf0734460b96cccd0a0ad5abd131348f8952",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:36:04+0800",
+      "_path": "results/pilot/dual/full/seed0/summary.json",
+      "data_file": "dual.npz"
+    },
+    {
+      "final_loss": 0.09850040078163147,
+      "elapsed_s": 28.67716662492603,
+      "metrics": {
+        "miou": 0.4683427047649485,
+        "joint_type_accuracy": 0.5,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 3,
+            "iou": 0.6191536748329621,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.0024271844886243343,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 0,
+            "iou": 0.7858744394618834,
+            "gt_type": "revolute",
+            "predicted_type": "revolute",
+            "type_correct": true,
+            "motion_amplitude": 0.6720573902130127,
+            "status": "matched",
+            "axis_error_deg": 0.37009435376366145,
+            "state_error_deg": 14.829180801365593,
+            "pivot_error_cm": 24.221820831298828
+          },
+          {
+            "gt_part": 2,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": 0.37009435376366145,
+        "pivot_error_cm": 24.221820831298828,
+        "state_error_deg": 14.829180801365593,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.5
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 1,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "a9ca12191202eddf64905362ea1caf0734460b96cccd0a0ad5abd131348f8952",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:36:35+0800",
+      "_path": "results/pilot/dual/full/seed1/summary.json",
+      "data_file": "dual.npz"
+    },
+    {
+      "final_loss": 0.06847308576107025,
+      "elapsed_s": 27.723936290945858,
+      "metrics": {
+        "miou": 0.96727820095239,
+        "joint_type_accuracy": 0.5,
+        "missing_parts": 0,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 1,
+            "iou": 0.9673076923076923,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.000788832432590425,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 2,
+            "iou": 0.9675599435825106,
+            "gt_type": "revolute",
+            "predicted_type": "prismatic",
+            "type_correct": false,
+            "motion_amplitude": 0.3609295189380646,
+            "status": "matched",
+            "axis_error_deg": 89.96892362159348
+          },
+          {
+            "gt_part": 2,
+            "pred_part": 3,
+            "iou": 0.9669669669669669,
+            "gt_type": "prismatic",
+            "predicted_type": "prismatic",
+            "type_correct": true,
+            "motion_amplitude": 0.3331354856491089,
+            "status": "matched",
+            "axis_error_deg": 0.05595291190411357,
+            "state_error_cm": 1.13357650116086
+          }
+        ],
+        "axis_error_deg": 45.012438266748795,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": 1.13357650116086,
+        "state_metric_coverage": 0.5
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 2,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "a9ca12191202eddf64905362ea1caf0734460b96cccd0a0ad5abd131348f8952",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:37:06+0800",
+      "_path": "results/pilot/dual/full/seed2/summary.json",
+      "data_file": "dual.npz"
+    },
+    {
+      "final_loss": 0.09449390321969986,
+      "elapsed_s": 28.115324625046924,
+      "metrics": {
+        "miou": 0.5634020347851826,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 1,
+            "iou": 0.7392257121986852,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.005744219291955233,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 2,
+            "iou": 0.9509803921568627,
+            "gt_type": "revolute",
+            "predicted_type": "prismatic",
+            "type_correct": false,
+            "motion_amplitude": 0.3702682852745056,
+            "status": "matched",
+            "axis_error_deg": 89.99810490244101
+          },
+          {
+            "gt_part": 2,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": 89.99810490244101,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 3,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "a9ca12191202eddf64905362ea1caf0734460b96cccd0a0ad5abd131348f8952",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:37:36+0800",
+      "_path": "results/pilot/dual/full/seed3/summary.json",
+      "data_file": "dual.npz"
+    },
+    {
+      "final_loss": 0.14934153854846954,
+      "elapsed_s": 28.549731874954887,
+      "metrics": {
+        "miou": 0.16650390625,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 2,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 1,
+            "iou": 0.49951171875,
+            "gt_type": "static",
+            "predicted_type": "revolute",
+            "type_correct": false,
+            "motion_amplitude": 0.13043130934238434,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          },
+          {
+            "gt_part": 2,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 4,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "a9ca12191202eddf64905362ea1caf0734460b96cccd0a0ad5abd131348f8952",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:38:07+0800",
+      "_path": "results/pilot/dual/full/seed4/summary.json",
+      "data_file": "dual.npz"
+    },
+    {
+      "final_loss": 0.1723063588142395,
+      "elapsed_s": 24.96183416596614,
+      "metrics": {
+        "miou": 0.29736328125,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 2,
+            "iou": 0.5947265625,
+            "gt_type": "static",
+            "predicted_type": "prismatic",
+            "type_correct": false,
+            "motion_amplitude": 0.057034626603126526,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 0,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "d0f5786b8c2cff40d0596dacc9f1c92e6d08491cd6e0d9fbb75acad637e469a1",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:31:16+0800",
+      "_path": "results/pilot/hinge/full/seed0/summary.json",
+      "data_file": "hinge.npz"
+    },
+    {
+      "final_loss": 0.06412401795387268,
+      "elapsed_s": 26.288186500081792,
+      "metrics": {
+        "miou": 0.9680244735759937,
+        "joint_type_accuracy": 1.0,
+        "missing_parts": 0,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 2,
+            "iou": 0.9742351046698873,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.0020165820606052876,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 1,
+            "iou": 0.9618138424821002,
+            "gt_type": "revolute",
+            "predicted_type": "revolute",
+            "type_correct": true,
+            "motion_amplitude": 0.39029932022094727,
+            "status": "matched",
+            "axis_error_deg": 17.11784064639069,
+            "state_error_deg": 23.120335482013026,
+            "pivot_error_cm": 59.39982604980469
+          }
+        ],
+        "axis_error_deg": 17.11784064639069,
+        "pivot_error_cm": 59.39982604980469,
+        "state_error_deg": 23.120335482013026,
+        "state_error_cm": null,
+        "state_metric_coverage": 1.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 1,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "d0f5786b8c2cff40d0596dacc9f1c92e6d08491cd6e0d9fbb75acad637e469a1",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:31:43+0800",
+      "_path": "results/pilot/hinge/full/seed1/summary.json",
+      "data_file": "hinge.npz"
+    },
+    {
+      "final_loss": 0.06188030168414116,
+      "elapsed_s": 26.08057912508957,
+      "metrics": {
+        "miou": 1.0,
+        "joint_type_accuracy": 1.0,
+        "missing_parts": 0,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 3,
+            "iou": 1.0,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.002772250445559621,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 0,
+            "iou": 1.0,
+            "gt_type": "revolute",
+            "predicted_type": "revolute",
+            "type_correct": true,
+            "motion_amplitude": 0.6658838391304016,
+            "status": "matched",
+            "axis_error_deg": 0.027976455118293345,
+            "state_error_deg": 15.089658603100492,
+            "pivot_error_cm": 28.034337997436523
+          }
+        ],
+        "axis_error_deg": 0.027976455118293345,
+        "pivot_error_cm": 28.034337997436523,
+        "state_error_deg": 15.089658603100492,
+        "state_error_cm": null,
+        "state_metric_coverage": 1.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 2,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "d0f5786b8c2cff40d0596dacc9f1c92e6d08491cd6e0d9fbb75acad637e469a1",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:32:11+0800",
+      "_path": "results/pilot/hinge/full/seed2/summary.json",
+      "data_file": "hinge.npz"
+    },
+    {
+      "final_loss": 0.07559308409690857,
+      "elapsed_s": 24.22779787494801,
+      "metrics": {
+        "miou": 0.9571678871339313,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 0,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 1,
+            "iou": 0.9657097288676236,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.0008800344658084214,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 2,
+            "iou": 0.948626045400239,
+            "gt_type": "revolute",
+            "predicted_type": "prismatic",
+            "type_correct": false,
+            "motion_amplitude": 0.3796265125274658,
+            "status": "matched",
+            "axis_error_deg": 89.9726494168995
+          }
+        ],
+        "axis_error_deg": 89.9726494168995,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 3,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "d0f5786b8c2cff40d0596dacc9f1c92e6d08491cd6e0d9fbb75acad637e469a1",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:32:39+0800",
+      "_path": "results/pilot/hinge/full/seed3/summary.json",
+      "data_file": "hinge.npz"
+    },
+    {
+      "final_loss": 0.15589392185211182,
+      "elapsed_s": 25.023185166995972,
+      "metrics": {
+        "miou": 0.29736328125,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 1,
+            "iou": 0.5947265625,
+            "gt_type": "static",
+            "predicted_type": "revolute",
+            "type_correct": false,
+            "motion_amplitude": 0.24415460228919983,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 4,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "d0f5786b8c2cff40d0596dacc9f1c92e6d08491cd6e0d9fbb75acad637e469a1",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:33:06+0800",
+      "_path": "results/pilot/hinge/full/seed4/summary.json",
+      "data_file": "hinge.npz"
+    },
+    {
+      "final_loss": 0.14368633925914764,
+      "elapsed_s": 30.29114083305467,
+      "metrics": {
+        "miou": 0.432861328125,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 0,
+            "iou": 0.86572265625,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.006094580050557852,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 0,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "d487da136fcf6267e665f078839b70957e3f6724c0331d327ef629d93a4e0713",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:38:38+0800",
+      "_path": "results/pilot/occluded_hinge/full/seed0/summary.json",
+      "data_file": "occluded_hinge.npz"
+    },
+    {
+      "final_loss": 0.13053037226200104,
+      "elapsed_s": 28.476137917023152,
+      "metrics": {
+        "miou": 0.432861328125,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 1,
+            "iou": 0.86572265625,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.0064011369831860065,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 1,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "d487da136fcf6267e665f078839b70957e3f6724c0331d327ef629d93a4e0713",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:39:10+0800",
+      "_path": "results/pilot/occluded_hinge/full/seed1/summary.json",
+      "data_file": "occluded_hinge.npz"
+    },
+    {
+      "final_loss": 0.05948788300156593,
+      "elapsed_s": 26.675696542020887,
+      "metrics": {
+        "miou": 0.8119426437139232,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 0,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 1,
+            "iou": 0.9311900733220531,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.0026386617682874203,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": 3,
+            "iou": 0.6926952141057935,
+            "gt_type": "revolute",
+            "predicted_type": "prismatic",
+            "type_correct": false,
+            "motion_amplitude": 0.2064119428396225,
+            "status": "matched",
+            "axis_error_deg": 89.92623863234425
+          }
+        ],
+        "axis_error_deg": 89.92623863234425,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 2,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "d487da136fcf6267e665f078839b70957e3f6724c0331d327ef629d93a4e0713",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:39:41+0800",
+      "_path": "results/pilot/occluded_hinge/full/seed2/summary.json",
+      "data_file": "occluded_hinge.npz"
+    },
+    {
+      "final_loss": 0.09894360601902008,
+      "elapsed_s": 26.301394541049376,
+      "metrics": {
+        "miou": 0.432861328125,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 2,
+            "iou": 0.86572265625,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.005495788529515266,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 3,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "d487da136fcf6267e665f078839b70957e3f6724c0331d327ef629d93a4e0713",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:40:10+0800",
+      "_path": "results/pilot/occluded_hinge/full/seed3/summary.json",
+      "data_file": "occluded_hinge.npz"
+    },
+    {
+      "final_loss": 0.12553450465202332,
+      "elapsed_s": 26.740092082996853,
+      "metrics": {
+        "miou": 0.432861328125,
+        "joint_type_accuracy": 0.0,
+        "missing_parts": 1,
+        "parts": [
+          {
+            "gt_part": 0,
+            "pred_part": 1,
+            "iou": 0.86572265625,
+            "gt_type": "static",
+            "predicted_type": "static",
+            "type_correct": true,
+            "motion_amplitude": 0.007579132914543152,
+            "status": "matched"
+          },
+          {
+            "gt_part": 1,
+            "pred_part": null,
+            "iou": 0.0,
+            "status": "missing"
+          }
+        ],
+        "axis_error_deg": null,
+        "pivot_error_cm": null,
+        "state_error_deg": null,
+        "state_error_cm": null,
+        "state_metric_coverage": 0.0
+      },
+      "config": {
+        "primitives": 6,
+        "parts": 4,
+        "surface_samples": 128,
+        "mesh_subdivisions": 1,
+        "steps": 2000,
+        "lr": 0.005,
+        "visibility": true,
+        "visibility_tolerance": 0.025,
+        "invisible_penalty": 10.0,
+        "part_threshold": 0.05,
+        "primitive_threshold": 0.02,
+        "primitive_threshold_mode": "fraction",
+        "static_threshold": 0.02,
+        "expected_frames": null,
+        "expected_points": null,
+        "threads": 4,
+        "log_every": 100
+      },
+      "weights": {
+        "q_to_x": 2.0,
+        "x_to_q": 2.0,
+        "flow": 1.0,
+        "part_sparsity": 0.1,
+        "part_existence": 0.05,
+        "prim_sparsity": 0.01,
+        "prim_existence": 0.05,
+        "motion": 0.1,
+        "match": 0.1
+      },
+      "seed": 4,
+      "ablation": "full",
+      "device": "cpu",
+      "data_sha256": "d487da136fcf6267e665f078839b70957e3f6724c0331d327ef629d93a4e0713",
+      "torch": "2.15.0",
+      "started": "2026-11-16T20:40:38+0800",
+      "_path": "results/pilot/occluded_hinge/full/seed4/summary.json",
+      "data_file": "occluded_hinge.npz"
+    }
+  ],
+  "local_implementation_commit": "4c0a9ecdefdf09f234dc6d1a12ba085591d29b21",
+  "implementation_published": false,
+  "public_scope": "Reviewed numerical snapshot and generated preview only. Local code, inputs, parameters and logs are not published here; this snapshot is not a publicly replayable implementation.",
+  "implementation_manifest": {
+    "phase": "Initial independent implementation",
+    "files": [
+      {
+        "path": "configs/paper.json",
+        "sha256": "c8188a6b2375795987197b7871e5e15d0710d2a8b764cb53a0e0e65f2d67b776"
+      },
+      {
+        "path": "configs/pilot.json",
+        "sha256": "5d91c8b1ccedc677461c2ddf28d957b23cfd225e5920027d79dfeb57e7971aee"
+      },
+      {
+        "path": "scripts/check_devices.py",
+        "sha256": "0ad70563f6ab19604a96566d0257d0fb3e485abeaf23c1b9e10a87638d08b24d"
+      },
+      {
+        "path": "scripts/diagnose.py",
+        "sha256": "d2140cff1473c3a10d7d795cfd588dbcb2f77a449c5ffaa565902a71fbc2dfd9"
+      },
+      {
+        "path": "scripts/report.py",
+        "sha256": "e685af7aa5b3ef54b341c7872ad8439830cc5c24cad49e1fc7ad34843591be27"
+      },
+      {
+        "path": "scripts/run_suite.py",
+        "sha256": "e9e999a078462a5d1db235831cc9f96b25f78a9838e607a0eb9aa54f2b0b1e11"
+      },
+      {
+        "path": "scripts/verify_results.py",
+        "sha256": "3a6bbadffab347760c2f41773677e7c95370e5d3e03d5811da04431c9bbe06e8"
+      },
+      {
+        "path": "src/aip/__init__.py",
+        "sha256": "6fd01c9f825e2f81e087578ee71e7415b9aa358dc0d6c660d5bae5c1d03c3ded"
+      },
+      {
+        "path": "src/aip/cli.py",
+        "sha256": "09a91a0443555a705f4e7a1f2fa0813123b6a89405ac3b937fa097ab370a7c62"
+      },
+      {
+        "path": "src/aip/data.py",
+        "sha256": "789b18f271366db62837bf478a932a00513a08a52f440fb724110e208def116f"
+      },
+      {
+        "path": "src/aip/geometry.py",
+        "sha256": "8ec82b0769edc5c754bd20bd80403e31699dd12269c3949d9955cefd80ab286f"
+      },
+      {
+        "path": "src/aip/metrics.py",
+        "sha256": "f527813c27f75f532d327d74d9bb1c519a56cd9803292dc8dc69888da45e656b"
+      },
+      {
+        "path": "src/aip/model.py",
+        "sha256": "a9f638ec0032fb1956b6049f2b313d862b17c3104eacd4a28ba47d57526b80ae"
+      },
+      {
+        "path": "src/aip/visibility.py",
+        "sha256": "ca69d91f0f5e342306cddc27bdfaef52c30e290a6923a25fa2c605b6c7d59c06"
+      },
+      {
+        "path": "tests/test_core.py",
+        "sha256": "4f4577bae2b88c1eed13632d142d29f29ce8e01f7b1a8a349c6a1c6586d0b000"
+      }
+    ]
+  },
+  "device_check": {
+    "cpu": {
+      "loss": 1.669406533241272,
+      "terms": {
+        "q_to_x": 0.26679903268814087,
+        "x_to_q": 0.3913646638393402,
+        "flow": 0.11762510240077972,
+        "part_sparsity": 0.24998843669891357,
+        "part_existence": 0.6931471824645996,
+        "prim_sparsity": 0.2498270571231842,
+        "prim_existence": 0.6931471824645996,
+        "motion": 0.0010633192723616958,
+        "match": 1.385359525680542
+      }
+    },
+    "mps": {
+      "loss": 1.669406771659851,
+      "terms": {
+        "q_to_x": 0.26679906249046326,
+        "x_to_q": 0.3913646638393402,
+        "flow": 0.11762509495019913,
+        "part_sparsity": 0.24998843669891357,
+        "part_existence": 0.6931471824645996,
+        "prim_sparsity": 0.2498270869255066,
+        "prim_existence": 0.6931471824645996,
+        "motion": 0.0010633192723616958,
+        "match": 1.385359287261963
+      }
+    },
+    "max_gradient_abs_difference": 1.4603137969970703e-06,
+    "loss_abs_difference": 2.384185791015625e-07,
+    "passed": true
+  },
+  "motion_scale_check": {
+    "scope": "Oracle diagnostic of flow+motion only, using GT labels/joints; not model fitting and not an attribution of all observed errors",
+    "flow_l1_m": 0.0328211672604084,
+    "gt_motion_penalty": 0.02495584636926651,
+    "rows": [
+      {
+        "geometry_scale": 0.25,
+        "minimizing_motion_factor": 0.16,
+        "loss_at_true_motion": 0.02495584771339977,
+        "minimum_loss": 0.007561993173513882
+      },
+      {
+        "geometry_scale": 0.5,
+        "minimizing_motion_factor": 0.325,
+        "loss_at_true_motion": 0.02495584878500156,
+        "minimum_loss": 0.013812833725118386
+      },
+      {
+        "geometry_scale": 1.0,
+        "minimizing_motion_factor": 0.665,
+        "loss_at_true_motion": 0.024955850928205146,
+        "minimum_loss": 0.022228484860439962
+      },
+      {
+        "geometry_scale": 2.0,
+        "minimizing_motion_factor": 1.0,
+        "loss_at_true_motion": 0.024955855214612317,
+        "minimum_loss": 0.024955855214612317
+      },
+      {
+        "geometry_scale": 4.0,
+        "minimizing_motion_factor": 1.0,
+        "loss_at_true_motion": 0.024955863787426653,
+        "minimum_loss": 0.024955863787426653
+      }
+    ]
+  },
+  "visibility_check": {
+    "scope": "Analytic sphere oracle; does not establish Nvdiffrast equivalence on SQs",
+    "rows": [
+      {
+        "subdivision": 1,
+        "resolution": 64,
+        "depth_mae_m": 0.06330894761759454,
+        "depth_p99_m": 0.2318053392187164,
+        "silhouette_iou": 0.9153754469606674,
+        "self_visibility_agreement": 0.88075,
+        "tolerance_m": 0.01
+      },
+      {
+        "subdivision": 1,
+        "resolution": 128,
+        "depth_mae_m": 0.06399018748567907,
+        "depth_p99_m": 0.2467971488037568,
+        "silhouette_iou": 0.9237668161434978,
+        "self_visibility_agreement": 0.887,
+        "tolerance_m": 0.01
+      },
+      {
+        "subdivision": 1,
+        "resolution": 256,
+        "depth_mae_m": 0.06361910173158221,
+        "depth_p99_m": 0.24859869949717667,
+        "silhouette_iou": 0.9205638845379279,
+        "self_visibility_agreement": 0.88275,
+        "tolerance_m": 0.01
+      },
+      {
+        "subdivision": 2,
+        "resolution": 64,
+        "depth_mae_m": 0.017800490762923848,
+        "depth_p99_m": 0.0843302136284663,
+        "silhouette_iou": 0.9761620977353993,
+        "self_visibility_agreement": 0.90675,
+        "tolerance_m": 0.01
+      },
+      {
+        "subdivision": 2,
+        "resolution": 128,
+        "depth_mae_m": 0.017629326329308994,
+        "depth_p99_m": 0.0744833732031251,
+        "silhouette_iou": 0.9814648729446935,
+        "self_visibility_agreement": 0.93175,
+        "tolerance_m": 0.01
+      },
+      {
+        "subdivision": 2,
+        "resolution": 256,
+        "depth_mae_m": 0.017894014729289587,
+        "depth_p99_m": 0.08036205265587835,
+        "silhouette_iou": 0.9810546729320504,
+        "self_visibility_agreement": 0.93875,
+        "tolerance_m": 0.01
+      },
+      {
+        "subdivision": 3,
+        "resolution": 64,
+        "depth_mae_m": 0.004735215931953144,
+        "depth_p99_m": 0.024079535137905506,
+        "silhouette_iou": 0.9892729439809297,
+        "self_visibility_agreement": 0.86875,
+        "tolerance_m": 0.01
+      },
+      {
+        "subdivision": 3,
+        "resolution": 128,
+        "depth_mae_m": 0.004577182177764568,
+        "depth_p99_m": 0.021117918393380286,
+        "silhouette_iou": 0.9940209267563528,
+        "self_visibility_agreement": 0.90975,
+        "tolerance_m": 0.01
+      },
+      {
+        "subdivision": 3,
+        "resolution": 256,
+        "depth_mae_m": 0.004686756669251477,
+        "depth_p99_m": 0.024651564328229902,
+        "silhouette_iou": 0.9953009621839337,
+        "self_visibility_agreement": 0.954,
+        "tolerance_m": 0.01
+      }
+    ]
+  },
+  "replay_check": {
+    "passed": true,
+    "checks": [
+      {
+        "source": "results/ablations/hinge/no_flow/seed1/summary.json",
+        "loss": 0.04276549443602562,
+        "passed": true
+      },
+      {
+        "source": "results/ablations/hinge/no_motion/seed1/summary.json",
+        "loss": 0.041434984654188156,
+        "passed": true
+      },
+      {
+        "source": "results/ablations/hinge/no_visibility/seed2/summary.json",
+        "loss": 0.12158796936273575,
+        "passed": true
+      },
+      {
+        "source": "results/convergence/hinge/full/seed2/summary.json",
+        "loss": 0.05785965174436569,
+        "passed": true
+      },
+      {
+        "source": "results/pilot/drawer/full/seed3/summary.json",
+        "loss": 0.07440938800573349,
+        "passed": true
+      },
+      {
+        "source": "results/pilot/dual/full/seed2/summary.json",
+        "loss": 0.06847308576107025,
+        "passed": true
+      },
+      {
+        "source": "results/pilot/hinge/full/seed2/summary.json",
+        "loss": 0.06188030168414116,
+        "passed": true
+      },
+      {
+        "source": "results/pilot/occluded_hinge/full/seed2/summary.json",
+        "loss": 0.05948788300156593,
+        "passed": true
+      }
+    ]
+  },
+  "paper_shape_smoke": {
+    "cpu": {
+      "steps": 5,
+      "elapsed_s": 4.380279875011183,
+      "scope": "25x4096 input, Q10/P8, 500 surface samples; synthetic data and 5 steps only"
+    },
+    "mps": {
+      "steps": 5,
+      "elapsed_s": 7.28020533407107,
+      "scope": "25x4096 input, Q10/P8, 500 surface samples; synthetic data and 5 steps only"
+    }
+  },
+  "tests_passed": 5,
+  "reviewed": "2026-11-16"
+}
