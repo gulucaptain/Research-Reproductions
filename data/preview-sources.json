@@ -59,10 +59,10 @@
   {
     "project": "rigel3d",
     "asset": "assets/previews/rigel3d.png",
-    "source_path": "rigel3d/results/round2/comparison.png (unpublished local implementation)",
-    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/de70042b69a9a6b537583e4bc9510e33d2db4bd8/assets/previews/rigel3d.png",
-    "sha256": "ace876f467f8bae5778b46d4222492fc5817165c49aa5c3229403b727ba5c9fe",
-    "caption": "Fixed aligned Anymate cohort25 train/6 validation/10 test; three seeds. Geometry/DINO/VAE decoder comparisons use GT rig context and GT bones for skin accuracy. Bottom right separates GT-latent mesh reconstruction from strict single-image generation at CFG5; empty fields receive the declared unit-box-diameter penalty. Dots: seeds; error bars: sample SD. No raw asset image or paper-table match.",
-    "source_scope": "Reviewed unchanged aggregate scalar plot; private original-asset images and pointwise data are not published."
+    "source_path": "rigel3d/results/round3/comparison.png (unpublished local implementation)",
+    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/af25dc8168b07a6b9f7a0b6d10407b779fa54ae3/assets/previews/rigel3d.png",
+    "sha256": "43cd46712dbab6b1769a8c78234f4ffc4cfa112a00891143a6f583b455692a96",
+    "caption": "Fixed25 train/6 validation/10 test cohort. Top: GT-conditioned mesh/free-skeleton tasks; official model and GT-support shell are fixed controls, other dots are three seeds with sample SD. Bottom: strict single-image full-weight-stage generation, standard MSE versus changed foreground-balanced diagnostic. Nonempty pipelines are not fidelity. No raw asset images.",
+    "source_scope": "Unchanged reviewed aggregate scalar plot; public snapshot has no raw asset/image, vertex/skin arrays or model weights."
   }
 ]
