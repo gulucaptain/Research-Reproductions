@@ -8,7 +8,7 @@
 <p>Independent algorithms · CPU & Apple Silicon · Documented results and limitations</p>
 
 <p>
-<img src="https://img.shields.io/badge/Collection-8%20papers-2563eb?style=flat-square" alt="Collection: 8 papers">
+<img src="https://img.shields.io/badge/Collection-9%20papers-2563eb?style=flat-square" alt="Collection: 9 papers">
 <img src="https://img.shields.io/badge/Scope-Independent%20reproductions-059669?style=flat-square" alt="Independent reproductions">
 <a href="https://github.com/gulucaptain/Research-Reproductions/actions/workflows/checks.yml"><img src="https://github.com/gulucaptain/Research-Reproductions/actions/workflows/checks.yml/badge.svg" alt="Registry and documentation checks"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="Code license: MIT"></a>
@@ -38,6 +38,7 @@ A growing collection of independent research-method implementations with traceab
 | **SimuScene: Simulation-Ready Compositional 3D Scene Reconstruction from a Single Image** | Physics<br>CPU | **Partial reproduction**<br>Components + local experiments | [Paper](https://arxiv.org/abs/2606.03994) · [GitHub](https://github.com/gulucaptain/SimuScene-Reproduction) · [Results](https://github.com/gulucaptain/SimuScene-Reproduction/blob/main/results/round05/REPORT.md) |
 | **Articulation in Prime: Primitive-Based Articulated Object Understanding from a Single Casual Video** | 3D Vision<br>CPU + Apple Silicon | **Partial implementation**<br>Core audit + one original Arti4D cue; code not published | [Paper](https://arxiv.org/abs/2605.18645) · Implementation not published · [Results](https://github.com/gulucaptain/Research-Reproductions/blob/826c7f1d68b9f49e85734a6b4df4889e39f1f182/docs/reports/articulation-in-prime.md) |
 | **Rigel3D: Rig-aware Latents for Animation-Ready 3D Asset Generation** | 3D Vision<br>CPU + Apple Silicon | **Partial reproduction**<br>Official TRELLIS priors + short full-weight joint stage; single-image quality unresolved | [Paper](https://arxiv.org/abs/2605.13129) · Implementation not published · [Results](https://github.com/gulucaptain/Research-Reproductions/blob/af25dc8168b07a6b9f7a0b6d10407b779fa54ae3/docs/reports/rigel3d.md) |
+| **RoMo-GS: Efficient Online 3D Gaussian Splatting for Robot Mapping via Exposure-Integrated Motion Blur** | 3D Vision<br>CPU + Apple Silicon | **Core validated locally**<br>Exposure integral + gradient audit + controlled Mac reconstruction pilot | [Paper](https://arxiv.org/abs/2610.24605) · Implementation not published · [Results](https://github.com/gulucaptain/Research-Reproductions/blob/711ee1ddabd35ab08c26b2be1e6463cc4e38d21a/docs/reports/romo-gs.md) |
 
 <a id="result-previews"></a>
 ## 🖼️ Result previews
@@ -179,6 +180,23 @@ Previews come from the documented local experiments, with scope and limitations;
 [📄 Paper](https://arxiv.org/abs/2605.13129) · **Implementation not published** · [📊 Report](https://github.com/gulucaptain/Research-Reproductions/blob/af25dc8168b07a6b9f7a0b6d10407b779fa54ae3/docs/reports/rigel3d.md) · [📌 Reviewed evidence](https://github.com/gulucaptain/Research-Reproductions/tree/af25dc8168b07a6b9f7a0b6d10407b779fa54ae3)
 
 **Pinned evidence:** [data/evidence/rigel3d-round3.json](https://github.com/gulucaptain/Research-Reproductions/blob/af25dc8168b07a6b9f7a0b6d10407b779fa54ae3/data/evidence/rigel3d-round3.json) · [docs/reports/rigel3d.md](https://github.com/gulucaptain/Research-Reproductions/blob/af25dc8168b07a6b9f7a0b6d10407b779fa54ae3/docs/reports/rigel3d.md)
+
+### 09 · RoMo-GS: Efficient Online 3D Gaussian Splatting for Robot Mapping via Exposure-Integrated Motion Blur [Reproduction]
+
+[![RoMo-GS experiment preview](assets/previews/romo-gs.png)](https://github.com/gulucaptain/Research-Reproductions/blob/711ee1ddabd35ab08c26b2be1e6463cc4e38d21a/docs/reports/romo-gs.md)
+
+*Procedural 24-Gaussian scene at 32×32; known cameras, near-GT initialization, 6 train/3 held-out views. Top: MPS seed0 view2. Bottom: 3-seed sharp PSNR with sample SD and synchronized CPU/MPS dense-render timing. Midpoint sampling is a separate control; no paper table matched.*
+
+| | Local evidence |
+|:--|:--|
+| 🧩 **Implemented** | Original and stabilized exposure integrals, full-covariance projection, signed pixel velocity, dense alpha compositing, endpoint/midpoint sampling and known-camera Gaussian optimization. |
+| 🧪 **Validation** | 720 integral cases; 24 independent gradient cases; 224 near-static configurations; CPU/MPS parity; 24 synthetic fits across 3 seeds/2 devices; all checkpoints replayed. |
+| 📊 **Finding** | Stable float64 integral max error 2.11e−15; gradient error 6.85e−11. MPS sharp PSNR: analytic 43.225±0.159 dB vs static 30.066±0.104 and 10 midpoints 50.674±1.568. Analytic MPS execution is slower than CPU here. |
+| 🔎 **Remaining gaps** | One 24-Gaussian scene at 32×32, known cameras and near-GT initialization. Analytic opacity compositing has measured approximation bias. No tracking, online LM/pruning/densification, fused kernel or original benchmark. Code local/unpublished. |
+
+[📄 Paper](https://arxiv.org/abs/2610.24605) · **Implementation not published** · [📊 Report](https://github.com/gulucaptain/Research-Reproductions/blob/711ee1ddabd35ab08c26b2be1e6463cc4e38d21a/docs/reports/romo-gs.md) · [📌 Reviewed evidence](https://github.com/gulucaptain/Research-Reproductions/tree/711ee1ddabd35ab08c26b2be1e6463cc4e38d21a)
+
+**Pinned evidence:** [data/evidence/romo-gs-phase1.json](https://github.com/gulucaptain/Research-Reproductions/blob/711ee1ddabd35ab08c26b2be1e6463cc4e38d21a/data/evidence/romo-gs-phase1.json) · [docs/reports/romo-gs.md](https://github.com/gulucaptain/Research-Reproductions/blob/711ee1ddabd35ab08c26b2be1e6463cc4e38d21a/docs/reports/romo-gs.md)
 
 <a id="progress"></a>
 ## 🔎 How progress is reported

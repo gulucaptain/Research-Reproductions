@@ -271,6 +271,42 @@
           "sha256": "2d6730b396fa4914751f73d880bb3fe5f8bcbdbf6f7a4541984c464b7811212e"
         }
       ]
+    },
+    {
+      "id": "romo-gs",
+      "name": "RoMo-GS",
+      "title": "RoMo-GS: Efficient Online 3D Gaussian Splatting for Robot Mapping via Exposure-Integrated Motion Blur",
+      "repo": null,
+      "publication": "local",
+      "paper": "https://arxiv.org/abs/2610.24605",
+      "category": "3D Vision",
+      "color": "#0072b2",
+      "platform": "CPU + Apple Silicon",
+      "status": "Core validated locally",
+      "progress": "Exposure integral + gradient audit + controlled Mac reconstruction pilot",
+      "implemented": "Original and stabilized exposure integrals, full-covariance projection, signed pixel velocity, dense alpha compositing, endpoint/midpoint sampling and known-camera Gaussian optimization.",
+      "validation": "720 integral cases; 24 independent gradient cases; 224 near-static configurations; CPU/MPS parity; 24 synthetic fits across 3 seeds/2 devices; all checkpoints replayed.",
+      "result": "Stable float64 integral max error 2.11e−15; gradient error 6.85e−11. MPS sharp PSNR: analytic 43.225±0.159 dB vs static 30.066±0.104 and 10 midpoints 50.674±1.568. Analytic MPS execution is slower than CPU here.",
+      "limitations": "One 24-Gaussian scene at 32×32, known cameras and near-GT initialization. Analytic opacity compositing has measured approximation bias. No tracking, online LM/pruning/densification, fused kernel or original benchmark. Code local/unpublished.",
+      "image": "assets/previews/romo-gs.png",
+      "image_caption": "Procedural 24-Gaussian scene at 32×32; known cameras, near-GT initialization, 6 train/3 held-out views. Top: MPS seed0 view2. Bottom: 3-seed sharp PSNR with sample SD and synchronized CPU/MPS dense-render timing. Midpoint sampling is a separate control; no paper table matched.",
+      "report": "https://github.com/gulucaptain/Research-Reproductions/blob/711ee1ddabd35ab08c26b2be1e6463cc4e38d21a/docs/reports/romo-gs.md",
+      "commit": null,
+      "evidence_repo": "https://github.com/gulucaptain/Research-Reproductions",
+      "evidence_commit": "711ee1ddabd35ab08c26b2be1e6463cc4e38d21a",
+      "updated": "2026-11-17",
+      "evidence": [
+        {
+          "path": "data/evidence/romo-gs-phase1.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/711ee1ddabd35ab08c26b2be1e6463cc4e38d21a/data/evidence/romo-gs-phase1.json",
+          "sha256": "f505ae291dda89347977b901389b1e3ccb6df343ab8b677bed002f10e9215858"
+        },
+        {
+          "path": "docs/reports/romo-gs.md",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/711ee1ddabd35ab08c26b2be1e6463cc4e38d21a/docs/reports/romo-gs.md",
+          "sha256": "af7e433cb9c736daa2db591d221d4b82de0705321138f33331229f10d540a299"
+        }
+      ]
     }
   ]
 }

@@ -64,5 +64,14 @@
     "sha256": "43cd46712dbab6b1769a8c78234f4ffc4cfa112a00891143a6f583b455692a96",
     "caption": "Fixed25 train/6 validation/10 test cohort. Top: GT-conditioned mesh/free-skeleton tasks; official model and GT-support shell are fixed controls, other dots are three seeds with sample SD. Bottom: strict single-image full-weight-stage generation, standard MSE versus changed foreground-balanced diagnostic. Nonempty pipelines are not fidelity. No raw asset images.",
     "source_scope": "Unchanged reviewed aggregate scalar plot; public snapshot has no raw asset/image, vertex/skin arrays or model weights."
+  },
+  {
+    "project": "romo-gs",
+    "asset": "assets/previews/romo-gs.png",
+    "source_path": "romo_gs/results/reconstruction.png (unpublished local implementation)",
+    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/711ee1ddabd35ab08c26b2be1e6463cc4e38d21a/assets/previews/romo-gs.png",
+    "sha256": "d7e4216702fe3613e7374e24c20d30e4a19993b4f6d0db3e3411a293b94e6570",
+    "caption": "Procedural 24-Gaussian scene at 32×32; known cameras, near-GT initialization, 6 train/3 held-out views. Top: MPS seed0 view2. Bottom: 3-seed sharp PSNR with sample SD and synchronized CPU/MPS dense-render timing. Midpoint sampling is a separate control; no paper table matched.",
+    "source_scope": "Unchanged self-generated procedural result figure. Reviewed public snapshot only; implementation remains local."
   }
 ]
