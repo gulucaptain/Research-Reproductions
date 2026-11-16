@@ -59,10 +59,10 @@
   {
     "project": "rigel3d",
     "asset": "assets/previews/rigel3d.png",
-    "source_path": "rigel3d/results/representation_check.png (unpublished local implementation)",
-    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/a8bfc184d00ef41c67ebb34e23447927107897cc/assets/previews/rigel3d.png",
-    "sha256": "29d7a238e4002d17f1e94113e32e22fc8d7a351d0910e1fc343b00e26d9f3ae4",
-    "caption": "Component checks only. Left: 64³ closed-cell voxelization of a procedural five-joint tree. Right: coordinate quantization errors over 3200 random joints per resolution, seed 2026. No learned generation or original benchmark.",
-    "source_scope": "Reviewed unchanged procedural component-check figure; not a generated asset or original benchmark."
+    "source_path": "rigel3d/results/round1/comparison.png (unpublished local implementation)",
+    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/a3e5435e99cb0992f0c46c07ac93c8c4b60c4ef8/assets/previews/rigel3d.png",
+    "sha256": "e660c84feb85b0f6f3e385a886e4324c9783e0ef5a6cc663b59dfe671e5fdb92",
+    "caption": "Original Anymate subset reconstruction proxies: 96 train/16 validation/32 test; three seeds per condition, 2000 steps, width64/layers2. GT rig geometry is supplied; rig-context features also use GT skinning. Dots: seeds; error bars: sample SD. Not image-conditioned generation or paper-table reproduction.",
+    "source_scope": "Reviewed unchanged aggregate plot from real-subset decoder experiments; no raw dataset asset or image published."
   }
 ]
