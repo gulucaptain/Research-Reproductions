@@ -78,9 +78,9 @@
     "project": "virtualrect",
     "asset": "assets/previews/virtualrect.png",
     "source_path": "assets/previews/virtualrect.png",
-    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/assets/previews/virtualrect.png",
-    "sha256": "a902180ebb88ee19811622a7c9554f70f8189fe30554cfb7399dd09861a38ea2",
-    "caption": "Synthetic checks only: 5 seeds × 256 noiseless correspondences, 5 LM steps; 51 shared-camera gauge cases. No trained model or original benchmark results.",
-    "source_scope": "Original locally generated numerical-check plot. Public snapshot does not contain the unpublished implementation; no paper figures, original dataset images or third-party weights."
+    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/b4885b339a1a3a035efb6f9bf10b82b922e7deaf/assets/previews/virtualrect.png",
+    "sha256": "7a887a446261d3258f16e1e4aeaeb5627bee24118eab3fe1af39444c267c11e7",
+    "caption": "Seven official Carla training pairs at 1024×512: untrained geometry with fixed camera control, SGBM reference and different valid masks. Full A1 optimizer steps: batch 1, four self/cross pairs, three updates per stage; 5 ms memory sampling. No original table matched.",
+    "source_scope": "Locally generated numerical-results plot; no original images, paper figures or model weights. Implementation remains unpublished; fixed evidence snapshot records independent A1 assumptions."
   }
 ]
