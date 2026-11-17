@@ -1,0 +1,48 @@
+{
+  "sift": {
+    "pre": {
+      "coverage": 0.6286206926618304,
+      "reference_depth_mae_m": 3.823310134401881,
+      "all_match_median_row_px": 0.12552751720706315
+    },
+    "post_control": {
+      "coverage": 0.6440514155796596,
+      "reference_depth_mae_m": 3.7643663814055492,
+      "all_match_median_row_px": 0.13065039236673417
+    },
+    "post_improved_pairs": 3
+  },
+  "eloftr4": {
+    "pre": {
+      "coverage": 0.6175425393240792,
+      "reference_depth_mae_m": 4.2506164507114,
+      "all_match_median_row_px": 0.2344528399321218
+    },
+    "post_control": {
+      "coverage": 0.637049811226981,
+      "reference_depth_mae_m": 4.163718707879649,
+      "all_match_median_row_px": 0.24402104184135304
+    },
+    "post_improved_pairs": 3
+  },
+  "training": {
+    "1": {
+      "first_seconds": 2.9106169580481946,
+      "warm_seconds": [
+        1.3772852079709992,
+        1.2927236669929698
+      ],
+      "max_sampled_live_gib": 5.435639381408691,
+      "max_sampled_driver_gib": 7.2506103515625
+    },
+    "2": {
+      "first_seconds": 0.9687760419910774,
+      "warm_seconds": [
+        0.5548376670340076,
+        0.5280501249944791
+      ],
+      "max_sampled_live_gib": 1.2543249130249023,
+      "max_sampled_driver_gib": 7.2505950927734375
+    }
+  }
+}

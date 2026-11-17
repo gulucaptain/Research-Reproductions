@@ -1,0 +1,88 @@
+[
+  {
+    "url": "https://torc-public-data-sharing.s3.amazonaws.com/carla-dataset/images/perturbed/cam_0/cam_0_perturbed.tar.gz",
+    "http_status": 206,
+    "download_bytes": 33554432,
+    "prefix_sha256": "0526e914bfd84a12707b6d01a11646fc0fe762cdb6de03ab9c4aa0ea95210bb5",
+    "files": [
+      {
+        "name": "images/perturbed/cam_0/00069529.png",
+        "bytes": 4808421,
+        "sha256": "e18a1cbd7e827a08ba1d3ec3f329380e07b6203a025c448f9e0aea600d5cc804"
+      },
+      {
+        "name": "images/perturbed/cam_0/00001617.png",
+        "bytes": 4345793,
+        "sha256": "b2226da3ebee1e67106a49a42d8782983ce0cb94d12b3519140b8474c73a3411"
+      },
+      {
+        "name": "images/perturbed/cam_0/00008004.png",
+        "bytes": 4322481,
+        "sha256": "922db733b472b1c6fc2e3c7af41d3c5f114199214f9f0199deaeebafb3d64318"
+      },
+      {
+        "name": "images/perturbed/cam_0/00008521.png",
+        "bytes": 4773318,
+        "sha256": "7372c84078b413e8440171a44449afc5e25e9ce52aa336c2566c653ad5d23e9c"
+      },
+      {
+        "name": "images/perturbed/cam_0/00008363.png",
+        "bytes": 4842645,
+        "sha256": "c03bf2b4383110df8733e1e7893635274e06647ae2af504c443c9c3d42a62aa0"
+      },
+      {
+        "name": "images/perturbed/cam_0/00003715.png",
+        "bytes": 5124683,
+        "sha256": "5da4096047dc0cf11869d90b905e8fe0a486e99d807aa5c7936f5b70f1ac21c8"
+      },
+      {
+        "name": "images/perturbed/cam_0/00009691.png",
+        "bytes": 4882765,
+        "sha256": "50674701280154596b9525ed7e9ca75e94b2e312f6ab7962211238d340879979"
+      }
+    ]
+  },
+  {
+    "url": "https://torc-public-data-sharing.s3.amazonaws.com/carla-dataset/images/perturbed/cam_1/cam_1_perturbed.tar.gz",
+    "http_status": 206,
+    "download_bytes": 33554432,
+    "prefix_sha256": "01d9bd2f2488bc838041a76efb6d1fe74d1015eecffa3c8cf3b0114997cc5333",
+    "files": [
+      {
+        "name": "images/perturbed/cam_1/00069529.png",
+        "bytes": 4804350,
+        "sha256": "2911d937b912fff8f4870c2872b7778dc7ae27162b93128afa6ae085ae68729a"
+      },
+      {
+        "name": "images/perturbed/cam_1/00001617.png",
+        "bytes": 4338995,
+        "sha256": "3a3c3aaba5d36d586811b4903bf337d9b4f1318ea3ea98b9cc373e5a83451dba"
+      },
+      {
+        "name": "images/perturbed/cam_1/00008004.png",
+        "bytes": 4427830,
+        "sha256": "ecfd1d44ddbb2866e8772f1547c307fefccb28f3a408931b9a5f9eb5d1b84882"
+      },
+      {
+        "name": "images/perturbed/cam_1/00008521.png",
+        "bytes": 4749960,
+        "sha256": "dbad51c1f750544a53ec5b27e0fe11e1ca42323fab8443f1550b7ff5b649f9bb"
+      },
+      {
+        "name": "images/perturbed/cam_1/00008363.png",
+        "bytes": 4711807,
+        "sha256": "124802e94956c49b85e64e9ec67add56bbff477c60dace88a9f565d51449adee"
+      },
+      {
+        "name": "images/perturbed/cam_1/00003715.png",
+        "bytes": 5156634,
+        "sha256": "a19830438932233bea0ebc3b927e4efca2ed58991bcc4bc47cfd8565dc5dd8d5"
+      },
+      {
+        "name": "images/perturbed/cam_1/00009691.png",
+        "bytes": 4903828,
+        "sha256": "664c5ab52bbf6bd103dc78541095030808e559bc33fe07e000dab0c77f5a277e"
+      }
+    ]
+  }
+]

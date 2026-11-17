@@ -1,0 +1,10 @@
+{
+  "scope": "Full assumption-set A1 stage-specific single-pair step; pretrained matching, RANSAC, weighted LM, losses, backward and Adam update; no stereo evaluator in training objective",
+  "width": 512,
+  "height": 256,
+  "batch": 1,
+  "pairs": 2,
+  "rows": [],
+  "error": "0 matches",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/zhaohaoyu/Documents/ChatGPT/Reproduction-Github/virtualrect/scripts/benchmark_training.py\", line 21, in <module>\n    loss,info=model(ims,K,H,stage);loss.backward()\n              ^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zhaohaoyu/Documents/ChatGPT/Reproduction-Github/virtualrect/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1787, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zhaohaoyu/Documents/ChatGPT/Reproduction-Github/virtualrect/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1798, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zhaohaoyu/Documents/ChatGPT/Reproduction-Github/virtualrect/training.py\", line 28, in forward\n    if N<8:raise ValueError(f'{N} matches')\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: 0 matches\n"
+}

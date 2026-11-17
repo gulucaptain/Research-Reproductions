@@ -1,0 +1,15 @@
+{
+  "weight_gradient_abs_error": 1.1687129319633424e-12,
+  "autograd": 2.8740573757636982e-06,
+  "finite_difference": 2.8740562070507663e-06,
+  "self_depth": {
+    "coverage": 1.0,
+    "evaluation_pixels": 131072,
+    "reference_depth_mae_m": 0.0
+  },
+  "gauge_depth": {
+    "coverage": 1.0,
+    "evaluation_pixels": 131072,
+    "reference_depth_mae_m": 0.0
+  }
+}
