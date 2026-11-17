@@ -1,0 +1,39 @@
+{
+  "scope": "Random-weight backbone+coarse-transformer compatibility and proxy backward only",
+  "torch": "2.15.0",
+  "mps_available": true,
+  "measurements": [
+    {
+      "height": 256,
+      "width": 512,
+      "stereo_batch": 1,
+      "self_cross_pairs": 2,
+      "seconds": [
+        2.4810309159802273,
+        0.10749229195062071,
+        0.09902945801150054
+      ],
+      "live_allocated_bytes": 274429696,
+      "driver_allocated_bytes": 1191542784,
+      "finite_loss": true,
+      "loss": 89438272.0,
+      "note": "No fine matching, RANSAC, LM, optimizer or paper losses; memory is end-of-step, not peak"
+    },
+    {
+      "height": 512,
+      "width": 1024,
+      "stereo_batch": 1,
+      "self_cross_pairs": 2,
+      "seconds": [
+        0.729589291033335,
+        0.3760843750787899,
+        0.37675695901270956
+      ],
+      "live_allocated_bytes": 376141568,
+      "driver_allocated_bytes": 3397746688,
+      "finite_loss": true,
+      "loss": 170999936.0,
+      "note": "No fine matching, RANSAC, LM, optimizer or paper losses; memory is end-of-step, not peak"
+    }
+  ]
+}

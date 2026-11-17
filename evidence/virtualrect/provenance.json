@@ -1,0 +1,97 @@
+{
+  "checked": "2026-11-17",
+  "paper": "https://arxiv.org/abs/2611.10518v1",
+  "paper_pages": 13,
+  "appendix_in_arxiv_source": false,
+  "openreview_id": "bWCyY4WYr9",
+  "openreview_status": "Browser verification; API returned HTTP 403",
+  "files": [
+    {
+      "path": "paper/virtualrect-v1.pdf",
+      "sha256": "436c714604ef530f79a94d6d72c889d5f1d46e8ca88000015528fc677a240095",
+      "bytes": 1835024
+    },
+    {
+      "path": "paper/source-v1.tar",
+      "sha256": "0ab0570e5911a465acacf54e45774281435203deacb2b9be6d34bcd568feded3",
+      "bytes": 1529429
+    },
+    {
+      "path": "paper/tex/paper.tex",
+      "sha256": "055dfa84792459b9008fbcd041ae7bd9c923e09fe5fa94274edba13d7682f246",
+      "bytes": 48890
+    },
+    {
+      "path": "paper/rscer.pdf",
+      "sha256": "ccb26c2de6f659983d7977693c0d782ad6af19b1c955ab7a5461c567a5bb9d97",
+      "bytes": 7751471
+    },
+    {
+      "path": "paper/carla-current.xml",
+      "sha256": "182407323a6d4f4a1fda963e36db5fefdee1c93af94b8d7f1b4aac40085ba466",
+      "bytes": 12123
+    },
+    {
+      "path": "paper/semitruck-current.xml",
+      "sha256": "bd2554e8e9e2ac4d92bdce0c40ae704f269a982210b34f70874dac4bd06d4eb6",
+      "bytes": 10003
+    },
+    {
+      "path": "paper/carla-train.csv",
+      "sha256": "3e7610228414e707f03a05f7e5376f73562414b101965ab69275543752f5c6f2",
+      "bytes": 396093
+    },
+    {
+      "path": "paper/carla-val.csv",
+      "sha256": "0318693287a5f34e80338e9b048b6597f59da5f734be90ef060e2a8256b097cb",
+      "bytes": 44118
+    },
+    {
+      "path": "paper/truck-train.csv",
+      "sha256": "5fd221de5214221a72ef96626de213539574851c4fd18e5cf5ac251e2e3450bd",
+      "bytes": 7959214
+    },
+    {
+      "path": "paper/truck-val.csv",
+      "sha256": "881aca7df10a437e292f3cc2a7ec4922989e4dc45066b8f103e5c40497fe0940",
+      "bytes": 1994294
+    }
+  ],
+  "external_commits": {
+    "EfficientLoFTR": "07e9c1401e71e9c556b1fda9d86d060af36ba176",
+    "FloSR": "7309ed929c1b3177dfa5ddd53961bd157d436716",
+    "TESO": "a309db1f5e5c15ac38e2cf8036f441787be33327"
+  },
+  "datasets": {
+    "carla": {
+      "compressed_image_bytes_excluding_duplicate_parts": 72836852509,
+      "compressed_image_GiB": 67.83460500556976,
+      "train_rows": 6949,
+      "val_rows": 774,
+      "unique_val_rows": 773,
+      "duplicates": [
+        {
+          "row": [
+            "0",
+            "1",
+            "True",
+            "True",
+            "cam_p_0/00006228.png",
+            "cam_p_1/00006228.png"
+          ],
+          "count": 2
+        }
+      ],
+      "train_val_identical_row_overlap": 0
+    },
+    "truck": {
+      "compressed_image_bytes_excluding_duplicate_parts": 1095168448741,
+      "compressed_image_GiB": 1019.9550993191078,
+      "train_rows": 40007,
+      "val_rows": 10022,
+      "unique_val_rows": 10022,
+      "duplicates": [],
+      "train_val_identical_row_overlap": 0
+    }
+  }
+}

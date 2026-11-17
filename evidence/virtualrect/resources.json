@@ -1,0 +1,80 @@
+{
+  "checked": "2026-11-17",
+  "resources": [
+    {
+      "name": "carla-train.csv",
+      "url": "https://torc-public-data-sharing.s3.amazonaws.com/carla-dataset/splits/train_dataset.csv",
+      "status": 200,
+      "bytes": 396093,
+      "sha256": "3e7610228414e707f03a05f7e5376f73562414b101965ab69275543752f5c6f2"
+    },
+    {
+      "name": "carla-val.csv",
+      "url": "https://torc-public-data-sharing.s3.amazonaws.com/carla-dataset/splits/val_dataset.csv",
+      "status": 200,
+      "bytes": 44118,
+      "sha256": "0318693287a5f34e80338e9b048b6597f59da5f734be90ef060e2a8256b097cb"
+    },
+    {
+      "name": "carla-config.json",
+      "url": "https://torc-public-data-sharing.s3.amazonaws.com/carla-dataset/config_args.json",
+      "status": 200,
+      "bytes": 371,
+      "sha256": "a94bdd3d5182a6fd1cd92e8fd620a18064c489a6fe860da3f4801962b86ee94f"
+    },
+    {
+      "name": "carla-poses.tar.gz",
+      "url": "https://torc-public-data-sharing.s3.amazonaws.com/carla-dataset/camera_poses.tar.gz",
+      "status": 200,
+      "bytes": 1512554,
+      "sha256": "08538e996e08277d1deb16ee263269f1ef8ff65150a6a426e4e1a20757dd6e58"
+    },
+    {
+      "name": "truck-train.csv",
+      "url": "https://torc-public-data-sharing.s3.amazonaws.com/semi-truck-highway/splits/train_dataset.csv",
+      "status": 200,
+      "bytes": 7959214,
+      "sha256": "5fd221de5214221a72ef96626de213539574851c4fd18e5cf5ac251e2e3450bd"
+    },
+    {
+      "name": "truck-val.csv",
+      "url": "https://torc-public-data-sharing.s3.amazonaws.com/semi-truck-highway/splits/val_dataset.csv",
+      "status": 200,
+      "bytes": 1994294,
+      "sha256": "881aca7df10a437e292f3cc2a7ec4922989e4dc45066b8f103e5c40497fe0940"
+    },
+    {
+      "name": "truck-calibration.tar.gz",
+      "url": "https://torc-public-data-sharing.s3.amazonaws.com/semi-truck-highway/offline_calibration.tar.gz",
+      "status": 200,
+      "bytes": 16062,
+      "sha256": "c11158501ceac838b0df44e7d5a265aaed253a145d2a619b208b63a762a7a110"
+    },
+    {
+      "name": "dlnr-readme.md",
+      "url": "https://raw.githubusercontent.com/David-Zhao-1997/High-frequency-Stereo-Matching-Network/main/README.md",
+      "status": 200,
+      "bytes": 3382,
+      "sha256": "fe64645efcf3a91047ca0b11c046246d940a02ebcbb5183d5e3f26bac45e050a"
+    },
+    {
+      "name": "monster-readme.md",
+      "url": "https://raw.githubusercontent.com/Junda24/MonSter-plusplus/main/README.md",
+      "status": 200,
+      "bytes": 6039,
+      "sha256": "3d207f7dd293f50b6c799e94e0a4d894f3667c46a3ff6d8727377b5a4c560d70"
+    },
+    {
+      "name": "hitnet-readme.md",
+      "url": "https://raw.githubusercontent.com/google-research/google-research/master/hitnet/README.md",
+      "status": 200,
+      "bytes": 1236,
+      "sha256": "b75a410df3d124c9bb9717ea4a2127dcb8f9800f70fd476227e7f01bb32ee103"
+    },
+    {
+      "name": "carla-drift-index.html",
+      "url": "https://cmp.felk.cvut.cz/teso/",
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
+    }
+  ]
+}
