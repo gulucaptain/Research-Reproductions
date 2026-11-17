@@ -50,28 +50,28 @@
   {
     "project": "articulation-in-prime",
     "asset": "assets/previews/articulation-in-prime.png",
-    "source_path": "articulation_in_prime/results/round2/comparison.png (unpublished local implementation)",
-    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/826c7f1d68b9f49e85734a6b4df4889e39f1f182/assets/previews/articulation-in-prime.png",
+    "source_path": "results/round2/comparison.png",
+    "source_url": "https://github.com/gulucaptain/Articulation-in-Prime-Reproduction/blob/827b26dbde787271889bb7be4a88d46db757f86c/results/round2/comparison.png",
     "sha256": "36a15afc514ce87a33dbb36fc9ab09a1dc09e4ee9180c1887b0239326408cede",
     "caption": "Top: procedural hinge, 8×256 points, five seeds per setting, 2000 steps; rings mark minimum loss; extra refit is separate. Bottom left: one original Arti4D cue, 25×512 core input, three seeds per setting; bottom right: extent4 seed2 pruning losses. No original table matched.",
-    "source_scope": "Reviewed unchanged figure snapshot in the collection; does not imply public implementation code."
+    "source_scope": "Unchanged reviewed aggregate result figure from the independent public reproduction; external raw inputs and third-party pretrained weights are not distributed. See its publication scope."
   },
   {
     "project": "rigel3d",
     "asset": "assets/previews/rigel3d.png",
-    "source_path": "rigel3d/results/round3/comparison.png (unpublished local implementation)",
-    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/af25dc8168b07a6b9f7a0b6d10407b779fa54ae3/assets/previews/rigel3d.png",
+    "source_path": "results/round3/comparison.png",
+    "source_url": "https://github.com/gulucaptain/Rigel3D-Reproduction/blob/11b7f4685ee5facde62866158b654d8cf74a83ef/results/round3/comparison.png",
     "sha256": "43cd46712dbab6b1769a8c78234f4ffc4cfa112a00891143a6f583b455692a96",
     "caption": "Fixed25 train/6 validation/10 test cohort. Top: GT-conditioned mesh/free-skeleton tasks; official model and GT-support shell are fixed controls, other dots are three seeds with sample SD. Bottom: strict single-image full-weight-stage generation, standard MSE versus changed foreground-balanced diagnostic. Nonempty pipelines are not fidelity. No raw asset images.",
-    "source_scope": "Unchanged reviewed aggregate scalar plot; public snapshot has no raw asset/image, vertex/skin arrays or model weights."
+    "source_scope": "Unchanged reviewed aggregate result figure from the independent public reproduction; external raw inputs and third-party pretrained weights are not distributed. See its publication scope."
   },
   {
     "project": "romo-gs",
     "asset": "assets/previews/romo-gs.png",
-    "source_path": "romo_gs/results/phase2/comparison.png (unpublished local implementation)",
-    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/1adbef635d4869facb9de188915dcbfe5caa5096/assets/previews/romo-gs.png",
+    "source_path": "results/phase2/comparison.png",
+    "source_url": "https://github.com/gulucaptain/RoMo-GS-Reproduction/blob/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da/results/phase2/comparison.png",
     "sha256": "e8b881c67d01a01aca9968f4bc4b70bd702885d04ded9e7d8efd72388d206ad8",
     "caption": "Two TUM 15-frame subsets; 2,400 Gaussians, 96×72, 150 steps. Top: mean±sample SD of 3 MPS color-initialization seeds; native and 0.08 s controlled-blur ROI scores use different fixed masks. Bottom: matched initialized-view MPS forward/backward time and sampled live-memory peak, 1 warmup/3 repeats. Broader-area gaps and final-map costs are reported separately. No input RGB-D or paper figures shown.",
-    "source_scope": "Unchanged aggregate scalar figure; no raw/processed TUM RGB-D, parameter arrays or model images published. Implementation remains local."
+    "source_scope": "Unchanged reviewed aggregate result figure from the independent public reproduction; external raw inputs and third-party pretrained weights are not distributed. See its publication scope."
   }
 ]

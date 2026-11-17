@@ -204,35 +204,47 @@
       "id": "articulation-in-prime",
       "name": "Articulation in Prime",
       "title": "Articulation in Prime: Primitive-Based Articulated Object Understanding from a Single Casual Video",
-      "repo": null,
-      "publication": "local",
+      "repo": "https://github.com/gulucaptain/Articulation-in-Prime-Reproduction",
       "paper": "https://arxiv.org/abs/2605.18645",
       "category": "3D Vision",
       "color": "#4f46e5",
       "platform": "CPU + Apple Silicon",
       "status": "Partial implementation",
-      "progress": "Core audit + one original Arti4D cue; code not published",
+      "progress": "Core audit + one original Arti4D cue",
       "implemented": "Corrected angular SQ mesh, reversible observation-only normalization, all original losses, CPU rasterization plus continuous-SQ oracle, and explicit coverage-aware pruning; SAM2/GMSF RGB-D preprocessing.",
       "validation": "14 tests · 25 paired procedural audit runs · six original Arti4D pilot fits · 25 audit and six real objectives replayed; initial 30 runs retained.",
       "result": "Scale sensitivity reduces one selected procedural pivot/state error to 8.47 cm / 6.59°, but only 1/5 types is correct. Original Arti4D weights: 0/3 correct types; no-motion: 1/3, selected axis 28.79° and pivot 39.67 cm.",
-      "limitations": "Joint bias and collapse remain. One 25×512 RGB-D cue pilot, not the author 11-object benchmark or full 10k configuration. Unknown normalization/pruning; no GT states/labels. Video2Articulation-S Pending; code unpublished.",
+      "limitations": "Joint bias and collapse remain. One 25×512 RGB-D cue pilot, not the author 11-object benchmark or full 10k configuration. Unknown normalization/pruning; no GT states/labels. Video2Articulation-S Pending.",
       "image": "assets/previews/articulation-in-prime.png",
       "image_caption": "Top: procedural hinge, 8×256 points, five seeds per setting, 2000 steps; rings mark minimum loss; extra refit is separate. Bottom left: one original Arti4D cue, 25×512 core input, three seeds per setting; bottom right: extent4 seed2 pruning losses. No original table matched.",
-      "report": "https://github.com/gulucaptain/Research-Reproductions/blob/826c7f1d68b9f49e85734a6b4df4889e39f1f182/docs/reports/articulation-in-prime.md",
-      "commit": null,
-      "evidence_repo": "https://github.com/gulucaptain/Research-Reproductions",
-      "evidence_commit": "826c7f1d68b9f49e85734a6b4df4889e39f1f182",
-      "updated": "2026-11-16",
+      "report": "https://github.com/gulucaptain/Articulation-in-Prime-Reproduction/blob/827b26dbde787271889bb7be4a88d46db757f86c/docs/round2_audit.md",
+      "commit": "827b26dbde787271889bb7be4a88d46db757f86c",
+      "updated": "2026-11-17",
       "evidence": [
         {
-          "path": "data/evidence/articulation-in-prime-round2.json",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/826c7f1d68b9f49e85734a6b4df4889e39f1f182/data/evidence/articulation-in-prime-round2.json",
-          "sha256": "58ecb834dee87a207b0314360addce9f860e616fcf050d4318ce0db27f980b8a"
+          "path": "docs/round2_audit.md",
+          "url": "https://github.com/gulucaptain/Articulation-in-Prime-Reproduction/blob/827b26dbde787271889bb7be4a88d46db757f86c/docs/round2_audit.md",
+          "sha256": "dfa1fc88e9fc451cb5ccd4e8251f975b1e31630c3253c1a8167060b65e8236d5"
         },
         {
-          "path": "docs/reports/articulation-in-prime.md",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/826c7f1d68b9f49e85734a6b4df4889e39f1f182/docs/reports/articulation-in-prime.md",
-          "sha256": "f8bf8c0b7820b72e65619a4041395022be822f66e096088373695c05c972c575"
+          "path": "docs/arti4d.md",
+          "url": "https://github.com/gulucaptain/Articulation-in-Prime-Reproduction/blob/827b26dbde787271889bb7be4a88d46db757f86c/docs/arti4d.md",
+          "sha256": "850b80fb8e9a5f75dc00245f8ac7b2b54fe6ba69ad5978dc38c3b035491948e5"
+        },
+        {
+          "path": "COVERAGE.md",
+          "url": "https://github.com/gulucaptain/Articulation-in-Prime-Reproduction/blob/827b26dbde787271889bb7be4a88d46db757f86c/COVERAGE.md",
+          "sha256": "f18067d31760fcd910877db8fc7c083e7d969e27f5106737ac87e2fd9765cdb5"
+        },
+        {
+          "path": "PUBLICATION.json",
+          "url": "https://github.com/gulucaptain/Articulation-in-Prime-Reproduction/blob/827b26dbde787271889bb7be4a88d46db757f86c/PUBLICATION.json",
+          "sha256": "698c183df445841128f4a94c53cbcb7590451d4fa251eab62b7fdc0517f5d54e"
+        },
+        {
+          "path": "results/round2/summary.json",
+          "url": "https://github.com/gulucaptain/Articulation-in-Prime-Reproduction/blob/827b26dbde787271889bb7be4a88d46db757f86c/results/round2/summary.json",
+          "sha256": "85b2888b15dfb7b050c9beee011c32ad3ad691635a6903200e9fc36aa71fb0be"
         }
       ]
     },
@@ -240,8 +252,7 @@
       "id": "rigel3d",
       "name": "Rigel3D",
       "title": "Rigel3D: Rig-aware Latents for Animation-Ready 3D Asset Generation",
-      "repo": null,
-      "publication": "local",
+      "repo": "https://github.com/gulucaptain/Rigel3D-Reproduction",
       "paper": "https://arxiv.org/abs/2605.13129",
       "category": "3D Vision",
       "color": "#7c3aed",
@@ -251,24 +262,32 @@
       "implemented": "Strict official encoder/mesh/occupancy VAE loads with native CPU/MPS kernels; frozen surface latents, full rig/mesh weight updates, coupled flows and foreground-loss diagnostic.",
       "validation": "28 tests; fixed25/6/10 assets;3 seeds per stage;3 full rig/mesh and12 flow CPU/MPS probes; frozen-surface/hash checks and GT-support controls.",
       "result": "GT occupancy IoU0.984/1.000; official GT mesh CD×100=0.987 vs GT-support shell1.311. Full joint J2J×100=14.091±1.056, caps15/30. Strict standard generation5/30 completed; changed balanced loss23/30, but rig IoU only0.003212.",
-      "limitations": "Short250-step full-weight stage after2000 adapter steps,16-cube SDF patches, upsampled224 neutral views and compact fresh flows. Original pretrained flow transformers/rendering losses/convergence absent; geometry/EOS still wrong. No paper table matched; code/data local.",
+      "limitations": "Short250-step full-weight stage after2000 adapter steps,16-cube SDF patches, upsampled224 neutral views and compact fresh flows. Original pretrained flow transformers/rendering losses/convergence absent; geometry/EOS still wrong. No paper table matched; raw data and checkpoints retained locally.",
       "image": "assets/previews/rigel3d.png",
       "image_caption": "Fixed25 train/6 validation/10 test cohort. Top: GT-conditioned mesh/free-skeleton tasks; official model and GT-support shell are fixed controls, other dots are three seeds with sample SD. Bottom: strict single-image full-weight-stage generation, standard MSE versus changed foreground-balanced diagnostic. Nonempty pipelines are not fidelity. No raw asset images.",
-      "report": "https://github.com/gulucaptain/Research-Reproductions/blob/af25dc8168b07a6b9f7a0b6d10407b779fa54ae3/docs/reports/rigel3d.md",
-      "commit": null,
-      "evidence_repo": "https://github.com/gulucaptain/Research-Reproductions",
-      "evidence_commit": "af25dc8168b07a6b9f7a0b6d10407b779fa54ae3",
+      "report": "https://github.com/gulucaptain/Rigel3D-Reproduction/blob/11b7f4685ee5facde62866158b654d8cf74a83ef/docs/round3_experiments.md",
+      "commit": "11b7f4685ee5facde62866158b654d8cf74a83ef",
       "updated": "2026-11-17",
       "evidence": [
         {
-          "path": "data/evidence/rigel3d-round3.json",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/af25dc8168b07a6b9f7a0b6d10407b779fa54ae3/data/evidence/rigel3d-round3.json",
-          "sha256": "abb16c52627a40ab6d581e87495afcf4e65d96e5e7ca298809163fd3077e0ac1"
+          "path": "docs/round3_experiments.md",
+          "url": "https://github.com/gulucaptain/Rigel3D-Reproduction/blob/11b7f4685ee5facde62866158b654d8cf74a83ef/docs/round3_experiments.md",
+          "sha256": "6f366cf75428975d426e84b9dc337f262679ef92ef3908189ca9cc5376f5d3b2"
         },
         {
-          "path": "docs/reports/rigel3d.md",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/af25dc8168b07a6b9f7a0b6d10407b779fa54ae3/docs/reports/rigel3d.md",
-          "sha256": "2d6730b396fa4914751f73d880bb3fe5f8bcbdbf6f7a4541984c464b7811212e"
+          "path": "COVERAGE.md",
+          "url": "https://github.com/gulucaptain/Rigel3D-Reproduction/blob/11b7f4685ee5facde62866158b654d8cf74a83ef/COVERAGE.md",
+          "sha256": "ee5ec2df893627212c18c51a7405e99052072c4782fe38d6a4b1732f894625d3"
+        },
+        {
+          "path": "PUBLICATION.json",
+          "url": "https://github.com/gulucaptain/Rigel3D-Reproduction/blob/11b7f4685ee5facde62866158b654d8cf74a83ef/PUBLICATION.json",
+          "sha256": "7562d815315f0760ca8f52a28b9dd495755f34db7cc802722dcb1db5c473a476"
+        },
+        {
+          "path": "results/round3/summary.json",
+          "url": "https://github.com/gulucaptain/Rigel3D-Reproduction/blob/11b7f4685ee5facde62866158b654d8cf74a83ef/results/round3/summary.json",
+          "sha256": "79f9dd783b3f0286089be3b09d93184df4bfc6dc1dc6ae1ef7cfb28f9367abae"
         }
       ]
     },
@@ -276,8 +295,7 @@
       "id": "romo-gs",
       "name": "RoMo-GS",
       "title": "RoMo-GS: Efficient Online 3D Gaussian Splatting for Robot Mapping via Exposure-Integrated Motion Blur",
-      "repo": null,
-      "publication": "local",
+      "repo": "https://github.com/gulucaptain/RoMo-GS-Reproduction",
       "paper": "https://arxiv.org/abs/2610.24605",
       "category": "3D Vision",
       "color": "#0072b2",
@@ -287,29 +305,42 @@
       "implemented": "Calibrated rectangular cameras, conservative swept-support tiles, depth-ordered Gaussian streaming, checkpointed backward, batched midpoint rendering and training-only RGB-D initialization.",
       "validation": "16 tests; 28 real RGB-D fits; 20 initializer and 12 final-map cost cases; all parameters replayed, with 4 CPU/MPS pixel exceptions diagnosed and exact source-device replays.",
       "result": "Controlled-blur ROI PSNR: xyz 25.389/25.443 dB; desk 20.017/20.323 (analytic/10 midpoints). Controlled final MPS seed0: inference 122–125/290–296 ms, sampled live peak 25–26/≈59 MiB. Broader-area center PSNR remains 13.0–15.6 dB.",
-      "limitations": "Known mocap cameras, 15 frames/sequence, 2,400 Gaussians at 96×72, 150 steps. Controlled ROI covers 9.6–39.2%; native exposure is assumed. Four CPU/MPS near-depth pixel exceptions retained. No online SLAM/LM/pruning, fused kernel or original table match; code unpublished.",
+      "limitations": "Known mocap cameras, 15 frames/sequence, 2,400 Gaussians at 96×72, 150 steps. Controlled ROI covers 9.6–39.2%; native exposure is assumed. Four CPU/MPS near-depth pixel exceptions retained. No online SLAM/LM/pruning, fused kernel or original table match.",
       "image": "assets/previews/romo-gs.png",
       "image_caption": "Two TUM 15-frame subsets; 2,400 Gaussians, 96×72, 150 steps. Top: mean±sample SD of 3 MPS color-initialization seeds; native and 0.08 s controlled-blur ROI scores use different fixed masks. Bottom: matched initialized-view MPS forward/backward time and sampled live-memory peak, 1 warmup/3 repeats. Broader-area gaps and final-map costs are reported separately. No input RGB-D or paper figures shown.",
-      "report": "https://github.com/gulucaptain/Research-Reproductions/blob/1adbef635d4869facb9de188915dcbfe5caa5096/docs/reports/romo-gs.md",
-      "commit": null,
-      "evidence_repo": "https://github.com/gulucaptain/Research-Reproductions",
-      "evidence_commit": "1adbef635d4869facb9de188915dcbfe5caa5096",
+      "report": "https://github.com/gulucaptain/RoMo-GS-Reproduction/blob/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da/docs/phase2_results.md",
+      "commit": "57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da",
       "updated": "2026-11-17",
       "evidence": [
         {
-          "path": "data/evidence/romo-gs-phase2.json",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/1adbef635d4869facb9de188915dcbfe5caa5096/data/evidence/romo-gs-phase2.json",
-          "sha256": "4f96dd2dec95d9ed1f4566219534cd4b7f96458a44d02858de84bf1e5d816531"
+          "path": "docs/phase2_results.md",
+          "url": "https://github.com/gulucaptain/RoMo-GS-Reproduction/blob/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da/docs/phase2_results.md",
+          "sha256": "8792ea8b24949f33791346f1cb94eec9dc8ce8e79e35adfeafb02fdcda47b9cc"
         },
         {
-          "path": "docs/reports/romo-gs.md",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/1adbef635d4869facb9de188915dcbfe5caa5096/docs/reports/romo-gs.md",
-          "sha256": "7b266f5b356ff4ec585fac1af75a79ec87de45025aef29397a4e7529a9af7dbb"
+          "path": "COVERAGE.md",
+          "url": "https://github.com/gulucaptain/RoMo-GS-Reproduction/blob/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da/COVERAGE.md",
+          "sha256": "d79d3c130c9caaa1a797f50b235cba68231a6de302e42cc7f87be320237efbfd"
         },
         {
-          "path": "data/evidence/romo-gs-phase1.json",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/1adbef635d4869facb9de188915dcbfe5caa5096/data/evidence/romo-gs-phase1.json",
-          "sha256": "f505ae291dda89347977b901389b1e3ccb6df343ab8b677bed002f10e9215858"
+          "path": "PUBLICATION.json",
+          "url": "https://github.com/gulucaptain/RoMo-GS-Reproduction/blob/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da/PUBLICATION.json",
+          "sha256": "3ed28221c8496189799ea59a149724349f2d72146cbc42532b262c85e300180b"
+        },
+        {
+          "path": "results/phase2/aggregate.json",
+          "url": "https://github.com/gulucaptain/RoMo-GS-Reproduction/blob/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da/results/phase2/aggregate.json",
+          "sha256": "855216e0fdbc52430956d319ff4ab2e6aca7dd93aa1f5452296378c4e299fc06"
+        },
+        {
+          "path": "results/phase2/final_audit.json",
+          "url": "https://github.com/gulucaptain/RoMo-GS-Reproduction/blob/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da/results/phase2/final_audit.json",
+          "sha256": "65e413fd044bdc42b8db58b2a46eaa8bda87edf41b01d2f727d66cb568747a61"
+        },
+        {
+          "path": "results/phase2/replay_discrepancy_audit.json",
+          "url": "https://github.com/gulucaptain/RoMo-GS-Reproduction/blob/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da/results/phase2/replay_discrepancy_audit.json",
+          "sha256": "e8fce1c85603be7634ede60e6e27b53dcfebb8a9a1f3f615d24c6fa792760c25"
         }
       ]
     }
