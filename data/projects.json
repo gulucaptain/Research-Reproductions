@@ -343,6 +343,62 @@
           "sha256": "e8fce1c85603be7634ede60e6e27b53dcfebb8a9a1f3f615d24c6fa792760c25"
         }
       ]
+    },
+    {
+      "id": "virtualrect",
+      "name": "VirtualRect",
+      "title": "Beyond Row Alignment: Virtual-Camera-Aware Online Stereo Rectification",
+      "publication": "local",
+      "repo": null,
+      "commit": null,
+      "evidence_repo": "https://github.com/gulucaptain/Research-Reproductions",
+      "evidence_commit": "26ae19a2f76e3ff9c95fb918e47334d9b7e60206",
+      "paper": "https://arxiv.org/abs/2611.10518v1",
+      "category": "3D Vision",
+      "color": "#d97706",
+      "platform": "CPU + Apple MPS",
+      "status": "Feasibility stage",
+      "progress": "Paper/resource audit + geometry checks",
+      "implemented": "Five-DoF homographies, supplied-inlier weighted refit and consistent virtual-camera geometry. No learned model.",
+      "validation": "5 synthetic seeds, 51 camera-gauge cases; random-weight CNN/coarse-transformer backward probe at 1024×512 on M4 Pro.",
+      "result": "Analytical geometry checks pass. Official data paths recovered; 774 Carla validation rows contain 773 unique samples.",
+      "limitations": "All original tables unrun. Weight mapping, features and training details incomplete; full data exceed available storage, and full training/MPS compatibility is unverified.",
+      "image": "assets/previews/virtualrect.png",
+      "image_caption": "Synthetic checks only: 5 seeds × 256 noiseless correspondences, 5 LM steps; 51 shared-camera gauge cases. No trained model or original benchmark results.",
+      "report": "https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/evidence/virtualrect/feasibility.md",
+      "updated": "2026-11-17",
+      "evidence": [
+        {
+          "path": "evidence/virtualrect/feasibility.md",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/evidence/virtualrect/feasibility.md",
+          "sha256": "afad8e564e43b03410ff48229368e100b91626a1fdf641c902ec6949c48abb3f"
+        },
+        {
+          "path": "evidence/virtualrect/method.md",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/evidence/virtualrect/method.md",
+          "sha256": "00e8f5813f34d1b47881579c712b6faf2fc6cdbe5881b5f6285429dbb60a7267"
+        },
+        {
+          "path": "evidence/virtualrect/geometry.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/evidence/virtualrect/geometry.json",
+          "sha256": "2a0acbf40bc89781f15a5aeb68912c4eb47796ce829d874d870b0fd55d7138b6"
+        },
+        {
+          "path": "evidence/virtualrect/matcher_probe.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/evidence/virtualrect/matcher_probe.json",
+          "sha256": "54a4c683290be0e9ea1e759e7555a92c8273c046b19e252b0ece996c3dfb5204"
+        },
+        {
+          "path": "evidence/virtualrect/provenance.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/evidence/virtualrect/provenance.json",
+          "sha256": "802db9a22ae13eda021dfc6d24ea6c41c68d3651ab510ae049f140a4c55e08c7"
+        },
+        {
+          "path": "evidence/virtualrect/resources.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/evidence/virtualrect/resources.json",
+          "sha256": "60e233aba2ff77ddaecc5972e483586493e9d3fd73883e393ae74b1bfe01cd64"
+        }
+      ]
     }
   ]
 }

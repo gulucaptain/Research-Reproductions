@@ -73,5 +73,14 @@
     "sha256": "e8b881c67d01a01aca9968f4bc4b70bd702885d04ded9e7d8efd72388d206ad8",
     "caption": "Two TUM 15-frame subsets; 2,400 Gaussians, 96×72, 150 steps. Top: mean±sample SD of 3 MPS color-initialization seeds; native and 0.08 s controlled-blur ROI scores use different fixed masks. Bottom: matched initialized-view MPS forward/backward time and sampled live-memory peak, 1 warmup/3 repeats. Broader-area gaps and final-map costs are reported separately. No input RGB-D or paper figures shown.",
     "source_scope": "Unchanged reviewed aggregate result figure from the independent public reproduction; external raw inputs and third-party pretrained weights are not distributed. See its publication scope."
+  },
+  {
+    "project": "virtualrect",
+    "asset": "assets/previews/virtualrect.png",
+    "source_path": "assets/previews/virtualrect.png",
+    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/assets/previews/virtualrect.png",
+    "sha256": "a902180ebb88ee19811622a7c9554f70f8189fe30554cfb7399dd09861a38ea2",
+    "caption": "Synthetic checks only: 5 seeds × 256 noiseless correspondences, 5 LM steps; 51 shared-camera gauge cases. No trained model or original benchmark results.",
+    "source_scope": "Original locally generated numerical-check plot. Public snapshot does not contain the unpublished implementation; no paper figures, original dataset images or third-party weights."
   }
 ]

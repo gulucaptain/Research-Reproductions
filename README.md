@@ -8,7 +8,7 @@
 <p>Independent algorithms · CPU & Apple Silicon · Documented results and limitations</p>
 
 <p>
-<img src="https://img.shields.io/badge/Collection-9%20papers-2563eb?style=flat-square" alt="Collection: 9 papers">
+<img src="https://img.shields.io/badge/Collection-10%20papers-2563eb?style=flat-square" alt="Collection: 10 papers">
 <img src="https://img.shields.io/badge/Scope-Independent%20reproductions-059669?style=flat-square" alt="Independent reproductions">
 <a href="https://github.com/gulucaptain/Research-Reproductions/actions/workflows/checks.yml"><img src="https://github.com/gulucaptain/Research-Reproductions/actions/workflows/checks.yml/badge.svg" alt="Registry and documentation checks"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="Code license: MIT"></a>
@@ -39,6 +39,7 @@ A growing collection of independent research-method implementations with traceab
 | **Articulation in Prime: Primitive-Based Articulated Object Understanding from a Single Casual Video** | 3D Vision<br>CPU + Apple Silicon | **Partial implementation**<br>Core audit + one original Arti4D cue | [Paper](https://arxiv.org/abs/2605.18645) · [GitHub](https://github.com/gulucaptain/Articulation-in-Prime-Reproduction) · [Results](https://github.com/gulucaptain/Articulation-in-Prime-Reproduction/blob/827b26dbde787271889bb7be4a88d46db757f86c/docs/round2_audit.md) |
 | **Rigel3D: Rig-aware Latents for Animation-Ready 3D Asset Generation** | 3D Vision<br>CPU + Apple Silicon | **Partial reproduction**<br>Official TRELLIS priors + short full-weight joint stage; single-image quality unresolved | [Paper](https://arxiv.org/abs/2605.13129) · [GitHub](https://github.com/gulucaptain/Rigel3D-Reproduction) · [Results](https://github.com/gulucaptain/Rigel3D-Reproduction/blob/11b7f4685ee5facde62866158b654d8cf74a83ef/docs/round3_experiments.md) |
 | **RoMo-GS: Efficient Online 3D Gaussian Splatting for Robot Mapping via Exposure-Integrated Motion Blur** | 3D Vision<br>CPU + Apple Silicon | **Partial reproduction**<br>Tiled backend + real RGB-D quality/resource pilot | [Paper](https://arxiv.org/abs/2610.24605) · [GitHub](https://github.com/gulucaptain/RoMo-GS-Reproduction) · [Results](https://github.com/gulucaptain/RoMo-GS-Reproduction/blob/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da/docs/phase2_results.md) |
+| **Beyond Row Alignment: Virtual-Camera-Aware Online Stereo Rectification** | 3D Vision<br>CPU + Apple MPS | **Feasibility stage**<br>Paper/resource audit + geometry checks | [Paper](https://arxiv.org/abs/2611.10518v1) · Implementation not published · [Results](https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/evidence/virtualrect/feasibility.md) |
 
 <a id="result-previews"></a>
 ## 🖼️ Result previews
@@ -197,6 +198,23 @@ Previews come from the documented local experiments, with scope and limitations;
 [📄 Paper](https://arxiv.org/abs/2610.24605) · [💻 Repository](https://github.com/gulucaptain/RoMo-GS-Reproduction) · [📊 Report](https://github.com/gulucaptain/RoMo-GS-Reproduction/blob/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da/docs/phase2_results.md) · [📌 Reviewed evidence](https://github.com/gulucaptain/RoMo-GS-Reproduction/tree/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da)
 
 **Pinned evidence:** [docs/phase2_results.md](https://github.com/gulucaptain/RoMo-GS-Reproduction/blob/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da/docs/phase2_results.md) · [COVERAGE.md](https://github.com/gulucaptain/RoMo-GS-Reproduction/blob/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da/COVERAGE.md) · [PUBLICATION.json](https://github.com/gulucaptain/RoMo-GS-Reproduction/blob/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da/PUBLICATION.json) · [results/phase2/aggregate.json](https://github.com/gulucaptain/RoMo-GS-Reproduction/blob/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da/results/phase2/aggregate.json) · [results/phase2/final_audit.json](https://github.com/gulucaptain/RoMo-GS-Reproduction/blob/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da/results/phase2/final_audit.json) · [results/phase2/replay_discrepancy_audit.json](https://github.com/gulucaptain/RoMo-GS-Reproduction/blob/57d5819f522a36ed4ab8d7ecbd8c9cccc592c9da/results/phase2/replay_discrepancy_audit.json)
+
+### 10 · Beyond Row Alignment: Virtual-Camera-Aware Online Stereo Rectification [Reproduction]
+
+[![VirtualRect experiment preview](assets/previews/virtualrect.png)](https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/evidence/virtualrect/feasibility.md)
+
+*Synthetic checks only: 5 seeds × 256 noiseless correspondences, 5 LM steps; 51 shared-camera gauge cases. No trained model or original benchmark results.*
+
+| | Local evidence |
+|:--|:--|
+| 🧩 **Implemented** | Five-DoF homographies, supplied-inlier weighted refit and consistent virtual-camera geometry. No learned model. |
+| 🧪 **Validation** | 5 synthetic seeds, 51 camera-gauge cases; random-weight CNN/coarse-transformer backward probe at 1024×512 on M4 Pro. |
+| 📊 **Finding** | Analytical geometry checks pass. Official data paths recovered; 774 Carla validation rows contain 773 unique samples. |
+| 🔎 **Remaining gaps** | All original tables unrun. Weight mapping, features and training details incomplete; full data exceed available storage, and full training/MPS compatibility is unverified. |
+
+[📄 Paper](https://arxiv.org/abs/2611.10518v1) · **Implementation not published** · [📊 Report](https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/evidence/virtualrect/feasibility.md) · [📌 Reviewed evidence](https://github.com/gulucaptain/Research-Reproductions/tree/26ae19a2f76e3ff9c95fb918e47334d9b7e60206)
+
+**Pinned evidence:** [evidence/virtualrect/feasibility.md](https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/evidence/virtualrect/feasibility.md) · [evidence/virtualrect/method.md](https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/evidence/virtualrect/method.md) · [evidence/virtualrect/geometry.json](https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/evidence/virtualrect/geometry.json) · [evidence/virtualrect/matcher_probe.json](https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/evidence/virtualrect/matcher_probe.json) · [evidence/virtualrect/provenance.json](https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/evidence/virtualrect/provenance.json) · [evidence/virtualrect/resources.json](https://github.com/gulucaptain/Research-Reproductions/blob/26ae19a2f76e3ff9c95fb918e47334d9b7e60206/evidence/virtualrect/resources.json)
 
 <a id="progress"></a>
 ## 🔎 How progress is reported
