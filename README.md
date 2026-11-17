@@ -38,7 +38,7 @@ A growing collection of independent research-method implementations with traceab
 | **SimuScene: Simulation-Ready Compositional 3D Scene Reconstruction from a Single Image** | Physics<br>CPU | **Partial reproduction**<br>Components + local experiments | [Paper](https://arxiv.org/abs/2606.03994) · [GitHub](https://github.com/gulucaptain/SimuScene-Reproduction) · [Results](https://github.com/gulucaptain/SimuScene-Reproduction/blob/main/results/round05/REPORT.md) |
 | **Articulation in Prime: Primitive-Based Articulated Object Understanding from a Single Casual Video** | 3D Vision<br>CPU + Apple Silicon | **Partial implementation**<br>Core audit + one original Arti4D cue; code not published | [Paper](https://arxiv.org/abs/2605.18645) · Implementation not published · [Results](https://github.com/gulucaptain/Research-Reproductions/blob/826c7f1d68b9f49e85734a6b4df4889e39f1f182/docs/reports/articulation-in-prime.md) |
 | **Rigel3D: Rig-aware Latents for Animation-Ready 3D Asset Generation** | 3D Vision<br>CPU + Apple Silicon | **Partial reproduction**<br>Official TRELLIS priors + short full-weight joint stage; single-image quality unresolved | [Paper](https://arxiv.org/abs/2605.13129) · Implementation not published · [Results](https://github.com/gulucaptain/Research-Reproductions/blob/af25dc8168b07a6b9f7a0b6d10407b779fa54ae3/docs/reports/rigel3d.md) |
-| **RoMo-GS: Efficient Online 3D Gaussian Splatting for Robot Mapping via Exposure-Integrated Motion Blur** | 3D Vision<br>CPU + Apple Silicon | **Core validated locally**<br>Exposure integral + gradient audit + controlled Mac reconstruction pilot | [Paper](https://arxiv.org/abs/2610.24605) · Implementation not published · [Results](https://github.com/gulucaptain/Research-Reproductions/blob/711ee1ddabd35ab08c26b2be1e6463cc4e38d21a/docs/reports/romo-gs.md) |
+| **RoMo-GS: Efficient Online 3D Gaussian Splatting for Robot Mapping via Exposure-Integrated Motion Blur** | 3D Vision<br>CPU + Apple Silicon | **Partial reproduction**<br>Tiled backend + real RGB-D quality/resource pilot | [Paper](https://arxiv.org/abs/2610.24605) · Implementation not published · [Results](https://github.com/gulucaptain/Research-Reproductions/blob/1adbef635d4869facb9de188915dcbfe5caa5096/docs/reports/romo-gs.md) |
 
 <a id="result-previews"></a>
 ## 🖼️ Result previews
@@ -183,20 +183,20 @@ Previews come from the documented local experiments, with scope and limitations;
 
 ### 09 · RoMo-GS: Efficient Online 3D Gaussian Splatting for Robot Mapping via Exposure-Integrated Motion Blur [Reproduction]
 
-[![RoMo-GS experiment preview](assets/previews/romo-gs.png)](https://github.com/gulucaptain/Research-Reproductions/blob/711ee1ddabd35ab08c26b2be1e6463cc4e38d21a/docs/reports/romo-gs.md)
+[![RoMo-GS experiment preview](assets/previews/romo-gs.png)](https://github.com/gulucaptain/Research-Reproductions/blob/1adbef635d4869facb9de188915dcbfe5caa5096/docs/reports/romo-gs.md)
 
-*Procedural 24-Gaussian scene at 32×32; known cameras, near-GT initialization, 6 train/3 held-out views. Top: MPS seed0 view2. Bottom: 3-seed sharp PSNR with sample SD and synchronized CPU/MPS dense-render timing. Midpoint sampling is a separate control; no paper table matched.*
+*Two TUM 15-frame subsets; 2,400 Gaussians, 96×72, 150 steps. Top: mean±sample SD of 3 MPS color-initialization seeds; native and 0.08 s controlled-blur ROI scores use different fixed masks. Bottom: matched initialized-view MPS forward/backward time and sampled live-memory peak, 1 warmup/3 repeats. Broader-area gaps and final-map costs are reported separately. No input RGB-D or paper figures shown.*
 
 | | Local evidence |
 |:--|:--|
-| 🧩 **Implemented** | Original and stabilized exposure integrals, full-covariance projection, signed pixel velocity, dense alpha compositing, endpoint/midpoint sampling and known-camera Gaussian optimization. |
-| 🧪 **Validation** | 720 integral cases; 24 independent gradient cases; 224 near-static configurations; CPU/MPS parity; 24 synthetic fits across 3 seeds/2 devices; all checkpoints replayed. |
-| 📊 **Finding** | Stable float64 integral max error 2.11e−15; gradient error 6.85e−11. MPS sharp PSNR: analytic 43.225±0.159 dB vs static 30.066±0.104 and 10 midpoints 50.674±1.568. Analytic MPS execution is slower than CPU here. |
-| 🔎 **Remaining gaps** | One 24-Gaussian scene at 32×32, known cameras and near-GT initialization. Analytic opacity compositing has measured approximation bias. No tracking, online LM/pruning/densification, fused kernel or original benchmark. Code local/unpublished. |
+| 🧩 **Implemented** | Calibrated rectangular cameras, conservative swept-support tiles, depth-ordered Gaussian streaming, checkpointed backward, batched midpoint rendering and training-only RGB-D initialization. |
+| 🧪 **Validation** | 16 tests; 28 real RGB-D fits; 20 initializer and 12 final-map cost cases; all parameters replayed, with 4 CPU/MPS pixel exceptions diagnosed and exact source-device replays. |
+| 📊 **Finding** | Controlled-blur ROI PSNR: xyz 25.389/25.443 dB; desk 20.017/20.323 (analytic/10 midpoints). Controlled final MPS seed0: inference 122–125/290–296 ms, sampled live peak 25–26/≈59 MiB. Broader-area center PSNR remains 13.0–15.6 dB. |
+| 🔎 **Remaining gaps** | Known mocap cameras, 15 frames/sequence, 2,400 Gaussians at 96×72, 150 steps. Controlled ROI covers 9.6–39.2%; native exposure is assumed. Four CPU/MPS near-depth pixel exceptions retained. No online SLAM/LM/pruning, fused kernel or original table match; code unpublished. |
 
-[📄 Paper](https://arxiv.org/abs/2610.24605) · **Implementation not published** · [📊 Report](https://github.com/gulucaptain/Research-Reproductions/blob/711ee1ddabd35ab08c26b2be1e6463cc4e38d21a/docs/reports/romo-gs.md) · [📌 Reviewed evidence](https://github.com/gulucaptain/Research-Reproductions/tree/711ee1ddabd35ab08c26b2be1e6463cc4e38d21a)
+[📄 Paper](https://arxiv.org/abs/2610.24605) · **Implementation not published** · [📊 Report](https://github.com/gulucaptain/Research-Reproductions/blob/1adbef635d4869facb9de188915dcbfe5caa5096/docs/reports/romo-gs.md) · [📌 Reviewed evidence](https://github.com/gulucaptain/Research-Reproductions/tree/1adbef635d4869facb9de188915dcbfe5caa5096)
 
-**Pinned evidence:** [data/evidence/romo-gs-phase1.json](https://github.com/gulucaptain/Research-Reproductions/blob/711ee1ddabd35ab08c26b2be1e6463cc4e38d21a/data/evidence/romo-gs-phase1.json) · [docs/reports/romo-gs.md](https://github.com/gulucaptain/Research-Reproductions/blob/711ee1ddabd35ab08c26b2be1e6463cc4e38d21a/docs/reports/romo-gs.md)
+**Pinned evidence:** [data/evidence/romo-gs-phase2.json](https://github.com/gulucaptain/Research-Reproductions/blob/1adbef635d4869facb9de188915dcbfe5caa5096/data/evidence/romo-gs-phase2.json) · [docs/reports/romo-gs.md](https://github.com/gulucaptain/Research-Reproductions/blob/1adbef635d4869facb9de188915dcbfe5caa5096/docs/reports/romo-gs.md) · [data/evidence/romo-gs-phase1.json](https://github.com/gulucaptain/Research-Reproductions/blob/1adbef635d4869facb9de188915dcbfe5caa5096/data/evidence/romo-gs-phase1.json)
 
 <a id="progress"></a>
 ## 🔎 How progress is reported
