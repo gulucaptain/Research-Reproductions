@@ -2,8 +2,8 @@
   "schema_version": 1,
   "reviewed": "2026-11-17",
   "publication": "Local unpublished implementation; reviewed public numerical snapshot only",
-  "local_source_commit": "a5e2919084851eeae634edae067d915e5fdd0c67",
-  "local_manifest_sha256": "14253941c172177f340980a451aeab2fbee23f9e4b34f04f663256bd6dd1166a",
+  "local_source_commit": "7b2c83cf932966397ff325ecd0b89a11ff6d66f4",
+  "local_manifest_sha256": "e729662308deb455c603055e07f8f9310c9127ef32c0e55df921ef069217f2e6",
   "scope": "Checkpointed tiled renderer; two15-frame known-pose TUM RGB-D pilots,2400Gaussians at96x72 and150steps;28fits,20initializer and12final-map profiles; no original paper table reproduced",
   "public_replay_limit": "Implementation, parameters, model pixel arrays and original/processed RGB-D remain local. This snapshot does not independently replay training.",
   "files": {
