@@ -1,0 +1,1056 @@
+{
+  "scope": "Post-result global common-mask audit and train-mean camera controls",
+  "fixed_camera": [
+    {
+      "seed": 0,
+      "train_camera_outputs": [
+        [
+          -0.008792589418590069,
+          -0.5730932950973511
+        ],
+        [
+          -0.008835607208311558,
+          -0.5759108662605286
+        ],
+        [
+          -0.008727310225367546,
+          -0.5686544179916382
+        ],
+        [
+          -0.008794165216386318,
+          -0.5731465816497803
+        ]
+      ],
+      "mean_eta_shift": [
+        -0.008787418017163873,
+        -0.5727012902498245
+      ]
+    },
+    {
+      "seed": 1,
+      "train_camera_outputs": [
+        [
+          -0.016902096569538116,
+          -0.734100341796875
+        ],
+        [
+          -0.017099035903811455,
+          -0.742739200592041
+        ],
+        [
+          -0.016926785930991173,
+          -0.7351219654083252
+        ],
+        [
+          -0.016895702108740807,
+          -0.7338453531265259
+        ]
+      ],
+      "mean_eta_shift": [
+        -0.016955905128270388,
+        -0.7364517152309418
+      ]
+    },
+    {
+      "seed": 2,
+      "train_camera_outputs": [
+        [
+          -0.004944038111716509,
+          0.20241574943065643
+        ],
+        [
+          -0.004977679345756769,
+          0.2039249837398529
+        ],
+        [
+          -0.004947242327034473,
+          0.20254923403263092
+        ],
+        [
+          -0.004953951109200716,
+          0.2029266506433487
+        ]
+      ],
+      "mean_eta_shift": [
+        -0.004955727723427117,
+        0.20295415446162224
+      ]
+    },
+    {
+      "seed": 3,
+      "train_camera_outputs": [
+        [
+          -0.001834867987781763,
+          -0.19649401307106018
+        ],
+        [
+          -0.0018505532061681151,
+          -0.1982543170452118
+        ],
+        [
+          -0.0018302254611626267,
+          -0.19598817825317383
+        ],
+        [
+          -0.0018405895680189133,
+          -0.19720344245433807
+        ]
+      ],
+      "mean_eta_shift": [
+        -0.0018390590557828546,
+        -0.19698498770594597
+      ]
+    },
+    {
+      "seed": 4,
+      "train_camera_outputs": [
+        [
+          -0.006372647825628519,
+          -0.5655524134635925
+        ],
+        [
+          -0.0063238972797989845,
+          -0.5612900853157043
+        ],
+        [
+          -0.006329434923827648,
+          -0.5617022514343262
+        ],
+        [
+          -0.006401632446795702,
+          -0.568183183670044
+        ]
+      ],
+      "mean_eta_shift": [
+        -0.006356903119012713,
+        -0.5641819834709167
+      ]
+    }
+  ],
+  "frames": [
+    {
+      "sample": "00008521",
+      "common_pixels": 167680,
+      "full_grid_fraction": 0.31982421875,
+      "mask_sha256": "6187c73f85bb87fa7284faed7747fb558fba51f7c212290a0eef94b79e3500d2",
+      "measurements": [
+        {
+          "seed": 0,
+          "method": "unit",
+          "mae_m": 6.8502465810923105
+        },
+        {
+          "seed": 0,
+          "method": "appearance",
+          "mae_m": 6.087719246138303
+        },
+        {
+          "seed": 0,
+          "method": "random-risk",
+          "mae_m": 6.837263070814235
+        },
+        {
+          "seed": 0,
+          "method": "risk-NIG-only",
+          "mae_m": 6.7932487794937595
+        },
+        {
+          "seed": 0,
+          "method": "risk-NIG+H",
+          "mae_m": 6.800066900562818
+        },
+        {
+          "seed": 0,
+          "method": "shuffled-learned-weights",
+          "mae_m": 6.840812534203121
+        },
+        {
+          "seed": 0,
+          "method": "constant-mean-learned-weights",
+          "mae_m": 6.850246581090842
+        },
+        {
+          "seed": 0,
+          "method": "risk+camera",
+          "mae_m": 6.763881862344433
+        },
+        {
+          "seed": 0,
+          "method": "unit+camera",
+          "mae_m": 6.8352270172804666
+        },
+        {
+          "seed": 0,
+          "method": "risk+camera-no-support",
+          "mae_m": 6.683092891542626
+        },
+        {
+          "seed": 0,
+          "method": "risk+fixed-camera",
+          "mae_m": 6.769680060224944
+        },
+        {
+          "seed": 0,
+          "method": "risk+camera-oldK",
+          "mae_m": 7.127800015422198
+        },
+        {
+          "seed": 1,
+          "method": "unit",
+          "mae_m": 9.214094999775824
+        },
+        {
+          "seed": 1,
+          "method": "appearance",
+          "mae_m": 11.161306947724492
+        },
+        {
+          "seed": 1,
+          "method": "random-risk",
+          "mae_m": 9.212564484103254
+        },
+        {
+          "seed": 1,
+          "method": "risk-NIG-only",
+          "mae_m": 9.347236455357148
+        },
+        {
+          "seed": 1,
+          "method": "risk-NIG+H",
+          "mae_m": 9.357807524994818
+        },
+        {
+          "seed": 1,
+          "method": "shuffled-learned-weights",
+          "mae_m": 9.180656325298319
+        },
+        {
+          "seed": 1,
+          "method": "constant-mean-learned-weights",
+          "mae_m": 9.214094999775531
+        },
+        {
+          "seed": 1,
+          "method": "risk+camera",
+          "mae_m": 9.480038598355438
+        },
+        {
+          "seed": 1,
+          "method": "unit+camera",
+          "mae_m": 9.28096575953806
+        },
+        {
+          "seed": 1,
+          "method": "risk+camera-no-support",
+          "mae_m": 9.469196099372162
+        },
+        {
+          "seed": 1,
+          "method": "risk+fixed-camera",
+          "mae_m": 9.492107583651398
+        },
+        {
+          "seed": 1,
+          "method": "risk+camera-oldK",
+          "mae_m": 10.221198549390833
+        },
+        {
+          "seed": 2,
+          "method": "unit",
+          "mae_m": 9.66464199870074
+        },
+        {
+          "seed": 2,
+          "method": "appearance",
+          "mae_m": 10.885032827096857
+        },
+        {
+          "seed": 2,
+          "method": "random-risk",
+          "mae_m": 9.658821474961616
+        },
+        {
+          "seed": 2,
+          "method": "risk-NIG-only",
+          "mae_m": 9.656174546988085
+        },
+        {
+          "seed": 2,
+          "method": "risk-NIG+H",
+          "mae_m": 9.656637243244262
+        },
+        {
+          "seed": 2,
+          "method": "shuffled-learned-weights",
+          "mae_m": 9.653929606247273
+        },
+        {
+          "seed": 2,
+          "method": "constant-mean-learned-weights",
+          "mae_m": 9.664641998697146
+        },
+        {
+          "seed": 2,
+          "method": "risk+camera",
+          "mae_m": 9.730495018949428
+        },
+        {
+          "seed": 2,
+          "method": "unit+camera",
+          "mae_m": 9.71418966879404
+        },
+        {
+          "seed": 2,
+          "method": "risk+camera-no-support",
+          "mae_m": 9.711730574208989
+        },
+        {
+          "seed": 2,
+          "method": "risk+fixed-camera",
+          "mae_m": 9.739554369118872
+        },
+        {
+          "seed": 2,
+          "method": "risk+camera-oldK",
+          "mae_m": 9.94498700130675
+        },
+        {
+          "seed": 3,
+          "method": "unit",
+          "mae_m": 2.2252776225078446
+        },
+        {
+          "seed": 3,
+          "method": "appearance",
+          "mae_m": 2.7597613991816607
+        },
+        {
+          "seed": 3,
+          "method": "random-risk",
+          "mae_m": 2.2267105944167844
+        },
+        {
+          "seed": 3,
+          "method": "risk-NIG-only",
+          "mae_m": 2.2488813738488016
+        },
+        {
+          "seed": 3,
+          "method": "risk-NIG+H",
+          "mae_m": 2.2462523382726136
+        },
+        {
+          "seed": 3,
+          "method": "shuffled-learned-weights",
+          "mae_m": 2.224696550508635
+        },
+        {
+          "seed": 3,
+          "method": "constant-mean-learned-weights",
+          "mae_m": 2.2252776225105584
+        },
+        {
+          "seed": 3,
+          "method": "risk+camera",
+          "mae_m": 2.283049904448061
+        },
+        {
+          "seed": 3,
+          "method": "unit+camera",
+          "mae_m": 2.2738734124214544
+        },
+        {
+          "seed": 3,
+          "method": "risk+camera-no-support",
+          "mae_m": 2.372152653567308
+        },
+        {
+          "seed": 3,
+          "method": "risk+fixed-camera",
+          "mae_m": 2.2810519275514234
+        },
+        {
+          "seed": 3,
+          "method": "risk+camera-oldK",
+          "mae_m": 2.3507240029196326
+        },
+        {
+          "seed": 4,
+          "method": "unit",
+          "mae_m": 0.47769147462249373
+        },
+        {
+          "seed": 4,
+          "method": "appearance",
+          "mae_m": 0.47699825202925145
+        },
+        {
+          "seed": 4,
+          "method": "random-risk",
+          "mae_m": 0.48012149573245844
+        },
+        {
+          "seed": 4,
+          "method": "risk-NIG-only",
+          "mae_m": 0.4677772700106923
+        },
+        {
+          "seed": 4,
+          "method": "risk-NIG+H",
+          "mae_m": 0.46378880864759814
+        },
+        {
+          "seed": 4,
+          "method": "shuffled-learned-weights",
+          "mae_m": 0.47983473144265226
+        },
+        {
+          "seed": 4,
+          "method": "constant-mean-learned-weights",
+          "mae_m": 0.4776914746221295
+        },
+        {
+          "seed": 4,
+          "method": "risk+camera",
+          "mae_m": 0.46229920193075935
+        },
+        {
+          "seed": 4,
+          "method": "unit+camera",
+          "mae_m": 0.46009529634355817
+        },
+        {
+          "seed": 4,
+          "method": "risk+camera-no-support",
+          "mae_m": 0.5303144010997713
+        },
+        {
+          "seed": 4,
+          "method": "risk+fixed-camera",
+          "mae_m": 0.46224637546574376
+        },
+        {
+          "seed": 4,
+          "method": "risk+camera-oldK",
+          "mae_m": 0.5722967984610798
+        }
+      ]
+    },
+    {
+      "sample": "00009691",
+      "common_pixels": 197968,
+      "full_grid_fraction": 0.377593994140625,
+      "mask_sha256": "a6224c45b42025f184f769ffa2191c226f4c3d8284b0a6b5628299b798fb8e27",
+      "measurements": [
+        {
+          "seed": 0,
+          "method": "unit",
+          "mae_m": 5.649359703286242
+        },
+        {
+          "seed": 0,
+          "method": "appearance",
+          "mae_m": 5.571661825354966
+        },
+        {
+          "seed": 0,
+          "method": "random-risk",
+          "mae_m": 5.649864317678189
+        },
+        {
+          "seed": 0,
+          "method": "risk-NIG-only",
+          "mae_m": 5.640763689729556
+        },
+        {
+          "seed": 0,
+          "method": "risk-NIG+H",
+          "mae_m": 5.6389651420685425
+        },
+        {
+          "seed": 0,
+          "method": "shuffled-learned-weights",
+          "mae_m": 5.596188037736833
+        },
+        {
+          "seed": 0,
+          "method": "constant-mean-learned-weights",
+          "mae_m": 5.649359703287599
+        },
+        {
+          "seed": 0,
+          "method": "risk+camera",
+          "mae_m": 5.6090806474466515
+        },
+        {
+          "seed": 0,
+          "method": "unit+camera",
+          "mae_m": 5.592659946951915
+        },
+        {
+          "seed": 0,
+          "method": "risk+camera-no-support",
+          "mae_m": 5.4238557508834715
+        },
+        {
+          "seed": 0,
+          "method": "risk+fixed-camera",
+          "mae_m": 5.606007301734462
+        },
+        {
+          "seed": 0,
+          "method": "risk+camera-oldK",
+          "mae_m": 5.250817848650067
+        },
+        {
+          "seed": 1,
+          "method": "unit",
+          "mae_m": 1.3087760420643895
+        },
+        {
+          "seed": 1,
+          "method": "appearance",
+          "mae_m": 0.3545845985248622
+        },
+        {
+          "seed": 1,
+          "method": "random-risk",
+          "mae_m": 1.307078323348046
+        },
+        {
+          "seed": 1,
+          "method": "risk-NIG-only",
+          "mae_m": 1.187161690964256
+        },
+        {
+          "seed": 1,
+          "method": "risk-NIG+H",
+          "mae_m": 1.18407927123472
+        },
+        {
+          "seed": 1,
+          "method": "shuffled-learned-weights",
+          "mae_m": 1.2890431480231397
+        },
+        {
+          "seed": 1,
+          "method": "constant-mean-learned-weights",
+          "mae_m": 1.3087760420468406
+        },
+        {
+          "seed": 1,
+          "method": "risk+camera",
+          "mae_m": 1.5743259667930378
+        },
+        {
+          "seed": 1,
+          "method": "unit+camera",
+          "mae_m": 1.66449974259168
+        },
+        {
+          "seed": 1,
+          "method": "risk+camera-no-support",
+          "mae_m": 1.589640514922385
+        },
+        {
+          "seed": 1,
+          "method": "risk+fixed-camera",
+          "mae_m": 1.57483814796373
+        },
+        {
+          "seed": 1,
+          "method": "risk+camera-oldK",
+          "mae_m": 2.3425643588759173
+        },
+        {
+          "seed": 2,
+          "method": "unit",
+          "mae_m": 13.164613102049376
+        },
+        {
+          "seed": 2,
+          "method": "appearance",
+          "mae_m": 12.968783612039495
+        },
+        {
+          "seed": 2,
+          "method": "random-risk",
+          "mae_m": 13.164033279619861
+        },
+        {
+          "seed": 2,
+          "method": "risk-NIG-only",
+          "mae_m": 13.160708309031673
+        },
+        {
+          "seed": 2,
+          "method": "risk-NIG+H",
+          "mae_m": 13.158664405421932
+        },
+        {
+          "seed": 2,
+          "method": "shuffled-learned-weights",
+          "mae_m": 13.160591997035976
+        },
+        {
+          "seed": 2,
+          "method": "constant-mean-learned-weights",
+          "mae_m": 13.164613102005887
+        },
+        {
+          "seed": 2,
+          "method": "risk+camera",
+          "mae_m": 13.130921276752748
+        },
+        {
+          "seed": 2,
+          "method": "unit+camera",
+          "mae_m": 13.12814936138664
+        },
+        {
+          "seed": 2,
+          "method": "risk+camera-no-support",
+          "mae_m": 13.030514378157674
+        },
+        {
+          "seed": 2,
+          "method": "risk+fixed-camera",
+          "mae_m": 13.130754654546415
+        },
+        {
+          "seed": 2,
+          "method": "risk+camera-oldK",
+          "mae_m": 12.964466202987092
+        },
+        {
+          "seed": 3,
+          "method": "unit",
+          "mae_m": 13.995148306592364
+        },
+        {
+          "seed": 3,
+          "method": "appearance",
+          "mae_m": 9.843827650757122
+        },
+        {
+          "seed": 3,
+          "method": "random-risk",
+          "mae_m": 13.99693257894467
+        },
+        {
+          "seed": 3,
+          "method": "risk-NIG-only",
+          "mae_m": 13.752447071310618
+        },
+        {
+          "seed": 3,
+          "method": "risk-NIG+H",
+          "mae_m": 13.752139494683133
+        },
+        {
+          "seed": 3,
+          "method": "shuffled-learned-weights",
+          "mae_m": 14.080968953935418
+        },
+        {
+          "seed": 3,
+          "method": "constant-mean-learned-weights",
+          "mae_m": 13.995148306588257
+        },
+        {
+          "seed": 3,
+          "method": "risk+camera",
+          "mae_m": 13.713243467942847
+        },
+        {
+          "seed": 3,
+          "method": "unit+camera",
+          "mae_m": 13.907436826451296
+        },
+        {
+          "seed": 3,
+          "method": "risk+camera-no-support",
+          "mae_m": 13.452684681085737
+        },
+        {
+          "seed": 3,
+          "method": "risk+fixed-camera",
+          "mae_m": 13.71302895925944
+        },
+        {
+          "seed": 3,
+          "method": "risk+camera-oldK",
+          "mae_m": 13.823633225248608
+        },
+        {
+          "seed": 4,
+          "method": "unit",
+          "mae_m": 0.8646081425356625
+        },
+        {
+          "seed": 4,
+          "method": "appearance",
+          "mae_m": 0.6545312515764258
+        },
+        {
+          "seed": 4,
+          "method": "random-risk",
+          "mae_m": 0.874350103505485
+        },
+        {
+          "seed": 4,
+          "method": "risk-NIG-only",
+          "mae_m": 0.8220036085475576
+        },
+        {
+          "seed": 4,
+          "method": "risk-NIG+H",
+          "mae_m": 0.8103354889603566
+        },
+        {
+          "seed": 4,
+          "method": "shuffled-learned-weights",
+          "mae_m": 0.8539851623812883
+        },
+        {
+          "seed": 4,
+          "method": "constant-mean-learned-weights",
+          "mae_m": 0.8646081425344249
+        },
+        {
+          "seed": 4,
+          "method": "risk+camera",
+          "mae_m": 0.8379632514141956
+        },
+        {
+          "seed": 4,
+          "method": "unit+camera",
+          "mae_m": 0.9601705182044511
+        },
+        {
+          "seed": 4,
+          "method": "risk+camera-no-support",
+          "mae_m": 1.2069686458286049
+        },
+        {
+          "seed": 4,
+          "method": "risk+fixed-camera",
+          "mae_m": 0.8383999865888904
+        },
+        {
+          "seed": 4,
+          "method": "risk+camera-oldK",
+          "mae_m": 1.0699411766723192
+        }
+      ]
+    },
+    {
+      "sample": "00069529",
+      "common_pixels": 170775,
+      "full_grid_fraction": 0.3257274627685547,
+      "mask_sha256": "cf758a93946970a87519e41ce3bf990a2d5f71f3269ae0f3320a497cec67a9c0",
+      "measurements": [
+        {
+          "seed": 0,
+          "method": "unit",
+          "mae_m": 2.2844304076493174
+        },
+        {
+          "seed": 0,
+          "method": "appearance",
+          "mae_m": 3.5698065789160554
+        },
+        {
+          "seed": 0,
+          "method": "random-risk",
+          "mae_m": 2.294749490106363
+        },
+        {
+          "seed": 0,
+          "method": "risk-NIG-only",
+          "mae_m": 2.3546888350531296
+        },
+        {
+          "seed": 0,
+          "method": "risk-NIG+H",
+          "mae_m": 2.3497186530569967
+        },
+        {
+          "seed": 0,
+          "method": "shuffled-learned-weights",
+          "mae_m": 2.3012525515416975
+        },
+        {
+          "seed": 0,
+          "method": "constant-mean-learned-weights",
+          "mae_m": 2.284430407649644
+        },
+        {
+          "seed": 0,
+          "method": "risk+camera",
+          "mae_m": 2.42178142593852
+        },
+        {
+          "seed": 0,
+          "method": "unit+camera",
+          "mae_m": 2.354758243165429
+        },
+        {
+          "seed": 0,
+          "method": "risk+camera-no-support",
+          "mae_m": 2.417911699171187
+        },
+        {
+          "seed": 0,
+          "method": "risk+fixed-camera",
+          "mae_m": 2.420897430154886
+        },
+        {
+          "seed": 0,
+          "method": "risk+camera-oldK",
+          "mae_m": 2.7366920320989254
+        },
+        {
+          "seed": 1,
+          "method": "unit",
+          "mae_m": 2.8932471636511425
+        },
+        {
+          "seed": 1,
+          "method": "appearance",
+          "mae_m": 1.8920021329233134
+        },
+        {
+          "seed": 1,
+          "method": "random-risk",
+          "mae_m": 2.8985447528983648
+        },
+        {
+          "seed": 1,
+          "method": "risk-NIG-only",
+          "mae_m": 2.8447015527720296
+        },
+        {
+          "seed": 1,
+          "method": "risk-NIG+H",
+          "mae_m": 2.83711174576679
+        },
+        {
+          "seed": 1,
+          "method": "shuffled-learned-weights",
+          "mae_m": 2.915212888592114
+        },
+        {
+          "seed": 1,
+          "method": "constant-mean-learned-weights",
+          "mae_m": 2.893247163651726
+        },
+        {
+          "seed": 1,
+          "method": "risk+camera",
+          "mae_m": 2.8451485035580646
+        },
+        {
+          "seed": 1,
+          "method": "unit+camera",
+          "mae_m": 2.9111127983437934
+        },
+        {
+          "seed": 1,
+          "method": "risk+camera-no-support",
+          "mae_m": 2.8702736564750237
+        },
+        {
+          "seed": 1,
+          "method": "risk+fixed-camera",
+          "mae_m": 2.8481846648949065
+        },
+        {
+          "seed": 1,
+          "method": "risk+camera-oldK",
+          "mae_m": 2.376871283244482
+        },
+        {
+          "seed": 2,
+          "method": "unit",
+          "mae_m": 4.33020506944196
+        },
+        {
+          "seed": 2,
+          "method": "appearance",
+          "mae_m": 6.504549723181384
+        },
+        {
+          "seed": 2,
+          "method": "random-risk",
+          "mae_m": 4.323271839841135
+        },
+        {
+          "seed": 2,
+          "method": "risk-NIG-only",
+          "mae_m": 4.383785065774374
+        },
+        {
+          "seed": 2,
+          "method": "risk-NIG+H",
+          "mae_m": 4.38500172147208
+        },
+        {
+          "seed": 2,
+          "method": "shuffled-learned-weights",
+          "mae_m": 4.306880239077259
+        },
+        {
+          "seed": 2,
+          "method": "constant-mean-learned-weights",
+          "mae_m": 4.3302050694403595
+        },
+        {
+          "seed": 2,
+          "method": "risk+camera",
+          "mae_m": 4.374582503463482
+        },
+        {
+          "seed": 2,
+          "method": "unit+camera",
+          "mae_m": 4.315088606400862
+        },
+        {
+          "seed": 2,
+          "method": "risk+camera-no-support",
+          "mae_m": 4.346978588954111
+        },
+        {
+          "seed": 2,
+          "method": "risk+fixed-camera",
+          "mae_m": 4.379272098485578
+        },
+        {
+          "seed": 2,
+          "method": "risk+camera-oldK",
+          "mae_m": 4.559934056915032
+        },
+        {
+          "seed": 3,
+          "method": "unit",
+          "mae_m": 1.7117676193683131
+        },
+        {
+          "seed": 3,
+          "method": "appearance",
+          "mae_m": 1.6833743030756139
+        },
+        {
+          "seed": 3,
+          "method": "random-risk",
+          "mae_m": 1.706932438313413
+        },
+        {
+          "seed": 3,
+          "method": "risk-NIG-only",
+          "mae_m": 1.6979798976534652
+        },
+        {
+          "seed": 3,
+          "method": "risk-NIG+H",
+          "mae_m": 1.7021295773253877
+        },
+        {
+          "seed": 3,
+          "method": "shuffled-learned-weights",
+          "mae_m": 1.749747468071633
+        },
+        {
+          "seed": 3,
+          "method": "constant-mean-learned-weights",
+          "mae_m": 1.7117676193666913
+        },
+        {
+          "seed": 3,
+          "method": "risk+camera",
+          "mae_m": 1.7081970689794932
+        },
+        {
+          "seed": 3,
+          "method": "unit+camera",
+          "mae_m": 1.7143822455603235
+        },
+        {
+          "seed": 3,
+          "method": "risk+camera-no-support",
+          "mae_m": 1.6531884216968062
+        },
+        {
+          "seed": 3,
+          "method": "risk+fixed-camera",
+          "mae_m": 1.7073392719242388
+        },
+        {
+          "seed": 3,
+          "method": "risk+camera-oldK",
+          "mae_m": 1.7719807775450052
+        },
+        {
+          "seed": 4,
+          "method": "unit",
+          "mae_m": 3.7971570561074395
+        },
+        {
+          "seed": 4,
+          "method": "appearance",
+          "mae_m": 4.892661840556115
+        },
+        {
+          "seed": 4,
+          "method": "random-risk",
+          "mae_m": 3.7964817970513844
+        },
+        {
+          "seed": 4,
+          "method": "risk-NIG-only",
+          "mae_m": 3.8300851590187133
+        },
+        {
+          "seed": 4,
+          "method": "risk-NIG+H",
+          "mae_m": 3.83794139216857
+        },
+        {
+          "seed": 4,
+          "method": "shuffled-learned-weights",
+          "mae_m": 3.748038222259438
+        },
+        {
+          "seed": 4,
+          "method": "constant-mean-learned-weights",
+          "mae_m": 3.797157056106397
+        },
+        {
+          "seed": 4,
+          "method": "risk+camera",
+          "mae_m": 3.9479681711637955
+        },
+        {
+          "seed": 4,
+          "method": "unit+camera",
+          "mae_m": 3.913046426690024
+        },
+        {
+          "seed": 4,
+          "method": "risk+camera-no-support",
+          "mae_m": 3.9229876849061016
+        },
+        {
+          "seed": 4,
+          "method": "risk+fixed-camera",
+          "mae_m": 3.945583697757457
+        },
+        {
+          "seed": 4,
+          "method": "risk+camera-oldK",
+          "mae_m": 4.184959231616762
+        }
+      ]
+    }
+  ]
+}

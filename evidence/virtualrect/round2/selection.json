@@ -1,0 +1,15 @@
+{
+  "zero_based_source_pairs": [
+    0,
+    3
+  ],
+  "rule": "max usable train frames, then median GT row residual; training subset only",
+  "score": [
+    -4,
+    0.22460290260227112,
+    [
+      0,
+      3
+    ]
+  ]
+}

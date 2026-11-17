@@ -1,0 +1,12 @@
+{
+ "protocol":"R2-v1, frozen before initialization selection and ablation results",
+ "train":["00001617","00003715","00008004","00008363"],
+ "evaluation":["00008521","00009691","00069529"],
+ "split_note":"All seven belong to official training split and were used in previous pilot. This is a within-pilot held-out split for this round only; not independent scenes or official test.",
+ "seeds":[0,1,2,3,4],
+ "initialization":"Compare all 6 ordered subsets of 2 self/cross pairs from 4, plus full teacher; train split only, 512x256. Rank by number of usable frames (>=8 matches), then median GT rectified vertical error; no threshold tuning. If all fail, train-split teacher distillation.",
+ "ablation":"Freeze selected matcher, cache 1024x512 descriptors/correspondences. Risk head: 120 Adam steps lr1e-4 on four train frames cyclic. Camera head: 120 Adam steps lr1e-4 with learned risk frozen. Five seeds. Report all 3 evaluation frames for all seeds.",
+ "controls":["unit","appearance","random-risk","risk-NIG-only","risk-NIG+H","shuffled-learned-weights","constant-mean-learned-weights","risk+camera","unit+camera","risk+camera-no-support"],
+ "metrics":"Reference homography anchor error, separate GT-filtered SIFT row error, full-grid hard support, depth MAE on common reference-grid mask across methods for each frame/seed, coverage separately. Reference is offline-pose SGBM, not true depth.",
+ "decision":"No claiming effectiveness from training loss or row shrinkage alone; report paired seed means and all failures. No full data download or original-table reproduction."
+}

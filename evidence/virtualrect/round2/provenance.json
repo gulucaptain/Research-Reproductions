@@ -1,0 +1,25 @@
+{
+  "local_source_commit": "ae97c096e6fb14feb87a41b387c73f7479adf4d8",
+  "source_publication": "local only; not publicly hosted",
+  "checkpoint": {
+    "url": "https://drive.usercontent.google.com/download?id=1jFy2JbMKlIp82541TakhQPaoyB5qDeic&export=download&confirm=t",
+    "bytes": 192797577,
+    "sha256": "0af6291141c736e75e94b7f8aae4399b77c7731b3f08758212b2cfe370188878"
+  },
+  "input_data_manifest": "reports/pilot-download.json",
+  "code_and_protocol_sha256": {
+    "pilot.py": "da304277f15a2727188926b6beea0643bb45b62ddbabf12624490398d8f69a42",
+    "training.py": "10795bfa9b6b3eabe8b9ad854ca2c311039e98ec4d8d1a89e51b92f9e0b18c6f",
+    "round2.py": "a6993c27575dcf6b006df39e132c26fba5b6b9d9c0cc14fc82364f3e63e32b20",
+    "scripts/check_initializations.py": "063168cb15e14615be839cf26f317d97623512aba6a71238144825650ba6f1d0",
+    "scripts/cache_round2.py": "39d487a0bc9f8ddf51850f80c4f397f4d9fc53ec7196f4ae193fe901845d9df0",
+    "scripts/run_round2.py": "59631dd4a08d604c36de0990575a9acb683853aa63e55cc9fa0063bd9ef2c3c7",
+    "scripts/audit_round2.py": "136fb83e9c4da0ff7d1beb393413dec64df1927a7136145df4390f051939e04b",
+    "scripts/check_round2.py": "1a7e822262a70d071ade78db7a22d2bf314a242a30e75b8e07189787902cec25",
+    "scripts/summarize_round2.py": "787d83585fdd3c6a8a6296c1d2d63b2fd8871a9445e9b30a9cc3cd9fe39fcda7",
+    "results/round2/protocol.json": "8c663ba3bb15e755074fc63a64e79421a79a77e8d84dbc87ab9682c7ce965401",
+    "results/round2/audit-protocol.json": "8c737068e06ae99696dcec1d004a333c259d46c8186efcbcc0cd3a04f32dbe41"
+  },
+  "no_new_data_download": true,
+  "scope": "Four train/three within-pilot held-out frames; five seeds; explicit A1 heads and frozen source pairs 0,3."
+}

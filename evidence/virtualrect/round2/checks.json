@@ -1,0 +1,8 @@
+{
+  "checkpoint_remapping_max_output_error": 0.0,
+  "remapped_match_count": 1204,
+  "NIG_only_q_gradients_zero": true,
+  "H_loss_q_gradients_nonzero_all_seeds": true,
+  "max_unscaled_camera_row_difference": 4.237928841188676e-09,
+  "reference_grid_self_max_error_m": 7.533273219451075e-06
+}

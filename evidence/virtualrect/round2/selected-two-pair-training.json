@@ -1,0 +1,265 @@
+{
+  "scope": "Full assumption-set A1 stage-specific single-pair step; pretrained matching, RANSAC, weighted LM, losses, backward and Adam update; no stereo evaluator in training objective",
+  "width": 1024,
+  "height": 512,
+  "batch": 1,
+  "pairs": 2,
+  "rows": [
+    {
+      "stage": 1,
+      "repeat": 0,
+      "seconds": 2.1132883749669418,
+      "sampled_peak_live_bytes": 4822648320,
+      "sampled_peak_driver_bytes": 6636027904,
+      "process_maxrss_bytes": 1162838016,
+      "gradients": {
+        "matcher": {
+          "tensors": 217,
+          "finite": true,
+          "norm": 4.906335830688477
+        },
+        "risk": {
+          "tensors": 6,
+          "finite": true,
+          "norm": 0.461917519569397
+        },
+        "camera": {
+          "tensors": 0,
+          "finite": true,
+          "norm": null
+        },
+        "gate": {
+          "tensors": 0,
+          "finite": true,
+          "norm": null
+        }
+      },
+      "weight_min": 0.190487802028656,
+      "weight_max": 0.1942296028137207,
+      "weight_lower_clip_fraction": 0.0,
+      "matches": 4244,
+      "inliers": 3780,
+      "loss": 1.6386878490447998,
+      "row_loss": 0.36502689123153687,
+      "risk_loss": 1.152866005897522,
+      "homography_loss": 0.12079507112503052,
+      "camera_loss": 0.048628561198711395,
+      "eta": 0.0,
+      "shift": 0.0
+    },
+    {
+      "stage": 1,
+      "repeat": 1,
+      "seconds": 1.3027655000332743,
+      "sampled_peak_live_bytes": 4914613248,
+      "sampled_peak_driver_bytes": 7743340544,
+      "process_maxrss_bytes": 1162838016,
+      "gradients": {
+        "matcher": {
+          "tensors": 217,
+          "finite": true,
+          "norm": 2.499978542327881
+        },
+        "risk": {
+          "tensors": 6,
+          "finite": true,
+          "norm": 0.5004836320877075
+        },
+        "camera": {
+          "tensors": 0,
+          "finite": true,
+          "norm": null
+        },
+        "gate": {
+          "tensors": 0,
+          "finite": true,
+          "norm": null
+        }
+      },
+      "weight_min": 0.1909404844045639,
+      "weight_max": 0.19570091366767883,
+      "weight_lower_clip_fraction": 0.0,
+      "matches": 4158,
+      "inliers": 4008,
+      "loss": 1.4090344905853271,
+      "row_loss": 0.28475502133369446,
+      "risk_loss": 1.100407600402832,
+      "homography_loss": 0.02387189120054245,
+      "camera_loss": 0.0376838780939579,
+      "eta": 0.0,
+      "shift": 0.0
+    },
+    {
+      "stage": 1,
+      "repeat": 2,
+      "seconds": 1.1607909169979393,
+      "sampled_peak_live_bytes": 4795788800,
+      "sampled_peak_driver_bytes": 7743356928,
+      "process_maxrss_bytes": 1162838016,
+      "gradients": {
+        "matcher": {
+          "tensors": 217,
+          "finite": true,
+          "norm": 18.81528663635254
+        },
+        "risk": {
+          "tensors": 6,
+          "finite": true,
+          "norm": 0.5842007398605347
+        },
+        "camera": {
+          "tensors": 0,
+          "finite": true,
+          "norm": null
+        },
+        "gate": {
+          "tensors": 0,
+          "finite": true,
+          "norm": null
+        }
+      },
+      "weight_min": 0.19060438871383667,
+      "weight_max": 0.19658413529396057,
+      "weight_lower_clip_fraction": 0.0,
+      "matches": 3513,
+      "inliers": 3356,
+      "loss": 1.5744521617889404,
+      "row_loss": 0.3766084611415863,
+      "risk_loss": 1.140899896621704,
+      "homography_loss": 0.05694381892681122,
+      "camera_loss": 0.046493008732795715,
+      "eta": 0.0,
+      "shift": 0.0
+    },
+    {
+      "stage": 2,
+      "repeat": 0,
+      "seconds": 0.6234985420014709,
+      "sampled_peak_live_bytes": 772490752,
+      "sampled_peak_driver_bytes": 7743324160,
+      "process_maxrss_bytes": 1162838016,
+      "gradients": {
+        "matcher": {
+          "tensors": 0,
+          "finite": true,
+          "norm": null
+        },
+        "risk": {
+          "tensors": 0,
+          "finite": true,
+          "norm": null
+        },
+        "camera": {
+          "tensors": 6,
+          "finite": true,
+          "norm": 0.005229737143963575
+        },
+        "gate": {
+          "tensors": 2,
+          "finite": true,
+          "norm": 0.0
+        }
+      },
+      "weight_min": 0.1919454038143158,
+      "weight_max": 0.19851461052894592,
+      "weight_lower_clip_fraction": 0.0,
+      "matches": 3590,
+      "inliers": 3436,
+      "loss": 0.03598623722791672,
+      "row_loss": 0.27528515458106995,
+      "risk_loss": 1.0927363634109497,
+      "homography_loss": 0.026139535009860992,
+      "camera_loss": 0.03598623722791672,
+      "eta": 0.0,
+      "shift": 0.0
+    },
+    {
+      "stage": 2,
+      "repeat": 1,
+      "seconds": 0.4929214159492403,
+      "sampled_peak_live_bytes": 1243193600,
+      "sampled_peak_driver_bytes": 7735050240,
+      "process_maxrss_bytes": 1162838016,
+      "gradients": {
+        "matcher": {
+          "tensors": 0,
+          "finite": true,
+          "norm": null
+        },
+        "risk": {
+          "tensors": 0,
+          "finite": true,
+          "norm": null
+        },
+        "camera": {
+          "tensors": 6,
+          "finite": true,
+          "norm": 0.0052232807502150536
+        },
+        "gate": {
+          "tensors": 2,
+          "finite": true,
+          "norm": 1.3857113572157687e-06
+        }
+      },
+      "weight_min": 0.1919454038143158,
+      "weight_max": 0.19851461052894592,
+      "weight_lower_clip_fraction": 0.0,
+      "matches": 3590,
+      "inliers": 3436,
+      "loss": 0.035982973873615265,
+      "row_loss": 0.27528515458106995,
+      "risk_loss": 1.0927363634109497,
+      "homography_loss": 0.026139535009860992,
+      "camera_loss": 0.035982973873615265,
+      "eta": -4.146406354266219e-05,
+      "shift": -0.0016402901383116841
+    },
+    {
+      "stage": 2,
+      "repeat": 2,
+      "seconds": 0.48636974999681115,
+      "sampled_peak_live_bytes": 770723840,
+      "sampled_peak_driver_bytes": 7735033856,
+      "process_maxrss_bytes": 1162838016,
+      "gradients": {
+        "matcher": {
+          "tensors": 0,
+          "finite": true,
+          "norm": null
+        },
+        "risk": {
+          "tensors": 0,
+          "finite": true,
+          "norm": null
+        },
+        "camera": {
+          "tensors": 6,
+          "finite": true,
+          "norm": 0.005248262546956539
+        },
+        "gate": {
+          "tensors": 2,
+          "finite": true,
+          "norm": 2.802406697810511e-06
+        }
+      },
+      "weight_min": 0.1919454038143158,
+      "weight_max": 0.19851461052894592,
+      "weight_lower_clip_fraction": 0.0,
+      "matches": 3590,
+      "inliers": 3436,
+      "loss": 0.0359799824655056,
+      "row_loss": 0.27528515458106995,
+      "risk_loss": 1.0927363634109497,
+      "homography_loss": 0.026139535009860992,
+      "camera_loss": 0.0359799824655056,
+      "eta": -8.396506018470973e-05,
+      "shift": 0.001972104189917445
+    }
+  ],
+  "source_pairs": [
+    0,
+    3
+  ]
+}
