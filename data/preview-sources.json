@@ -78,9 +78,9 @@
     "project": "virtualrect",
     "asset": "assets/previews/virtualrect.png",
     "source_path": "assets/previews/virtualrect.png",
-    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/b4885b339a1a3a035efb6f9bf10b82b922e7deaf/assets/previews/virtualrect.png",
-    "sha256": "7a887a446261d3258f16e1e4aeaeb5627bee24118eab3fe1af39444c267c11e7",
-    "caption": "Seven official Carla training pairs at 1024×512: untrained geometry with fixed camera control, SGBM reference and different valid masks. Full A1 optimizer steps: batch 1, four self/cross pairs, three updates per stage; 5 ms memory sampling. No original table matched.",
-    "source_scope": "Locally generated numerical-results plot; no original images, paper figures or model weights. Implementation remains unpublished; fixed evidence snapshot records independent A1 assumptions."
+    "source_url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/assets/previews/virtualrect.png",
+    "sha256": "bffc8476e508784994ea1fd58fc9eaac9baef120191e0ed8694f6ec88fb3c785",
+    "caption": "Frozen two-pair matcher; 4 train / 3 within-pilot held-out Carla frames at 1024×512, five seeds, 120-step heads. Primary per-frame/seed common masks, SGBM reference; points are seed means and bars sample SD. All seven frames are official training data previously inspected. No original table matched.",
+    "source_scope": "Unchanged local numerical-ablation figure from five seeds; no raw input images, paper figures or third-party weights. Separate global-mask audit is documented in the fixed evidence snapshot."
   }
 ]

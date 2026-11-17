@@ -352,71 +352,106 @@
       "repo": null,
       "commit": null,
       "evidence_repo": "https://github.com/gulucaptain/Research-Reproductions",
-      "evidence_commit": "b4885b339a1a3a035efb6f9bf10b82b922e7deaf",
+      "evidence_commit": "30246c184f3ccab61e112ab758b90450fb15c98e",
       "paper": "https://arxiv.org/abs/2611.10518v1",
       "category": "3D Vision",
       "color": "#d97706",
       "platform": "CPU + Apple MPS",
       "status": "Partial implementation",
-      "progress": "Real Carla integration + full A1 training-step profile",
-      "implemented": "Explicit-assumption risk/camera heads, complete pretrained matching, numeric constrained RANSAC, differentiable weighted refit and two stage objectives.",
-      "validation": "Seven official Carla training pairs with SIFT/EfficientLoFTR and SGBM-reference depth; full 1024×512 batch1 optimizer steps and gradient checks on M4 Pro.",
-      "result": "Four-pair matcher runs: Stage 1 warm steps 1.29–1.38 s, sampled live peak 5.44 GiB. Fixed camera control improves SGBM-reference MAE on only 3/7 pairs.",
-      "limitations": "Direct two-pair checkpoint truncation gives zero matches. Four-pair A1 assumptions; SGBM reference is not GT. No held-out benchmark, batch 16 test or converged training; original tables unrun.",
+      "progress": "Two-pair initialization + five-seed module audit",
+      "implemented": "Source pairs 1+4 initialize two matching pairs; explicit A1 risk/camera heads, frozen-matcher ablations and cross-seed common-mask depth audit.",
+      "validation": "Six initialization choices, five seeds, ten primary module controls on a 4/3 within-pilot split. Selected-two-pair full training-step gradients verified.",
+      "result": "Primary paired MAE: risk −0.0106 m (3/5 seed wins); camera +0.0428 m with lower coverage. Global-mask audit also finds camera harm in all five seeds.",
+      "limitations": "A1 assumptions, frozen matcher and 120-step heads. All seven frames are prior-inspected training pairs; SGBM reference is not GT. RANSAC variation dominates small gains; original tables unrun.",
       "image": "assets/previews/virtualrect.png",
-      "image_caption": "Seven official Carla training pairs at 1024×512: untrained geometry with fixed camera control, SGBM reference and different valid masks. Full A1 optimizer steps: batch 1, four self/cross pairs, three updates per stage; 5 ms memory sampling. No original table matched.",
-      "report": "https://github.com/gulucaptain/Research-Reproductions/blob/b4885b339a1a3a035efb6f9bf10b82b922e7deaf/evidence/virtualrect/pilot/pilot-results.md",
+      "image_caption": "Frozen two-pair matcher; 4 train / 3 within-pilot held-out Carla frames at 1024×512, five seeds, 120-step heads. Primary per-frame/seed common masks, SGBM reference; points are seed means and bars sample SD. All seven frames are official training data previously inspected. No original table matched.",
+      "report": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/report.md",
       "updated": "2026-11-17",
       "evidence": [
         {
-          "path": "evidence/virtualrect/pilot/aggregate.json",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/b4885b339a1a3a035efb6f9bf10b82b922e7deaf/evidence/virtualrect/pilot/aggregate.json",
-          "sha256": "dbeafe72f567f084872278a1e19fe1aa715989f622534cad1a547214651275b6"
+          "path": "evidence/virtualrect/round2/aggregate.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/aggregate.json",
+          "sha256": "b942edc26cca5acffeba7daaf161dd10583177d13ab8b06108a2f553fb8b869d"
         },
         {
-          "path": "evidence/virtualrect/pilot/assumptions-A1.md",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/b4885b339a1a3a035efb6f9bf10b82b922e7deaf/evidence/virtualrect/pilot/assumptions-A1.md",
+          "path": "evidence/virtualrect/round2/assumptions-A1.md",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/assumptions-A1.md",
           "sha256": "073fdb23390d4e8edf2864441e0f24807e5533d9b144eb729b6aaae5a92b42c1"
         },
         {
-          "path": "evidence/virtualrect/pilot/checkpoint.json",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/b4885b339a1a3a035efb6f9bf10b82b922e7deaf/evidence/virtualrect/pilot/checkpoint.json",
-          "sha256": "47f461d95fb057d18975a9966f48f0149ae40f6cbbc348b4f29e8a0a303ef935"
+          "path": "evidence/virtualrect/round2/audit-protocol.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/audit-protocol.json",
+          "sha256": "8c737068e06ae99696dcec1d004a333c259d46c8186efcbcc0cd3a04f32dbe41"
         },
         {
-          "path": "evidence/virtualrect/pilot/metrics.json",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/b4885b339a1a3a035efb6f9bf10b82b922e7deaf/evidence/virtualrect/pilot/metrics.json",
-          "sha256": "6da8ff374fdc087f757664d959f4e3265285b767e1d370ed32164077a52170ce"
+          "path": "evidence/virtualrect/round2/cache-manifest.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/cache-manifest.json",
+          "sha256": "d0eea455516a57794dd31fe3875a2bbb5f55670652bd6a667f48fc9153acd5f0"
         },
         {
-          "path": "evidence/virtualrect/pilot/pilot-download.json",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/b4885b339a1a3a035efb6f9bf10b82b922e7deaf/evidence/virtualrect/pilot/pilot-download.json",
-          "sha256": "77b3e8bbf8b6fb7c90cf3809515fa9706a1e477b78543892b3555c5a81548a9f"
+          "path": "evidence/virtualrect/round2/checks.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/checks.json",
+          "sha256": "88c9553e1ef54b2f90c124899910388d318150d731ee7f5b775dd5daf6d5bae6"
         },
         {
-          "path": "evidence/virtualrect/pilot/pilot-results.md",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/b4885b339a1a3a035efb6f9bf10b82b922e7deaf/evidence/virtualrect/pilot/pilot-results.md",
-          "sha256": "3762f11ad61ea171360b34b0c9e5fee7e4f2e7ce6dcb0796faeede05a5239b6f"
+          "path": "evidence/virtualrect/round2/global-mask-audit.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/global-mask-audit.json",
+          "sha256": "649c01560eceae43569eb2d893e7862afb35f2d28b7e4b62e7ca92c8f0752418"
         },
         {
-          "path": "evidence/virtualrect/pilot/pilot_math.json",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/b4885b339a1a3a035efb6f9bf10b82b922e7deaf/evidence/virtualrect/pilot/pilot_math.json",
-          "sha256": "97fe98ebbef10c7f6bbbc7f60b0573a9c309878febc3df748ffc4eeb2b0c4200"
+          "path": "evidence/virtualrect/round2/initializations.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/initializations.json",
+          "sha256": "36c9d89e6223da09d57a1be6d1db6ee72997484f52b3007cb53c8a544a218401"
         },
         {
-          "path": "evidence/virtualrect/pilot/train_step_1024_2.json",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/b4885b339a1a3a035efb6f9bf10b82b922e7deaf/evidence/virtualrect/pilot/train_step_1024_2.json",
-          "sha256": "d2e59a5eba0945e87a28993d71b5d9c544ce936329d7d8518ce76d7fcaddd897"
+          "path": "evidence/virtualrect/round2/protocol.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/protocol.json",
+          "sha256": "8c663ba3bb15e755074fc63a64e79421a79a77e8d84dbc87ab9682c7ce965401"
         },
         {
-          "path": "evidence/virtualrect/pilot/train_step_1024_4.json",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/b4885b339a1a3a035efb6f9bf10b82b922e7deaf/evidence/virtualrect/pilot/train_step_1024_4.json",
-          "sha256": "af50a302992d49582f7bed056dcda4346405f05f17933a839d0b7ab7c9fca464"
+          "path": "evidence/virtualrect/round2/provenance.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/provenance.json",
+          "sha256": "86527378c26cec359438450319ed27faca357911f00812f5e4159fc90d78f779"
         },
         {
-          "path": "evidence/virtualrect/pilot/train_step_512_2.json",
-          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/b4885b339a1a3a035efb6f9bf10b82b922e7deaf/evidence/virtualrect/pilot/train_step_512_2.json",
-          "sha256": "f2b417ad5e45d2ca2723eaecdf6c56e4c77ea0fe69bafc74b2599233d3fe18e1"
+          "path": "evidence/virtualrect/round2/report.md",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/report.md",
+          "sha256": "41046b827b6501e98b4d82b47f577eacc9158f2d9139afc1b9f364f79d15b929"
+        },
+        {
+          "path": "evidence/virtualrect/round2/seed0.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/seed0.json",
+          "sha256": "943a56139f4b180a77f5176c6fb4faf618597321d0907808a63a1fdaa262f9d3"
+        },
+        {
+          "path": "evidence/virtualrect/round2/seed1.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/seed1.json",
+          "sha256": "fe4f439f030d05c3d0040687c4950acacf81870c9fafe62a36f9acc46bde5b63"
+        },
+        {
+          "path": "evidence/virtualrect/round2/seed2.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/seed2.json",
+          "sha256": "f606469f4dbd176fb39eb4cbdbc8e7d887c0beea0e9b97bb061205f0db77992f"
+        },
+        {
+          "path": "evidence/virtualrect/round2/seed3.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/seed3.json",
+          "sha256": "01d585fe9aab5ef6bc2e0746ed0a3968452c3bef936a8bfb74a87abff0955757"
+        },
+        {
+          "path": "evidence/virtualrect/round2/seed4.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/seed4.json",
+          "sha256": "751c8d5be385bb59cfcf0c7d2d46092cf10dc55119b0f8ce9968946b09e72908"
+        },
+        {
+          "path": "evidence/virtualrect/round2/selected-two-pair-training.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/selected-two-pair-training.json",
+          "sha256": "8c9bca4bb818112fe80114852fcfcd449626930f23e81cd9c70e06ddcc8ee316"
+        },
+        {
+          "path": "evidence/virtualrect/round2/selection.json",
+          "url": "https://github.com/gulucaptain/Research-Reproductions/blob/30246c184f3ccab61e112ab758b90450fb15c98e/evidence/virtualrect/round2/selection.json",
+          "sha256": "8fbc371aad381984db98a49354ff5dd7cb6203c1272a720433c231c28920e018"
         }
       ]
     }
